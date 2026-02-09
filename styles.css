@@ -1,0 +1,324 @@
+:root {
+    --primary-orange: #FF6B35;
+    --secondary-orange: #FF8E53;
+    --white: #FFFFFF;
+    --black: #222222;
+    --dark-gray: #333333;
+    --light-gray: #F5F5F5;
+    
+    
+    --bg-dark: #1a1a1a;
+    --text-dark: #f0f0f0;
+    --card-dark: #2d2d2d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* TOP BAR */
+.top-bar {
+    background: linear-gradient(135deg, #FF6B35, #FF8E53);
+    color: white;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info-top {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-info-top a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.currency-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-graphic {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .logo-graphic {
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.logo-graphic::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 3px solid var(--white);
+    border-radius: 4px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .logo-graphic::before {
+    border-color: var(--text-dark);
+}
+
+.logo-graphic::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--white);
+    border-radius: 50%;
+    bottom: 8px;
+    right: 8px;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .logo-graphic::after {
+    background: var(--text-dark);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .logo-text {
+    color: var(--text-dark);
+}
+
+.logo-text span {
+    color: var(--primary-orange);
+}
+
+body.dark-mode .logo-text span {
+    color: var(--white);
+}
+
+.navbar {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 40px; /* Adjusted for top bar */
+    z-index: 1000;
+}
+
+body.dark-mode .navbar {
+    background: var(--card-dark);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+body.dark-mode .nav-link {
+    color: var(--text-dark);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-orange);
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--primary-orange);
+    color: var(--primary-orange);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-orange);
+    color: white;
+}
+
+.price-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .modal-content {
+    background: var(--card-dark);
+    color: var(--text-dark);
+}
+
+.currency-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.currency-btn {
+    padding: 15px 30px;
+    border: 2px solid var(--primary-orange);
+    background: none;
+    color: var(--primary-orange);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.currency-btn:hover {
+    background: var(--primary-orange);
+    color: white;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-gray);
+}
+
+body.dark-mode .close-modal {
+    color: var(--text-dark);
+}
+
+/* All other existing styles remain the same, just add dark mode versions */
+body.dark-mode .service-card,
+body.dark-mode .review-card,
+body.dark-mode .form-container,
+body.dark-mode .location-card {
+    background: var(--card-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .btn-outline {
+    border-color: var(--text-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .btn-outline:hover {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+/* Add this to your existing styles */
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .contact-info-top {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-menu {
+        gap: 15px;
+    }
+    
+    .theme-toggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}

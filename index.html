@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DynaFrame Studios | Web Design, PC Builds & Tech Repairs South Africa</title>
+	<link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" type="image/svg+xml">
+    <meta name="description" content="All-in-one tech solutions: Professional web design services worldwide, custom PC builds in South Africa, and phone/computer repairs in Midrand & Braamfontein. Student discounts available.">
+    <meta name="keywords" content="web design company, custom PC builds South Africa, phone repairs Midrand, computer repair Braamfontein, affordable web design, gaming PC builds RSA, tech solutions South Africa">
+    <style>
+        :root {
+            --primary-orange: #FF6B35;
+            --secondary-orange: #FF8E53;
+            --white: #FFFFFF;
+            --black: #222222;
+            --dark-gray: #333333;
+            --light-gray: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Arial', sans-serif;
+            text-decoration: none;
+        }
+
+        .logo-graphic {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .logo-graphic::before {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 3px solid var(--white);
+            border-radius: 4px;
+            transform: rotate(45deg);
+        }
+
+        .logo-graphic::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 50%;
+            bottom: 8px;
+            right: 8px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .logo-text span {
+            color: var(--primary-orange);
+        }
+
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-orange);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .student-banner {
+            background: linear-gradient(135deg, #FF6B35, #FF8E53);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .location-badge {
+            background: var(--light-gray);
+            color: var(--black);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-orange);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-orange);
+            border: 2px solid var(--primary-orange);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+
+        .services {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .service-card li {
+            padding: 5px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .student-offer {
+            color: var(--primary-orange);
+            font-weight: 700;
+            list-style: none;
+        }
+
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-content h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+        }
+
+        .about-content p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .location-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .location-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .location-card h4 {
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .reviews {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .reviews h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
+
+        .review-location {
+            color: var(--black);
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-group label input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--primary-orange);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info-top">
+                <a href="mailto:info.dynaframestudios@gmail.com">
+                    ✉️ info.dynaframestudios@gmail.com
+                </a>
+                <a href="tel:+27754024178">
+                    📞 +27 75 402 4178
+                </a>
+            </div>
+            <button class="currency-toggle" onclick="showCurrencyModal()">
+                🌐 View USD
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-graphic"></div>
+                <div class="logo-text">Dyna<span>Frame</span></div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Design</a></li>
+                <li><a href="repairs.html" class="nav-link">Repairs</a></li>
+                <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle">
+                        ☀️ Light Mode
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Currency Modal -->
+    <div id="currencyModal" class="price-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeCurrencyModal()">×</button>
+            <h2>Choose Currency</h2>
+            <p>Select your preferred currency for web design pricing:</p>
+            <div class="currency-options">
+                <button class="currency-btn" onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button>
+                <button class="currency-btn" onclick="selectCurrency('USD')">🇺🇸 USD</button>
+            </div>
+            <p><small>Prices will update automatically across the site</small></p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your All-in-One Tech Solution in South Africa</h1>
+                <p><strong>Professional web design services worldwide</strong>, custom PC builds across South Africa, and reliable phone/computer repairs in Midrand & Braamfontein</p>
+                
+                <div class="student-banner">
+                    🎓 <strong>Students: 10% OFF</strong> all services with valid student ID
+                </div>
+                
+                <div class="location-badge">
+                    🎯 Serving: Midrand • Braamfontein • Johannesburg • South Africa
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="web-design.html" class="btn btn-primary">Get Professional Website Quote</a>
+                    <a href="repairs.html" class="btn btn-secondary">Schedule Phone/Computer Repair</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Complete Technology Services</h2>
+            
+            <div class="services-grid">
+                <!-- Web Design Card -->
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Design & Development</h3>
+                    <p><strong>Professional web design company</strong> creating responsive websites for businesses worldwide. Perfect <strong>affordable web design</strong> solutions for startups and established companies.</p>
+                    <ul>
+                        <li>Standard Website: <strong>R2,500</strong></li>
+                        <li>Pro Website: <strong>R3,500</strong></li>
+                        <li>Ecommerce Solutions Available</li>
+                        <li>Global Service Area</li>
+                    </ul>
+                    <a href="web-design.html" class="btn btn-outline">Get Custom Website Quote</a>
+                </div>
+                
+                <!-- Device Repairs Card -->
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Device Repairs</h3>
+                    <p>Fast, reliable <strong>phone repairs in Midrand</strong> and <strong>computer repair in Braamfontein</strong>. Same-day service for students and professionals near Wits University and Midrand areas.</p>
+                    <ul>
+                        <li>iPhone Screen Replacement</li>
+                        <li>Laptop Repair Services</li>
+                        <li>Virus Removal & Software Fixes</li>
+                        <li class="student-offer">🎓 Students: 10% OFF Repairs</li>
+                    </ul>
+                    <a href="repairs.html" class="btn btn-outline">Schedule Same-Day Repair</a>
+                </div>
+                
+                <!-- PC Builds Card -->
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Custom PC Builds</h3>
+                    <p><strong>Custom gaming PC builds in South Africa</strong> for gamers, professionals, and businesses. High-performance <strong>PC assembly service in Johannesburg</strong> and surrounding areas.</p>
+                    <ul>
+                        <li>Gaming Rigs & Workstations</li>
+                        <li>Budget Computer Builds</li>
+                        <li>Corporate PC Solutions</li>
+                        <li class="student-offer">🎓 Students: 10% OFF PC Builds</li>
+                    </ul>
+                    <a href="pc-builds.html" class="btn btn-outline">Get PC Build Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Your Local Tech Experts in Gauteng</h2>
+                <p>DynaFrame Studios is your trusted <strong>tech company that does web design and computer repairs</strong> across South Africa. We specialize in <strong>complete tech solutions</strong> serving both businesses and the student community.</p>
+                
+                <div class="location-highlights">
+                    <div class="location-card">
+                        <h4>🌐 Web Design Services</h4>
+                        <p>Professional website development for clients worldwide. <strong>Responsive web design services</strong> that work on all devices.</p>
+                    </div>
+                    <div class="location-card">
+                        <h4>📍 Midrand Repairs</h4>
+                        <p>Convenient <strong>iPhone repair in Midrand Mall</strong> area and <strong>computer virus removal in Midrand</strong> for quick fixes.</p>
+                    </div>
+                    <div class="location-card">
+                        <h4>🎓 Braamfontein Services</h4>
+                        <p>Student-friendly <strong>phone repair near Wits University</strong> and <strong>emergency phone repair in Braamfontein CBD</strong>.</p>
+                    </div>
+                    <div class="location-card">
+                        <h4>🖥️ PC Builds RSA</h4>
+                        <p><strong>Custom gaming PC build South Africa</strong> service with components sourced locally for the best performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2>What Our Clients Say About Our Tech Services</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"Amazing <strong>web design company</strong>! My business website looks professional and actually ranks on Google. Perfect for <strong>affordable web design</strong> solutions."</p>
+                    <p class="review-author">Sarah M.</p>
+                    <p class="review-location">Midrand Business Owner</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Fast <strong>phone repair in Braamfontein</strong>. As a student, the 10% discount made it affordable. Great service <strong>near Wits University</strong>!"</p>
+                    <p class="review-author">Nyamande T.</p>
+                    <p class="review-location">Wits University Student</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Incredible <strong>custom gaming PC build in South Africa</strong>! They helped me choose the right components and built a beast for gaming and work."</p>
+                    <p class="review-author">Mfingwana S.</p>
+                    <p class="review-location">Johannesburg Gamer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <div class="container">
+            <h2>Ready for Your Tech Solution?</h2>
+            <div class="form-container">
+                <form action="https://formsubmit.co/info.dynaframestudios@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Tech Service Inquiry">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select Service</option>
+                            <option value="web-design">Web Design & Development</option>
+                            <option value="pc-repair">Computer/Phone Repair</option>
+                            <option value="pc-build">Custom PC Build</option>
+                            <option value="consultation">General Tech Consultation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Your Location</label>
+                        <select id="location" name="location">
+                            <option value="">Select Location</option>
+                            <option value="midrand">Midrand</option>
+                            <option value="braamfontein">Braamfontein</option>
+                            <option value="johannesburg">Johannesburg</option>
+                            <option value="other-sa">Other South Africa</option>
+                            <option value="international">International</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requirements">Project Details</label>
+                        <textarea id="requirements" name="requirements" placeholder="Tell us about your website needs, repair issues, or PC build requirements..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="student" value="yes"> I am a student (10% discount on all services)
+                        </label>
+                    </div>
+                    
+                    <input type="hidden" name="_next" value="https://dynaframe-studios.surge.sh/thank-you.html">
+                    <button type="submit" class="btn btn-primary">Get Free Quote & Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DynaFrame Studios</h3>
+                    <p>Your complete <strong>tech solutions partner</strong> for web design, custom PC builds, and device repairs in South Africa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="web-design.html">Professional Web Design</a></li>
+                        <li><a href="repairs.html">Phone & Computer Repairs</a></li>
+                        <li><a href="pc-builds.html">Custom PC Builds RSA</a></li>
+                        <li><a href="contact.html">Tech Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <p>📍 <strong>Repairs:</strong> Midrand & Braamfontein</p>
+                    <p>🖥️ <strong>PC Builds:</strong> South Africa Wide</p>
+                    <p>🌐 <strong>Web Design:</strong> Global Service</p>
+                    <p>🎓 <strong>Student Discounts Available</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Comprehensive Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebDesigner",
+          "name": "DynaFrame Studios",
+          "description": "Professional web design and development services",
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "DynaFrame Studios - Tech Repairs",
+          "description": "PC repairs and custom computer builds",
+          "address": {
+            "@type": "PostalAddress", 
+            "addressLocality": ["Midrand", "Braamfontein"],
+            "addressRegion": "Gauteng",
+            "addressCountry": "South Africa"
+          },
+          "areaServed": ["Midrand", "Braamfontein", "Johannesburg"]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Start of Tawk.to Script -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68ec91b77e32cc195255b3de/1j7e1idgv';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!-- End of Tawk.to Script -->
+</body>
+</html>

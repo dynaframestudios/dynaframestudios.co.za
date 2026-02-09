@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMERGENCY: Index DynaFrame Studios Now</title>
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="refresh" content="0;url=https://www.dynaframestudios.co.za">
+</head>
+<body>
+    <h1>Indexing Trigger Page</h1>
+    <p>This page forces Google to index the main site.</p>
+    
+    <script>
+        // Emergency ping to all search engines
+        const engines = [
+            'https://www.google.com/ping?sitemap=https://www.dynaframestudios.co.za/sitemap.xml',
+            'https://www.google.com/webmasters/tools/ping?sitemap=https://www.dynaframestudios.co.za/sitemap.xml',
+            'https://www.bing.com/ping?sitemap=https://www.dynaframestudios.co.za/sitemap.xml'
+        ];
+        
+        engines.forEach(url => {
+            fetch(url, { mode: 'no-cors' });
+            console.log('Pinged:', url);
+        });
+        
+        // Create multiple internal links
+        for(let i = 0; i < 10; i++) {
+            const link = document.createElement('a');
+            link.href = 'https://www.dynaframestudios.co.za';
+            link.textContent = 'DynaFrame Studios Web Design and PC Builds';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+        }
+    </script>
+</body>
+</html>

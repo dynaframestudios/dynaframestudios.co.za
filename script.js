@@ -1,4 +1,4 @@
-// Dark/Light Mode Toggle
+// ===== DARK/LIGHT MODE TOGGLE =====
 const themeToggle = document.querySelector('.theme-toggle');
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
@@ -18,8 +18,36 @@ if (themeToggle) {
     }
 }
 
-// Currency Converter Modal
-let currentCurrency = 'ZAR';
+// ===== MOBILE MENU TOGGLE =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Add mobile menu button to navbar
+    const navContainer = document.querySelector('.nav-container');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navContainer && navMenu && !document.querySelector('.mobile-menu-toggle')) {
+        const mobileToggle = document.createElement('div');
+        mobileToggle.className = 'mobile-menu-toggle';
+        mobileToggle.innerHTML = '<span></span><span></span><span></span>';
+        
+        // Insert before nav menu
+        navContainer.insertBefore(mobileToggle, navMenu);
+        
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+});
+
+// ===== CURRENCY CONVERTER =====
+let currentCurrency = localStorage.getItem('currency') || 'ZAR';
 
 function showCurrencyModal() {
     const modal = document.getElementById('currencyModal');
@@ -33,36 +61,60 @@ function closeCurrencyModal() {
 
 function selectCurrency(currency) {
     currentCurrency = currency;
+    localStorage.setItem('currency', currency);
     closeCurrencyModal();
     updatePrices();
     
     // Update top bar button
     const currencyBtn = document.querySelector('.currency-toggle');
     if (currencyBtn) {
-        currencyBtn.textContent = currency === 'ZAR' ? '🌐 View USD' : '🌐 View ZAR';
+        currencyBtn.innerHTML = currency === 'ZAR' 
+            ? '🌐 View USD' 
+            : '🌐 View ZAR';
     }
 }
 
 function updatePrices() {
-    const exchangeRate = 0.054; // 1 ZAR = 0.054 USD (approx)
+    const exchangeRate = 0.054; // 1 ZAR = 0.054 USD
     
-    document.querySelectorAll('[data-price-zar]').forEach(element => {
-        const zarPrice = parseFloat(element.dataset.priceZar);
-        let displayPrice;
+    document.querySelectorAll('.price').forEach(element => {
+        const priceText = element.textContent;
+        const zarMatch = priceText.match(/R([0-9,]+)/);
+        const usdMatch = priceText.match(/\$([0-9.]+)/);
         
-        if (currentCurrency === 'USD') {
-            const usdPrice = (zarPrice * exchangeRate).toFixed(2);
-            displayPrice = `$${usdPrice}`;
-        } else {
-            displayPrice = `R${zarPrice.toLocaleString()}`;
+        let zarPrice = 0;
+        if (zarMatch) {
+            zarPrice = parseFloat(zarMatch[1].replace(/,/g, ''));
+        } else if (usdMatch) {
+            zarPrice = parseFloat(usdMatch[1]) / exchangeRate;
         }
         
-        element.textContent = displayPrice;
+        if (zarPrice > 0) {
+            if (currentCurrency === 'USD') {
+                const usdPrice = (zarPrice * exchangeRate).toFixed(2);
+                element.textContent = `$${usdPrice}`;
+            } else {
+                element.textContent = `R${zarPrice.toLocaleString()}`;
+            }
+        }
     });
 }
 
 // Initialize prices on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Add price data attributes if not present
+    document.querySelectorAll('.price').forEach((element, index) => {
+        if (!element.dataset.priceZar) {
+            if (element.textContent.includes('R2,500') || element.textContent.includes('R2500')) {
+                element.dataset.priceZar = '2500';
+            } else if (element.textContent.includes('R3,500') || element.textContent.includes('R3500')) {
+                element.dataset.priceZar = '3500';
+            } else if (element.textContent.includes('R5,000') || element.textContent.includes('R5000')) {
+                element.dataset.priceZar = '5000';
+            }
+        }
+    });
+    
     updatePrices();
     
     // Close modal on outside click
@@ -72,17 +124,49 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === modal) closeCurrencyModal();
         });
     }
+});
+
+// ===== FORM HANDLING =====
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForms = document.querySelectorAll('form[action*="formsubmit.co"]');
     
-    // Add price data attributes to web design page
-    if (window.location.pathname.includes('web-design')) {
-        const standardPrice = document.querySelector('.pricing-card:first-child .price');
-        const proPrice = document.querySelector('.pricing-card:last-child .price');
+    contactForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            // Don't prevent default - FormSubmit needs to submit normally
+            // But we can show a loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '⏳ Sending...';
+            }
+        });
+    });
+});
+
+// ===== URL PARAMETERS FOR PRE-FILLED FORMS =====
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const package = urlParams.get('package');
+    const service = urlParams.get('service');
+    
+    if (package || service) {
+        const serviceSelect = document.getElementById('service');
+        const messageField = document.getElementById('message');
         
-        if (standardPrice) {
-            standardPrice.dataset.priceZar = '2500';
+        if (serviceSelect) {
+            if (package === 'standard' || package === 'pro' || package === 'ecommerce') {
+                serviceSelect.value = 'web-design';
+            }
         }
-        if (proPrice) {
-            proPrice.dataset.priceZar = '3500';
+        
+        if (messageField) {
+            if (package === 'standard') {
+                messageField.value = "I'm interested in the Standard Business Website package (R2,500). Please contact me with more information.";
+            } else if (package === 'pro') {
+                messageField.value = "I'm interested in the Pro Business Website package (R3,500). Please contact me with more information.";
+            } else if (package === 'ecommerce') {
+                messageField.value = "I'm interested in the E-Commerce Website package (R5,000). Please contact me with more information.";
+            }
         }
     }
 });

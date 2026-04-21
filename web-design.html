@@ -3,257 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Packages South Africa | DynaFrame Studios</title>
+    <title>Web Design Packages | Basic R1800 | Accommodation R2800 | E-commerce R2500</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" type="image/svg+xml">
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Affordable web design packages in South Africa. Standard website R2,500, Pro website R3,500, E-Commerce R5,000. Custom development available. Serving all provinces.">
-    <meta name="keywords" content="web design packages South Africa, website pricing, affordable web design, e-commerce website cost, professional web designers, responsive website packages, custom website development">
-	<!-- Font Awesome 6 (Official Icons) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="description" content="Affordable web design packages in South Africa. Basic 1-page website R1800, Accommodation booking site R2800, E-commerce store R2500. Student discount available. Free quote.">
+    <meta name="keywords" content="web design packages South Africa, basic website R1800, accommodation website design, e-commerce R2500, affordable web design, hotel website, online store builder, DynaFrame Studios">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Same styles as index.html */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 50px 0; }
+        .service-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
+        .price { font-size: 2rem; font-weight: 700; color: #ff6b35; margin: 15px 0; }
+        .service-card ul { text-align: left; margin: 20px 0; }
+        .service-card ul li { margin: 8px 0; list-style: none; padding-left: 25px; position: relative; }
+        .service-card ul li:before { content: "✓"; color: #ff6b35; position: absolute; left: 0; }
+        .btn-outline { display: inline-block; padding: 12px 24px; border-radius: 30px; border: 2px solid #ff6b35; color: #ff6b35; font-weight: 600; text-decoration: none; }
+        .btn-outline:hover { background: #ff6b35; color: white; }
+        .btn-primary { background: #ff6b35; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; display: inline-block; }
+        .hero { text-align: center; padding: 100px 0 60px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2rem; margin: 40px 0 20px; }
+        .student-banner { background: linear-gradient(135deg, #f9a826, #ff6b35); color: white; padding: 10px 20px; border-radius: 40px; display: inline-block; margin: 15px 0; }
+        .top-bar, .navbar, .footer { /* reuse styles */ }
+        /* (Include all styling from index.html for consistency) */
+    </style>
 </head>
 <body>
-   <!-- TOP BAR with REAL Social Media Icons -->
-<div class="top-bar">
-    <div class="container top-bar-content">
-        <div class="contact-info-top">
-            <a href="mailto:info.dynaframestudios@gmail.com">
-                <i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com
-            </a>
-            <a href="tel:+27754024178">
-                <i class="fas fa-phone-alt"></i> +27 75 402 4178
-            </a>
+    <!-- Same top bar and navigation as index.html -->
+    <div class="top-bar" style="background:#1a1a2e;color:white;padding:12px 0;">
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+            <div><a href="mailto:info.dynaframestudios@gmail.com" style="color:white;margin-right:20px;"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+            <a href="tel:+27754024178" style="color:white;"><i class="fas fa-phone-alt"></i> +27 75 402 4178</a></div>
+            <div><a href="#" style="color:white;margin:0 10px;"><i class="fab fa-facebook-f"></i></a><a href="#" style="color:white;margin:0 10px;"><i class="fab fa-tiktok"></i></a><a href="#" style="color:white;margin:0 10px;"><i class="fab fa-instagram"></i></a>
+            <button class="currency-toggle" onclick="showCurrencyModal()" style="background:#ff6b35;border:none;padding:6px 15px;border-radius:20px;color:white;margin-left:15px;">View USD</button></div>
         </div>
-        
-        <!-- PROFESSIONAL SOCIAL ICONS - Font Awesome -->
-        <div class="social-icons-top">
-            <!-- Facebook -->
-            <a href="https://facebook.com/dynaframestudios" target="_blank" class="social-icon" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <!-- TikTok -->
-            <a href="https://tiktok.com/@dynaframestudios" target="_blank" class="social-icon" aria-label="TikTok">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <!-- Instagram -->
-            <a href="https://instagram.com/dynaframestudios" target="_blank" class="social-icon" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <!-- YouTube -->
-            <a href="https://youtube.com/@dynaframestudios" target="_blank" class="social-icon" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-        
-        <button class="currency-toggle" onclick="showCurrencyModal()">
-            <i class="fas fa-globe"></i> View USD
-        </button>
     </div>
-</div>
-
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-graphic"></div>
-                <div class="logo-text">Dyna<span>Frame</span></div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="web-design.html" class="nav-link active">Web Design</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle">☀️ Light Mode</button></li>
+    <nav class="navbar" style="background:white;padding:15px 0;position:sticky;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+            <a href="index.html" style="font-size:1.5rem;font-weight:bold;text-decoration:none;color:#1a1a2e;">Dyna<span style="color:#ff6b35;">Frame</span></a>
+            <ul style="display:flex;gap:30px;list-style:none;">
+                <li><a href="index.html" style="text-decoration:none;">Home</a></li>
+                <li><a href="web-design.html" style="text-decoration:none;color:#ff6b35;font-weight:bold;">Web Design</a></li>
+                <li><a href="contact.html" style="text-decoration:none;">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- CURRENCY MODAL -->
-    <div id="currencyModal" class="price-modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeCurrencyModal()">×</button>
-            <h2>Choose Currency</h2>
-            <p>Select your preferred currency for web design pricing:</p>
-            <div class="currency-options">
-                <button class="currency-btn" onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button>
-                <button class="currency-btn" onclick="selectCurrency('USD')">🇺🇸 USD</button>
+    <div id="currencyModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;justify-content:center;align-items:center;">
+        <div style="background:white;padding:30px;border-radius:20px;text-align:center;"><button onclick="closeCurrencyModal()" style="float:right;font-size:1.5rem;background:none;border:none;">×</button>
+        <h2>Choose Currency</h2><button onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button> <button onclick="selectCurrency('USD')">🇺🇸 USD</button></div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Web Design Packages for Every Budget</h1>
+            <p>Professional, responsive websites starting at just R1800. No hidden fees, no long-term contracts.</p>
+            <div class="student-banner">🎓 Students save 10% on all packages</div>
+            <div class="location-badge" style="background:#eef2ff;padding:8px 16px;border-radius:30px;display:inline-block;">🇿🇦 Nationwide Service • All South African provinces</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon" style="font-size:3rem;">🌐</div>
+                <h3>Basic 1-Page Website</h3>
+                <p>Perfect for startups, freelancers, and small businesses.</p>
+                <div class="price" data-price-zar="1800">R1,800</div>
+                <ul><li>1 Custom Page</li><li>Mobile Responsive</li><li>Contact Form</li><li>Basic SEO</li><li>6 Months Support</li></ul>
+                <a href="contact.html?package=basic" class="btn-outline">Get Started</a>
             </div>
+            <div class="service-card">
+                <div class="service-icon" style="font-size:3rem;">🏨</div>
+                <h3>Accommodation Website</h3>
+                <p>Ideal for hotels, B&Bs, guesthouses, and lodges.</p>
+                <div class="price" data-price-zar="2800">R2,800</div>
+                <ul><li>3-5 Pages (Rooms, Gallery)</li><li>Booking Inquiry System</li><li>Map Integration</li><li>Advanced SEO</li><li>12 Months Support</li></ul>
+                <a href="contact.html?package=accommodation" class="btn-outline">Get Started</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon" style="font-size:3rem;">🛒</div>
+                <h3>E-Commerce Website</h3>
+                <p>Full-featured online store to sell products.</p>
+                <div class="price" data-price-zar="2500">R2,500</div>
+                <ul><li>Up to 50 Products</li><li>Payment Gateway</li><li>Shopping Cart</li><li>SEO & Analytics</li><li>18 Months Support</li></ul>
+                <a href="contact.html?package=ecommerce" class="btn-outline">Get Started</a>
+            </div>
+        </div>
+        <div style="text-align:center;margin:50px 0;padding:30px;background:#f8f9fa;border-radius:15px;">
+            <h3>Need something custom?</h3>
+            <a href="contact.html" class="btn-primary">Request Custom Quote</a>
         </div>
     </div>
 
-    <!-- HERO -->
-    <section class="hero" style="padding: 120px 0 80px; margin-top: 0;">
-        <div class="container">
-            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Web Design Packages for Every Budget</h1>
-            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Professional, responsive websites starting at just R2,500. No hidden fees, no long-term contracts.</p>
-            <div class="student-banner">🎓 Students save 10% on all packages</div>
-            <div class="location-badge">🇿🇦 Nationwide Service • All South African provinces</div>
-        </div>
-    </section>
-
-    <!-- PRICING GRID - 3 PACKAGES -->
-    <div class="services-grid">
-                <!-- Card 1: Standard Website -->
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Standard Business Website</h3>
-                    <p>Perfect for startups, freelancers, and small businesses looking to establish a professional online presence.</p>
-                    <div class="price" data-price-zar="2400">R2,400</div>
-                    <ul>
-                        <li>1 Custom Page</li>
-                        <li>Mobile Responsive Design</li>
-                        <li>Contact Form Integration</li>
-                        <li>Basic SEO Setup</li>
-                        <li>Social Media Links</li>
-                        <li>6 Months Free Support</li>
-                    </ul>
-                    <a href="contact.html?package=standard" class="btn btn-outline">Get Started</a>
-                </div>
-                
-                <!-- Card 2: Pro Website -->
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>Pro Business Website</h3>
-                    <p>Ideal for growing companies that need more features, better SEO, and a stronger brand presence.</p>
-                    <div class="price" data-price-zar="3800">R3,800</div>
-                    <ul>
-                        <li>2-5 Custom Pages</li>
-                        <li>Advanced Responsive Design</li>
-                        <li>Blog/News Section</li>
-                        <li>Advanced SEO Optimization</li>
-                        <li>Google Analytics Setup</li>
-                        <li>12 Months Free Support</li>
-                    </ul>
-                    <a href="contact.html?package=pro" class="btn btn-outline">Get Started</a>
-                </div>
-                
-                <!-- Card 3: E-Commerce Website (NEW) -->
-                <div class="service-card">
-                    <div class="service-icon">🛒</div>
-                    <h3>Pro Website</h3>
-                    <p>Full-featured Websites WIth more features.</p>
-                    <div class="price" data-price-zar="5500">R5,500</div>
-                    <ul>
-                        <li>Unlimited Products</li>
-                        <li>tawk.to Intergration</li>
-                        <li>Google Analytics</li>
-                        <li>SEO Optimization</li>
-                        <li>Customer Accounts</li>
-                        <li>18 Months Free Support</li>
-                    </ul>
-                    <a href="contact.html?package=ecommerce" class="btn btn-outline">Get Started</a>
-                </div>
-            </div>
-        </div>
-            
-            <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--light-gray); border-radius: 10px;">
-                <h3 style="margin-bottom: 15px;">Need something custom?</h3>
-                <p style="margin-bottom: 20px;">We also build custom web applications, membership sites, portals, and complex platforms.</p>
-                <a href="contact.html" class="btn btn-outline">Request Custom Quote</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS SECTION -->
-    <section class="process">
-        <div class="container">
-            <h2 class="section-title">Our Simple Process</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Consultation</h3>
-                    <p>We discuss your business goals, target audience, and design preferences.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Design</h3>
-                    <p>We create your website design and send for your approval.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Development</h3>
-                    <p>We build your site, optimize for speed, and implement SEO.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Launch</h3>
-                    <p>We deploy your website and provide ongoing support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section style="padding: 80px 0;">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 50px auto;">
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-orange); margin-bottom: 10px;">Do you serve clients outside of South Africa?</h3>
-                    <p>Yes! While our primary focus is South African businesses, we welcome international clients as well.</p>
-                </div>
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-orange); margin-bottom: 10px;">How long does it take to build a website?</h3>
-                    <p>Standard websites are delivered within 48 hours. Pro websites within 1 week. Ultra within 2 weeks. Custom projects vary.</p>
-                </div>
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-orange); margin-bottom: 10px;">Do I need to pay monthly?</h3>
-                    <p>No. All packages are one-time payments. You only pay for hosting separately (approximately R150-R300/month).</p>
-                </div>
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-orange); margin-bottom: 10px;">Can you help with domain registration?</h3>
-                    <p>Yes, we can assist with domain registration and hosting setup at no additional cost.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER (same as index) -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DynaFrame Studios</h3>
-                    <p>Professional web design agency serving businesses across all provinces of South Africa.</p>
-                   <div class="social-links">
-    <a href="https://facebook.com/dynaframestudios" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://tiktok.com/@dynaframestudios" target="_blank" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://instagram.com/dynaframe.studios" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-    </a>
-                 </div> 
-                </div>
-                <div class="footer-section">
-                    <h3>Packages</h3>
-                    <ul>
-                        <li><a href="web-design.html">Standard - R2,500</a></li>
-                        <li><a href="web-design.html">Pro - R3,500</a></li>
-                        <li><a href="web-design.html">E-Commerce - R5,000</a></li>
-                        <li><a href="contact.html">Custom Quote</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>📧 info@dynaframestudios.co.za</li>
-                        <li>📞 +27 75 402 4178</li>
-                        <li>📍 Cape Town, South Africa</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DynaFrame Studios. Web Design Agency South Africa.</p>
-            </div>
-        </div>
+    <footer style="background:#1a1a2e;color:white;padding:40px 0 20px;margin-top:60px;">
+        <div class="container" style="text-align:center;">&copy; 2025 DynaFrame Studios. Web Design Packages: Basic R1800 | Accommodation R2800 | E-commerce R2500</div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function showCurrencyModal() { document.getElementById('currencyModal').style.display = 'flex'; }
+        function closeCurrencyModal() { document.getElementById('currencyModal').style.display = 'none'; }
+        function selectCurrency(currency) {
+            const rates = { USD: 0.054, ZAR: 1 };
+            document.querySelectorAll('[data-price-zar]').forEach(el => {
+                let zar = parseFloat(el.getAttribute('data-price-zar'));
+                if (currency === 'USD') el.innerText = '$' + Math.round(zar * rates.USD);
+                else el.innerText = 'R' + zar.toLocaleString();
+            });
+            closeCurrencyModal();
+        }
+    </script>
 </body>
 </html>

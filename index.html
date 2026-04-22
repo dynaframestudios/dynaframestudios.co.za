@@ -5,350 +5,463 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DynaFrame Studios | Professional Web Design Agency South Africa</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" type="image/svg+xml">
-    
-    <!-- SEO Meta Tags - Updated with new pricing -->
-    <meta name="description" content="DynaFrame Studios offers affordable web design in South Africa. Basic 1-page website R1800, Accommodation booking sites R2800, E-commerce stores from R2500. Student discount 10% off. Serving nationwide.">
-    <meta name="keywords" content="web design South Africa, affordable website R1800, accommodation website design, e-commerce R2500, basic website package, hotel booking site, small business web design, DynaFrame Studios, website designer Johannesburg, Cape Town web design, accommodation booking system, cheap websites SA">
+    <link rel="icon" href="icon.png" type="image/png">
+
+    <!-- SEO -->
+    <meta name="description" content="DynaFrame Studios — Affordable professional web design in South Africa. Basic 1-page R1800, E-commerce R2500, Accommodation R2800. Student discount 10% off. Free quote in 2 hours.">
+    <meta name="keywords" content="web design South Africa, affordable website R1800, e-commerce R2500, accommodation website R2800, DynaFrame Studios, Johannesburg web design, hotel booking site">
     <meta name="geo.region" content="ZA">
     <meta name="geo.placename" content="South Africa">
     <meta name="author" content="DynaFrame Studios">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph -->
-    <meta property="og:title" content="DynaFrame Studios - Web Design from R1800 | Accommodation & E-commerce">
-    <meta property="og:description" content="Professional web design: Basic R1800, Accommodation R2800, E-commerce R2500. Student discount available. Free quote within 2 hours.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e">
+    <meta property="og:title" content="DynaFrame Studios – Web Design from R1800">
+    <meta property="og:description" content="Professional web design: Basic R1800 | E-commerce R2500 | Accommodation R2800. Free quote in 2 hours.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dynaframestudios.co.za">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DynaFrame Studios - Web Design Packages South Africa">
-    <meta name="twitter:description" content="Basic R1800 • Accommodation R2800 • E-commerce R2500">
-    
-    <!-- Font Awesome 6 -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <style>
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-        .service-card {
-            background: var(--white, #fff);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-icon { font-size: 3rem; margin-bottom: 15px; }
-        .price { font-size: 2rem; font-weight: 700; color: #ff6b35; margin: 15px 0; }
-        .service-card ul { text-align: left; margin: 20px 0; padding-left: 20px; }
-        .service-card ul li { margin: 8px 0; list-style-type: none; position: relative; padding-left: 25px; }
-        .service-card ul li:before { content: "✓"; color: #ff6b35; position: absolute; left: 0; font-weight: bold; }
-        .btn-outline {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 30px;
-            border: 2px solid #ff6b35;
-            color: #ff6b35;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .btn-outline:hover { background: #ff6b35; color: white; }
-        .btn-primary {
-            background: #ff6b35;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary:hover { background: #e55a2b; transform: translateY(-2px); }
-        .btn-secondary {
-            background: transparent;
-            color: #ff6b35;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid #ff6b35;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-secondary:hover { background: #ff6b35; color: white; }
-        .student-banner {
-            background: linear-gradient(135deg, #f9a826, #ff6b35);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 40px;
-            display: inline-block;
-            margin: 15px 0;
-            font-weight: 600;
-        }
-        .location-badge {
-            background: #eef2ff;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-left: 10px;
-        }
-        .hero-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .hero { text-align: center; padding: 100px 0 60px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
-        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 20px; }
-        .section-subtitle { text-align: center; color: #666; max-width: 700px; margin: 0 auto 40px; }
-        .top-bar { background: #1a1a2e; color: white; padding: 12px 0; }
-        .top-bar-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .contact-info-top a { color: white; text-decoration: none; margin-right: 20px; }
-        .social-icons-top a { color: white; margin-left: 15px; font-size: 1.2rem; }
-        .currency-toggle { background: #ff6b35; border: none; padding: 6px 15px; border-radius: 20px; color: white; cursor: pointer; }
-        .navbar { background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .logo { font-size: 1.5rem; font-weight: bold; text-decoration: none; color: #1a1a2e; }
-        .logo span { color: #ff6b35; }
-        .nav-menu { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-link { text-decoration: none; color: #1a1a2e; font-weight: 500; }
-        .nav-link.active { color: #ff6b35; }
-        .theme-toggle { background: none; border: 1px solid #ddd; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
-        .price-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-content { background: white; padding: 30px; border-radius: 20px; text-align: center; max-width: 400px; }
-        .close-modal { float: right; font-size: 1.5rem; cursor: pointer; background: none; border: none; }
-        .footer { background: #1a1a2e; color: white; padding: 50px 0 20px; margin-top: 60px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .footer-section h3 { margin-bottom: 20px; }
-        .footer-section ul { list-style: none; }
-        .footer-section ul li { margin-bottom: 10px; }
-        .footer-section a { color: #ccc; text-decoration: none; }
-        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid #333; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
-        .social-links a { color: white; font-size: 1.3rem; }
-        @media (max-width: 768px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .nav-menu { gap: 15px; }
-        }
-    </style>
+
+    <!-- Schema -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"DynaFrame Studios","description":"Professional web design agency South Africa","url":"https://dynaframestudios.co.za","telephone":"+27754024178","email":"info.dynaframestudios@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Midrand","addressRegion":"Gauteng","addressCountry":"ZA"}}</script>
 </head>
 <body>
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div class="container top-bar-content">
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-content">
             <div class="contact-info-top">
                 <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
                 <a href="tel:+27754024178"><i class="fas fa-phone-alt"></i> +27 75 402 4178</a>
             </div>
             <div class="social-icons-top">
-                <a href="https://facebook.com/dynaframestudios" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://tiktok.com/@dynaframestudios" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://instagram.com/dynaframe.studios" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com/@dynaframestudios" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-            <button class="currency-toggle" onclick="showCurrencyModal()"><i class="fas fa-globe"></i> View USD</button>
-        </div>
-    </div>
-
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Dyna<span>Frame</span></a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="web-design.html" class="nav-link">Web Design</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle">☀️ Light Mode</button></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- CURRENCY MODAL -->
-    <div id="currencyModal" class="price-modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeCurrencyModal()">×</button>
-            <h2>Choose Currency</h2>
-            <p>Select your preferred currency for web design pricing:</p>
-            <div class="currency-options">
-                <button class="currency-btn" onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button>
-                <button class="currency-btn" onclick="selectCurrency('USD')">🇺🇸 USD</button>
+                <a href="https://facebook.com/dynaframestudios" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/@dynaframestudios" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://instagram.com/dynaframe.studios" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@dynaframestudios" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <button class="currency-toggle" onclick="showCurrencyModal()">🌐 View USD</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <h1>Professional Web Design Agency<br>Serving All of South Africa</h1>
-            <p>We create stunning, high-performance websites for businesses nationwide. From Cape Town to Johannesburg, Durban to Pretoria — starting from just R1800.</p>
-            <div class="student-banner">🎓 <strong>Student Discount:</strong> 10% OFF all website packages</div>
-            <div class="location-badge">🇿🇦 Nationwide Service • All 9 Provinces</div>
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-graphic"></div>
+            <span class="logo-text">Dyna<span>Frame</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="web-design.html" class="nav-link">Web Design</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><button class="theme-toggle" id="themeToggle">☀️ Light</button></li>
+        </ul>
+        <div class="mobile-menu-toggle" id="mobileToggle">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Currency Modal -->
+<div class="modal-overlay" id="currencyModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeCurrencyModal()">✕</button>
+        <h2>Choose Currency</h2>
+        <p>Prices will update across the whole site.</p>
+        <div class="currency-btns">
+            <button class="currency-btn" onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button>
+            <button class="currency-btn" onclick="selectCurrency('USD')">🇺🇸 USD</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> We think "Outside" the box
+            </div>
+            <h1>Elevate Your<br><span class="accent">Digital Presence</span></h1>
+            <p>Professional web design solutions for South African businesses. Get noticed, stand out, and grow online — at prices that make sense.</p>
             <div class="hero-buttons">
-                <a href="web-design.html" class="btn-primary">View Website Packages</a>
-                <a href="contact.html" class="btn-secondary">Get Free Consultation</a>
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-rocket"></i> Get Free Quote</a>
+                <a href="web-design.html" class="btn btn-secondary"><i class="fas fa-th-large"></i> View Packages</a>
+            </div>
+            <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <div class="student-banner">🎓 Students save 10% on all packages</div>
+                <div class="location-badge">🇿🇦 Serving all 9 provinces</div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="stat-num">2hr</span><span class="stat-label">Response Time</span></div>
+                <div class="stat-item"><span class="stat-num">7-14</span><span class="stat-label">Days Delivery</span></div>
+                <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">SA-Based Team</span></div>
+                <div class="stat-item"><span class="stat-num">SEO</span><span class="stat-label">Optimised</span></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- SERVICES SECTION - UPDATED WITH NEW PRICING -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Web Design Solutions for Every Business</h2>
-            <p class="section-subtitle">Affordable packages starting at R1800. Professional websites that drive results.</p>
-            
-            <div class="services-grid">
-                <!-- Card 1: Basic 1-Page Website - R1800 -->
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Basic 1-Page Website</h3>
-                    <p>Perfect for startups, freelancers, and small businesses needing a simple online presence.</p>
-                    <div class="price" data-price-zar="1800">R1,800</div>
-                    <ul>
-                        <li>1 Custom Designed Page</li>
-                        <li>Mobile Responsive Design</li>
-                        <li>Contact Form Integration</li>
-                        <li>Basic SEO Setup</li>
-                        <li>Social Media Links</li>
-                        <li>6 Months Free Support</li>
-                    </ul>
-                    <a href="contact.html?package=basic" class="btn-outline">Get Started</a>
-                </div>
-                
-                <!-- Card 2: Accommodation Site - R2800 -->
-                <div class="service-card">
-                    <div class="service-icon">🏨</div>
-                    <h3>Accommodation Website</h3>
-                    <p>Ideal for hotels, B&Bs, guesthouses, lodges, and vacation rentals.</p>
-                    <div class="price" data-price-zar="2800">R2,800</div>
-                    <ul>
-                        <li>3-5 Custom Pages (Rooms, Gallery, Contact)</li>
-                        <li>Room/Apartment Showcase</li>
-                        <li>Booking Inquiry System</li>
-                        <li>Location Map Integration</li>
-                        <li>Advanced SEO Optimization</li>
-                        <li>12 Months Free Support</li>
-                    </ul>
-                    <a href="contact.html?package=accommodation" class="btn-outline">Get Started</a>
-                </div>
-                
-                <!-- Card 3: E-Commerce Website - R2500 -->
-                <div class="service-card">
-                    <div class="service-icon">🛒</div>
-                    <h3>E-Commerce Website</h3>
-                    <p>Full-featured online store to sell products and grow your business online.</p>
-                    <div class="price" data-price-zar="2500">R2,500</div>
-                    <ul>
-                        <li>Up to 50 Products</li>
-                        <li>Secure Payment Gateway</li>
-                        <li>Shopping Cart System</li>
-                        <li>Product Categories & Filters</li>
-                        <li>SEO & Google Analytics</li>
-                        <li>18 Months Free Support</li>
-                    </ul>
-                    <a href="contact.html?package=ecommerce" class="btn-outline">Get Started</a>
-                </div>
+<!-- ===== PACKAGES ===== -->
+<section class="services">
+    <div class="container">
+        <div class="section-tag">Our Packages</div>
+        <h2 class="section-title">Web Design for Every Budget</h2>
+        <p class="section-subtitle">No hidden fees, no long-term contracts. Professional websites that get results, at prices built for South African businesses.</p>
+
+        <div class="services-grid">
+            <!-- Basic 1-Page -->
+            <div class="service-card fade-in">
+                <div class="service-icon">🌐</div>
+                <h3>Basic 1-Page Website</h3>
+                <p>Sleek, single-page design perfect for startups, freelancers, and small businesses wanting a professional online presence.</p>
+                <div class="price" data-price-zar="1800">R1,800 <span class="price-suffix">once-off</span></div>
+                <ul>
+                    <li>Sleek, Single-Page Design</li>
+                    <li>Mobile Responsive Design</li>
+                    <li>Contact Form Integration</li>
+                    <li>Basic SEO Setup</li>
+                    <li>Social Media Links</li>
+                    <li>6 Months Free Support</li>
+                </ul>
+                <a href="contact.html?package=basic" class="btn-outline">Get Started <i class="fas fa-arrow-right"></i></a>
             </div>
-            
-            <div style="text-align: center; margin-top: 30px; padding: 30px; background: #f8f9fa; border-radius: 10px;">
-                <h3 style="margin-bottom: 15px;">Need something custom?</h3>
-                <p style="margin-bottom: 20px;">We also build custom web applications, membership sites, and complex platforms.</p>
-                <a href="contact.html" class="btn-primary">Request Custom Quote</a>
+
+            <!-- E-Commerce -->
+            <div class="service-card featured fade-in">
+                <div class="featured-badge">POPULAR</div>
+                <div class="service-icon">🛒</div>
+                <h3>E-Commerce Website</h3>
+                <p>Full online store with secure payment gateways, inventory management, and advanced SEO to drive sales.</p>
+                <div class="price" data-price-zar="2500">R2,500 <span class="price-suffix">once-off</span></div>
+                <ul>
+                    <li>Full Online Store Setup</li>
+                    <li>Secure Payment Gateways</li>
+                    <li>Inventory Management</li>
+                    <li>Up to 50 Products</li>
+                    <li>Advanced SEO & Analytics</li>
+                    <li>18 Months Free Support</li>
+                </ul>
+                <a href="contact.html?package=ecommerce" class="btn-outline">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Accommodation -->
+            <div class="service-card fade-in">
+                <div class="service-icon">🏨</div>
+                <h3>Accommodation Website</h3>
+                <p>Integrated booking systems, availability calendars, guest management, and local area mapping for hotels, B&Bs, and lodges.</p>
+                <div class="price" data-price-zar="2800">R2,800 <span class="price-suffix">once-off</span></div>
+                <ul>
+                    <li>Integrated Booking System</li>
+                    <li>Availability Calendars</li>
+                    <li>Guest Management System</li>
+                    <li>Local Area Mapping</li>
+                    <li>Room/Gallery Showcase</li>
+                    <li>12 Months Free Support</li>
+                </ul>
+                <a href="contact.html?package=accommodation" class="btn-outline">Get Started <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-    </section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="about" style="background: #f0f2f5; padding: 60px 0;">
-        <div class="container">
-            <h2 class="section-title">Why South African Businesses Choose Us</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">🇿🇦</div>
-                    <h3>Nationwide Coverage</h3>
-                    <p>We serve clients in every province — from Western Cape to Limpopo.</p>
-                </div>
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">⚡</div>
-                    <h3>Fast Turnaround</h3>
-                    <p>Most websites delivered within 7-14 days. Quick and efficient.</p>
-                </div>
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">📈</div>
-                    <h3>SEO-First Approach</h3>
-                    <p>Built to rank on Google from day one.</p>
-                </div>
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 15px;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">🎓</div>
-                    <h3>Student-Friendly</h3>
-                    <p>10% discount for students nationwide.</p>
-                </div>
+        <div class="cta-box fade-in">
+            <h3>Need something custom?</h3>
+            <p>We also build custom web applications, membership sites, and complex platforms tailored to your business.</p>
+            <a href="contact.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Request Custom Quote</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="about">
+    <div class="container">
+        <div class="section-tag">Why Us</div>
+        <h2 class="section-title">Why South African Businesses Choose Us</h2>
+        <p class="section-subtitle">We combine cutting-edge design with deep local knowledge to build websites that actually work for your market.</p>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🇿🇦</div>
+                <h3>Nationwide Coverage</h3>
+                <p>We serve clients in every province — from Western Cape to Limpopo. Fully remote, fully professional.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Turnaround</h3>
+                <p>Most websites delivered within 7–14 days. We quote within 2 hours of your enquiry.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📈</div>
+                <h3>SEO-First Approach</h3>
+                <p>Every site is built to rank on Google from day one. More visibility = more customers.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎓</div>
+                <h3>Student-Friendly Pricing</h3>
+                <p>10% student discount on all packages. Supporting young South African entrepreneurs.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile-First Design</h3>
+                <p>Every site is fully responsive and tested across all devices and screen sizes.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🛡️</div>
+                <h3>Ongoing Support</h3>
+                <p>Free support for 6–18 months depending on package. We don't disappear after launch.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💳</div>
+                <h3>Transparent Pricing</h3>
+                <p>Once-off fees, no monthly surprises. What you see is what you pay — nothing more.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3>Custom Designs</h3>
+                <p>No templates. Every site is uniquely designed to match your brand and goals.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DynaFrame Studios</h3>
-                    <p>Professional web design agency serving businesses across all provinces of South Africa. Basic R1800 | Accommodation R2800 | E-commerce R2500.</p>
-                    <div class="social-links">
-                        <a href="https://facebook.com/dynaframestudios" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://tiktok.com/@dynaframestudios" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://instagram.com/dynaframe.studios" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://youtube.com/@dynaframestudios" target="_blank"><i class="fab fa-youtube"></i></a>
+<!-- ===== PROCESS ===== -->
+<section class="process">
+    <div class="container">
+        <div class="section-tag">How It Works</div>
+        <h2 class="section-title">Our Simple 4-Step Process</h2>
+        <p class="section-subtitle">From enquiry to live website — we make it effortless for you.</p>
+
+        <div class="process-steps">
+            <div class="process-step fade-in">
+                <div class="step-num">1</div>
+                <h3>Free Quote</h3>
+                <p>Fill in our contact form. We'll respond within 2 hours with a tailored proposal.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="step-num">2</div>
+                <h3>Design Brief</h3>
+                <p>We gather your branding, content, and goals to plan the perfect website.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="step-num">3</div>
+                <h3>Build & Review</h3>
+                <p>We build your site and share previews for your feedback and approval.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="step-num">4</div>
+                <h3>Go Live!</h3>
+                <p>Your site launches, fully optimised and ready to bring in customers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews">
+    <div class="container">
+        <div class="section-tag">Testimonials</div>
+        <h2 class="section-title">What Our Clients Say</h2>
+
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"DynaFrame built our guesthouse website in under 2 weeks. Bookings have increased significantly since launch. Highly recommend!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">TM</div>
+                    <div>
+                        <div class="reviewer-name">Thandi M.</div>
+                        <div class="reviewer-loc">📍 KwaZulu-Natal</div>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Packages</h3>
-                    <ul>
-                        <li><a href="web-design.html">Basic 1-Page - R1,800</a></li>
-                        <li><a href="web-design.html">Accommodation - R2,800</a></li>
-                        <li><a href="web-design.html">E-Commerce - R2,500</a></li>
-                        <li><a href="contact.html">Custom Quote</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>📧 info.dynaframestudios@gmail.com</li>
-                        <li>📞 +27 75 402 4178</li>
-                        <li>📍 Midrand, South Africa</li>
-                    </ul>
+            </div>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"As a student starting my clothing brand, the student discount was a lifesaver. Professional result at an amazing price."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">KS</div>
+                    <div>
+                        <div class="reviewer-name">Kagiso S.</div>
+                        <div class="reviewer-loc">📍 Gauteng</div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DynaFrame Studios. Web Design Agency South Africa.</p>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Our e-commerce store is stunning. The team was professional, fast, and the payment integration worked perfectly from day one."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">NB</div>
+                    <div>
+                        <div class="reviewer-name">Nomsa B.</div>
+                        <div class="reviewer-loc">📍 Western Cape</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        function showCurrencyModal() { document.getElementById('currencyModal').style.display = 'flex'; }
-        function closeCurrencyModal() { document.getElementById('currencyModal').style.display = 'none'; }
-        function selectCurrency(currency) {
-            const rates = { USD: 0.054, ZAR: 1 };
-            const prices = document.querySelectorAll('[data-price-zar]');
-            prices.forEach(el => {
-                let zar = parseFloat(el.getAttribute('data-price-zar'));
-                if (currency === 'USD') { el.innerText = '$' + Math.round(zar * rates.USD); }
-                else { el.innerText = 'R' + zar.toLocaleString(); }
-            });
-            closeCurrencyModal();
-        }
-        document.querySelector('.theme-toggle')?.addEventListener('click', function() {
-            document.body.classList.toggle('light-mode');
+<!-- ===== CONTACT FORM ===== -->
+<section class="contact-form">
+    <div class="container">
+        <div class="section-tag">Contact Us</div>
+        <h2 class="section-title">Ready to Transform Your Business?</h2>
+        <p class="section-subtitle">Get in touch today. We respond within 2 hours and your first quote is completely free.</p>
+
+        <div class="form-container fade-in">
+            <form action="https://formsubmit.co/info.dynaframestudios@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Website Inquiry - DynaFrame Studios">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://dynaframestudios.co.za/thank-you.html">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" placeholder="+27 ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Province *</label>
+                        <select name="province" required>
+                            <option value="">Select province</option>
+                            <option>Gauteng</option><option>Western Cape</option><option>KwaZulu-Natal</option>
+                            <option>Eastern Cape</option><option>Free State</option><option>Limpopo</option>
+                            <option>Mpumalanga</option><option>North West</option><option>Northern Cape</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label>Service Needed *</label>
+                        <select name="service" id="service" required>
+                            <option value="">Select a package</option>
+                            <option value="basic">Basic 1-Page Website — R1,800</option>
+                            <option value="ecommerce">E-Commerce Website — R2,500</option>
+                            <option value="accommodation">Accommodation Website — R2,800</option>
+                            <option value="custom">Custom Project</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label>Tell us about your project *</label>
+                        <textarea name="message" id="message" rows="4" placeholder="What type of business do you have? What do you need your website to do?" required></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label><input type="checkbox" name="student" value="yes" style="width:auto;margin-right:8px;"> I am a student (10% discount applies)</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">
+                    <i class="fas fa-paper-plane"></i> Send Message & Get Quote
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section footer-logo">
+                <div class="logo" style="margin-bottom:0;">
+                    <div class="logo-graphic"></div>
+                    <span class="logo-text">Dyna<span>Frame</span> Studios</span>
+                </div>
+                <p class="footer-desc">Professional web design agency serving businesses across all 9 provinces of South Africa. We think "Outside" the box — and we build websites that prove it.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/dynaframestudios" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com/@dynaframestudios" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/dynaframe.studios" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@dynaframestudios" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Packages</h4>
+                <ul>
+                    <li><a href="web-design.html#basic">Basic 1-Page — R1,800</a></li>
+                    <li><a href="web-design.html#ecommerce">E-Commerce — R2,500</a></li>
+                    <li><a href="web-design.html#accommodation">Accommodation — R2,800</a></li>
+                    <li><a href="contact.html">Custom Quote</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><span>📧 info.dynaframestudios@gmail.com</span></li>
+                    <li><span>📞 +27 75 402 4178</span></li>
+                    <li><span>📍 Midrand, Gauteng, ZA</span></li>
+                    <li><a href="https://wa.me/27754024178" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 DynaFrame Studios — A subsidiary of Paladins Dynasty LLC. All rights reserved.</span>
+            <span>Basic R1800 · E-commerce R2500 · Accommodation R2800</span>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // ===== CURRENCY =====
+    let currentCurrency = localStorage.getItem('currency') || 'ZAR';
+    function showCurrencyModal() { document.getElementById('currencyModal').classList.add('active'); }
+    function closeCurrencyModal() { document.getElementById('currencyModal').classList.remove('active'); }
+    function selectCurrency(currency) {
+        currentCurrency = currency;
+        localStorage.setItem('currency', currency);
+        updatePrices();
+        closeCurrencyModal();
+        document.querySelector('.currency-toggle').textContent = currency === 'ZAR' ? '🌐 View USD' : '🌐 View ZAR';
+    }
+    function updatePrices() {
+        const rate = 0.054;
+        document.querySelectorAll('[data-price-zar]').forEach(el => {
+            const zar = parseFloat(el.getAttribute('data-price-zar'));
+            const suffix = el.querySelector('.price-suffix')?.outerHTML || '';
+            el.innerHTML = currentCurrency === 'USD'
+                ? `$${Math.round(zar * rate)} <span class="price-suffix">once-off</span>`
+                : `R${zar.toLocaleString()} <span class="price-suffix">once-off</span>`;
         });
-    </script>
+    }
+
+    // ===== DARK MODE =====
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') { document.body.classList.add('dark-mode'); themeToggle.textContent = '🌙 Dark'; }
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeToggle.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+    });
+
+    // ===== MOBILE MENU =====
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // ===== CLOSE MODAL ON OUTSIDE CLICK =====
+    document.getElementById('currencyModal').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeCurrencyModal();
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Initialize prices
+    updatePrices();
+</script>
 </body>
 </html>

@@ -3,117 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Packages | Basic R1800 | Accommodation R2800 | E-commerce R2500</title>
+    <title>Web Design Packages | Basic R1800 | E-Commerce R2500 | Accommodation R2800 | DynaFrame Studios</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" type="image/svg+xml">
-    
-    <meta name="description" content="Affordable web design packages in South Africa. Basic 1-page website R1800, Accommodation booking site R2800, E-commerce store R2500. Student discount available. Free quote.">
-    <meta name="keywords" content="web design packages South Africa, basic website R1800, accommodation website design, e-commerce R2500, affordable web design, hotel website, online store builder, DynaFrame Studios">
+    <link rel="icon" href="icon.png" type="image/png">
+    <meta name="description" content="Affordable web design packages in South Africa. Basic 1-page R1800, E-commerce R2500, Accommodation R2800. Student discount available. Free quote.">
+    <meta name="keywords" content="web design packages South Africa, basic website R1800, e-commerce R2500, accommodation website R2800, DynaFrame Studios">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <style>
-        /* Same styles as index.html */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 50px 0; }
-        .service-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
-        .price { font-size: 2rem; font-weight: 700; color: #ff6b35; margin: 15px 0; }
-        .service-card ul { text-align: left; margin: 20px 0; }
-        .service-card ul li { margin: 8px 0; list-style: none; padding-left: 25px; position: relative; }
-        .service-card ul li:before { content: "✓"; color: #ff6b35; position: absolute; left: 0; }
-        .btn-outline { display: inline-block; padding: 12px 24px; border-radius: 30px; border: 2px solid #ff6b35; color: #ff6b35; font-weight: 600; text-decoration: none; }
-        .btn-outline:hover { background: #ff6b35; color: white; }
-        .btn-primary { background: #ff6b35; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; display: inline-block; }
-        .hero { text-align: center; padding: 100px 0 60px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section-title { text-align: center; font-size: 2rem; margin: 40px 0 20px; }
-        .student-banner { background: linear-gradient(135deg, #f9a826, #ff6b35); color: white; padding: 10px 20px; border-radius: 40px; display: inline-block; margin: 15px 0; }
-        .top-bar, .navbar, .footer { /* reuse styles */ }
-        /* (Include all styling from index.html for consistency) */
-    </style>
 </head>
 <body>
-    <!-- Same top bar and navigation as index.html -->
-    <div class="top-bar" style="background:#1a1a2e;color:white;padding:12px 0;">
-        <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
-            <div><a href="mailto:info.dynaframestudios@gmail.com" style="color:white;margin-right:20px;"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
-            <a href="tel:+27754024178" style="color:white;"><i class="fas fa-phone-alt"></i> +27 75 402 4178</a></div>
-            <div><a href="#" style="color:white;margin:0 10px;"><i class="fab fa-facebook-f"></i></a><a href="#" style="color:white;margin:0 10px;"><i class="fab fa-tiktok"></i></a><a href="#" style="color:white;margin:0 10px;"><i class="fab fa-instagram"></i></a>
-            <button class="currency-toggle" onclick="showCurrencyModal()" style="background:#ff6b35;border:none;padding:6px 15px;border-radius:20px;color:white;margin-left:15px;">View USD</button></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-content">
+            <div class="contact-info-top">
+                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+                <a href="tel:+27754024178"><i class="fas fa-phone-alt"></i> +27 75 402 4178</a>
+            </div>
+            <div class="social-icons-top">
+                <a href="https://facebook.com/dynaframestudios" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/@dynaframestudios" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://instagram.com/dynaframe.studios" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <button class="currency-toggle" onclick="showCurrencyModal()">🌐 View USD</button>
+            </div>
         </div>
     </div>
-    <nav class="navbar" style="background:white;padding:15px 0;position:sticky;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-        <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="index.html" style="font-size:1.5rem;font-weight:bold;text-decoration:none;color:#1a1a2e;">Dyna<span style="color:#ff6b35;">Frame</span></a>
-            <ul style="display:flex;gap:30px;list-style:none;">
-                <li><a href="index.html" style="text-decoration:none;">Home</a></li>
-                <li><a href="web-design.html" style="text-decoration:none;color:#ff6b35;font-weight:bold;">Web Design</a></li>
-                <li><a href="contact.html" style="text-decoration:none;">Contact</a></li>
-            </ul>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-graphic"></div>
+            <span class="logo-text">Dyna<span>Frame</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="web-design.html" class="nav-link active">Web Design</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><button class="theme-toggle" id="themeToggle">☀️ Light</button></li>
+        </ul>
+        <div class="mobile-menu-toggle" id="mobileToggle">
+            <span></span><span></span><span></span>
         </div>
-    </nav>
-
-    <div id="currencyModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;justify-content:center;align-items:center;">
-        <div style="background:white;padding:30px;border-radius:20px;text-align:center;"><button onclick="closeCurrencyModal()" style="float:right;font-size:1.5rem;background:none;border:none;">×</button>
-        <h2>Choose Currency</h2><button onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button> <button onclick="selectCurrency('USD')">🇺🇸 USD</button></div>
     </div>
+</nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Web Design Packages for Every Budget</h1>
-            <p>Professional, responsive websites starting at just R1800. No hidden fees, no long-term contracts.</p>
+<!-- Currency Modal -->
+<div class="modal-overlay" id="currencyModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeCurrencyModal()">✕</button>
+        <h2>Choose Currency</h2>
+        <p>Prices will update across the whole site.</p>
+        <div class="currency-btns">
+            <button class="currency-btn" onclick="selectCurrency('ZAR')">🇿🇦 ZAR</button>
+            <button class="currency-btn" onclick="selectCurrency('USD')">🇺🇸 USD</button>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-badge" style="margin-bottom:18px;">
+            <i class="fas fa-th-large"></i> Our Packages
+        </div>
+        <h1>Web Design Packages for Every Budget</h1>
+        <p>Professional, responsive websites. No hidden fees, no long-term contracts.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
             <div class="student-banner">🎓 Students save 10% on all packages</div>
-            <div class="location-badge" style="background:#eef2ff;padding:8px 16px;border-radius:30px;display:inline-block;">🇿🇦 Nationwide Service • All South African provinces</div>
+            <div class="location-badge">🇿🇦 Nationwide service · All 9 provinces</div>
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- PACKAGES -->
+<section class="services" style="padding-top: 80px;">
     <div class="container">
         <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon" style="font-size:3rem;">🌐</div>
+
+            <!-- Basic -->
+            <div class="service-card fade-in" id="basic">
+                <div class="service-icon">🌐</div>
                 <h3>Basic 1-Page Website</h3>
-                <p>Perfect for startups, freelancers, and small businesses.</p>
-                <div class="price" data-price-zar="1800">R1,800</div>
-                <ul><li>1 Custom Page</li><li>Mobile Responsive</li><li>Contact Form</li><li>Basic SEO</li><li>6 Months Support</li></ul>
-                <a href="contact.html?package=basic" class="btn-outline">Get Started</a>
+                <p>Sleek, single-page design perfect for startups, freelancers, and small businesses that need a professional online presence fast.</p>
+                <div class="price" data-price-zar="1800">R1,800 <span class="price-suffix">once-off</span></div>
+                <ul>
+                    <li>Sleek, Single-Page Design</li>
+                    <li>Mobile Responsive</li>
+                    <li>Contact Form Integration</li>
+                    <li>Basic SEO Setup</li>
+                    <li>Social Media Links</li>
+                    <li>6 Months Free Support</li>
+                </ul>
+                <a href="contact.html?package=basic" class="btn-outline">Get Started <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service-card">
-                <div class="service-icon" style="font-size:3rem;">🏨</div>
-                <h3>Accommodation Website</h3>
-                <p>Ideal for hotels, B&Bs, guesthouses, and lodges.</p>
-                <div class="price" data-price-zar="2800">R2,800</div>
-                <ul><li>3-5 Pages (Rooms, Gallery)</li><li>Booking Inquiry System</li><li>Map Integration</li><li>Advanced SEO</li><li>12 Months Support</li></ul>
-                <a href="contact.html?package=accommodation" class="btn-outline">Get Started</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon" style="font-size:3rem;">🛒</div>
+
+            <!-- E-Commerce -->
+            <div class="service-card featured fade-in" id="ecommerce">
+                <div class="featured-badge">POPULAR</div>
+                <div class="service-icon">🛒</div>
                 <h3>E-Commerce Website</h3>
-                <p>Full-featured online store to sell products.</p>
-                <div class="price" data-price-zar="2500">R2,500</div>
-                <ul><li>Up to 50 Products</li><li>Payment Gateway</li><li>Shopping Cart</li><li>SEO & Analytics</li><li>18 Months Support</li></ul>
-                <a href="contact.html?package=ecommerce" class="btn-outline">Get Started</a>
+                <p>Full online store with secure payment gateways, inventory management, and advanced SEO built to convert visitors into buyers.</p>
+                <div class="price" data-price-zar="2500">R2,500 <span class="price-suffix">once-off</span></div>
+                <ul>
+                    <li>Full Online Store Setup</li>
+                    <li>Secure Payment Gateways</li>
+                    <li>Inventory Management</li>
+                    <li>Up to 50 Products</li>
+                    <li>Shopping Cart System</li>
+                    <li>Advanced SEO & Analytics</li>
+                    <li>18 Months Free Support</li>
+                </ul>
+                <a href="contact.html?package=ecommerce" class="btn-outline">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Accommodation -->
+            <div class="service-card fade-in" id="accommodation">
+                <div class="service-icon">🏨</div>
+                <h3>Accommodation Website</h3>
+                <p>Integrated booking systems, availability calendars, and guest management — ideal for hotels, B&Bs, guesthouses, and lodges.</p>
+                <div class="price" data-price-zar="2800">R2,800 <span class="price-suffix">once-off</span></div>
+                <ul>
+                    <li>Integrated Booking System</li>
+                    <li>Availability Calendars</li>
+                    <li>Guest Management System</li>
+                    <li>Local Area Mapping</li>
+                    <li>Room & Gallery Showcase</li>
+                    <li>Advanced SEO</li>
+                    <li>12 Months Free Support</li>
+                </ul>
+                <a href="contact.html?package=accommodation" class="btn-outline">Get Started <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div style="text-align:center;margin:50px 0;padding:30px;background:#f8f9fa;border-radius:15px;">
+
+        <div class="cta-box fade-in" style="margin-top: 50px;">
             <h3>Need something custom?</h3>
-            <a href="contact.html" class="btn-primary">Request Custom Quote</a>
+            <p>We build custom web applications, membership sites, and complex platforms tailored to your business needs.</p>
+            <a href="contact.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Request Custom Quote</a>
         </div>
     </div>
+</section>
 
-    <footer style="background:#1a1a2e;color:white;padding:40px 0 20px;margin-top:60px;">
-        <div class="container" style="text-align:center;">&copy; 2025 DynaFrame Studios. Web Design Packages: Basic R1800 | Accommodation R2800 | E-commerce R2500</div>
-    </footer>
+<!-- COMPARISON TABLE -->
+<section class="about">
+    <div class="container">
+        <div class="section-tag">Compare</div>
+        <h2 class="section-title">Package Comparison</h2>
+        <p class="section-subtitle">Not sure which package is right for you? Here's a quick breakdown.</p>
 
-    <script>
-        function showCurrencyModal() { document.getElementById('currencyModal').style.display = 'flex'; }
-        function closeCurrencyModal() { document.getElementById('currencyModal').style.display = 'none'; }
-        function selectCurrency(currency) {
-            const rates = { USD: 0.054, ZAR: 1 };
-            document.querySelectorAll('[data-price-zar]').forEach(el => {
-                let zar = parseFloat(el.getAttribute('data-price-zar'));
-                if (currency === 'USD') el.innerText = '$' + Math.round(zar * rates.USD);
-                else el.innerText = 'R' + zar.toLocaleString();
-            });
-            closeCurrencyModal();
-        }
-    </script>
+        <div style="overflow-x:auto; margin-top: 40px;">
+            <table style="width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:0.93rem;">
+                <thead>
+                    <tr style="background:var(--navy);color:white;">
+                        <th style="padding:16px 20px;text-align:left;border-radius:12px 0 0 0;font-family:var(--font-display);">Feature</th>
+                        <th style="padding:16px 20px;text-align:center;font-family:var(--font-display);">Basic<br><span style="color:var(--orange);font-size:1.1rem;">R1,800</span></th>
+                        <th style="padding:16px 20px;text-align:center;background:var(--orange);font-family:var(--font-display);">E-Commerce<br><span style="font-size:1.1rem;">R2,500</span></th>
+                        <th style="padding:16px 20px;text-align:center;border-radius:0 12px 0 0;font-family:var(--font-display);">Accommodation<br><span style="color:var(--orange);font-size:1.1rem;">R2,800</span></th>
+                    </tr>
+                </thead>
+                <tbody id="compTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section footer-logo">
+                <div class="logo" style="margin-bottom:0;">
+                    <div class="logo-graphic"></div>
+                    <span class="logo-text">Dyna<span>Frame</span> Studios</span>
+                </div>
+                <p class="footer-desc">Professional web design agency serving businesses across all 9 provinces of South Africa. We think "Outside" the box.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/dynaframestudios" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com/@dynaframestudios" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/dynaframe.studios" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@dynaframestudios" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Packages</h4>
+                <ul>
+                    <li><a href="#basic">Basic 1-Page — R1,800</a></li>
+                    <li><a href="#ecommerce">E-Commerce — R2,500</a></li>
+                    <li><a href="#accommodation">Accommodation — R2,800</a></li>
+                    <li><a href="contact.html">Custom Quote</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><span>📧 info.dynaframestudios@gmail.com</span></li>
+                    <li><span>📞 +27 75 402 4178</span></li>
+                    <li><span>📍 Midrand, Gauteng, ZA</span></li>
+                    <li><a href="https://wa.me/27754024178" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 DynaFrame Studios — A subsidiary of Paladins Dynasty LLC. All rights reserved.</span>
+            <span>Basic R1800 · E-commerce R2500 · Accommodation R2800</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let currentCurrency = localStorage.getItem('currency') || 'ZAR';
+    function showCurrencyModal() { document.getElementById('currencyModal').classList.add('active'); }
+    function closeCurrencyModal() { document.getElementById('currencyModal').classList.remove('active'); }
+    function selectCurrency(currency) {
+        currentCurrency = currency;
+        localStorage.setItem('currency', currency);
+        updatePrices();
+        closeCurrencyModal();
+        document.querySelector('.currency-toggle').textContent = currency === 'ZAR' ? '🌐 View USD' : '🌐 View ZAR';
+    }
+    function updatePrices() {
+        const rate = 0.054;
+        document.querySelectorAll('[data-price-zar]').forEach(el => {
+            const zar = parseFloat(el.getAttribute('data-price-zar'));
+            el.innerHTML = currentCurrency === 'USD'
+                ? `$${Math.round(zar * rate)} <span class="price-suffix">once-off</span>`
+                : `R${zar.toLocaleString()} <span class="price-suffix">once-off</span>`;
+        });
+    }
+
+    const themeToggle = document.getElementById('themeToggle');
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); themeToggle.textContent = '🌙 Dark'; }
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeToggle.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+    });
+
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+    document.getElementById('currencyModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeCurrencyModal(); });
+
+    // Comparison table
+    const rows = [
+        ['Mobile Responsive', '✓', '✓', '✓'],
+        ['Custom Design', '✓', '✓', '✓'],
+        ['Basic SEO', '✓', '✓', '✓'],
+        ['Contact Form', '✓', '✓', '✓'],
+        ['Social Media Links', '✓', '✓', '✓'],
+        ['Multiple Pages', '✗', '✓', '✓'],
+        ['Online Store / Products', '✗', '✓', '✗'],
+        ['Payment Gateway', '✗', '✓', '✗'],
+        ['Booking System', '✗', '✗', '✓'],
+        ['Availability Calendar', '✗', '✗', '✓'],
+        ['Guest Management', '✗', '✗', '✓'],
+        ['Map Integration', '✗', '✗', '✓'],
+        ['Advanced SEO', '✗', '✓', '✓'],
+        ['Support Period', '6 months', '18 months', '12 months'],
+    ];
+    const tbody = document.getElementById('compTable');
+    rows.forEach((r, i) => {
+        const tr = document.createElement('tr');
+        tr.style.cssText = `background:${i%2===0?'var(--off-white)':'var(--white)'};`;
+        tr.innerHTML = r.map((cell, ci) => {
+            const align = ci === 0 ? 'left' : 'center';
+            const color = cell === '✓' ? 'color:var(--orange);font-weight:700;font-size:1.1rem;' : cell === '✗' ? 'color:#ccc;font-size:1.1rem;' : '';
+            const bg = ci === 2 ? 'background:rgba(255,107,53,0.06);' : '';
+            return `<td style="padding:13px 20px;text-align:${align};${color}${bg}border-bottom:1px solid var(--border);">${cell}</td>`;
+        }).join('');
+        tbody.appendChild(tr);
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    updatePrices();
+</script>
 </body>
 </html>

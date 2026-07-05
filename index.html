@@ -1,592 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DynaFrame Studios | Web Design, PC Builds & Tech Repairs South Africa</title>
-    <meta name="description" content="All-in-one tech solutions: Professional web design services worldwide, custom PC builds in South Africa, and phone/computer repairs in Midrand & Braamfontein. Student discounts available.">
-    <meta name="keywords" content="web design company, custom PC builds South Africa, phone repairs Midrand, computer repair Braamfontein, affordable web design, gaming PC builds RSA, tech solutions South Africa">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-orange: #FF6B35;
-            --secondary-orange: #FF8E53;
-            --white: #FFFFFF;
-            --black: #222222;
-            --dark-gray: #333333;
-            --light-gray: #F5F5F5;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background-color: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-graphic {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
-            border-radius: 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
-        }
-
-        .logo-graphic::before {
-            content: "";
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            border: 2px solid var(--white);
-            border-radius: 5px;
-            transform: rotate(45deg);
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--black);
-            letter-spacing: -0.02em;
-        }
-
-        .logo-text span {
-            color: var(--primary-orange);
-        }
-
-        .navbar {
-            background: var(--white);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--black);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-orange);
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 150px 0 100px;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .student-banner {
-            background: linear-gradient(135deg, #FF6B35, #FF8E53);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 40px;
-            margin: 20px auto;
-            text-align: center;
-            font-weight: 600;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-        }
-
-        .location-badge {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(8px);
-            color: var(--white);
-            padding: 8px 18px;
-            border-radius: 40px;
-            display: inline-block;
-            margin: 10px 0;
-            font-size: 0.9rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-            margin: 5px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background: var(--primary-orange);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-orange);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--black);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary-orange);
-            border: 2px solid var(--primary-orange);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-orange);
-            color: var(--white);
-        }
-
-        .services {
-            padding: 80px 0;
-            background: var(--light-gray);
-        }
-
-        .services h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--dark-gray);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-orange);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            color: var(--dark-gray);
-            margin-bottom: 15px;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .service-card li {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .student-offer {
-            color: var(--primary-orange);
-            font-weight: 700;
-        }
-
-        .about {
-            padding: 80px 0;
-        }
-
-        .about-content h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            color: var(--dark-gray);
-        }
-
-        .about-content p {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-        }
-
-        .location-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .location-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 16px;
-            border-left: 4px solid var(--primary-orange);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .location-card h4 {
-            color: var(--dark-gray);
-            margin-bottom: 10px;
-        }
-
-        .reviews {
-            padding: 80px 0;
-            background: var(--light-gray);
-        }
-
-        .reviews h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--dark-gray);
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-
-        .review-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: var(--dark-gray);
-        }
-
-        .review-author {
-            font-weight: 600;
-            color: var(--primary-orange);
-        }
-
-        .footer {
-            background: var(--dark-gray);
-            color: var(--white);
-            padding: 50px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: var(--primary-orange);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-orange);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DynaFrame Studios | Web Design, PC Builds & Tech Solutions</title>
+    <meta name="description" content="Professional web design, custom PC builds, and tech solutions in South Africa. Affordable packages with upsell options." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+	<link rel="icon" href="logo.jpeg" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <nav class="navbar">
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+                <a href="tel:+27754024178"><i class="fas fa-phone"></i> +27 75 402 4178</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" class="social-icon-top" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" class="social-icon-top" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <button class="theme-toggle-top" id="themeToggleTop"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+   <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-graphic"></div>
-                <div class="logo-text">Dyna<span>Frame</span></div>
-            </a>
-            <ul class="nav-menu">
+           <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="nav-logo" />
+    <span class="logo-text">Dynaframe<span>Studios</span></span>
+</a>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="web-design.html" class="nav-link">Web Design</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- ===== HERO ===== -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Your All-in-One Tech Solution in South Africa</h1>
-                <p>Professional web design services worldwide, custom PC builds across South Africa, and reliable tech repairs in Midrand & Braamfontein</p>
-                
-                <div class="student-banner">
-                    <i class="fas fa-graduation-cap"></i> Students: 10% OFF all services with valid student ID
-                </div>
-                
-                <div class="location-badge">
-                    <i class="fas fa-map-marker-alt"></i> Serving: Midrand • Braamfontein • Johannesburg • South Africa
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="web-design.html" class="btn btn-primary">Get Website Quote</a>
-                    <a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
-                </div>
+        <div class="container hero-content">
+            <h1>Your All-in-One <span class="accent">Tech Solution</span></h1>
+            <p>Professional web design, custom PC builds, and tech repairs in South Africa. Affordable packages with flexible upsell options.</p>
+            <div class="hero-buttons">
+                <a href="web-design.html" class="btn btn-primary"><i class="fas fa-code"></i> Build Your Website</a>
+                <a href="pc-builds.html" class="btn btn-secondary"><i class="fas fa-microchip"></i> Build Your PC</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Projects Delivered</span></div>
+                <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Client Satisfaction</span></div>
+                <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Support</span></div>
             </div>
         </div>
     </section>
 
-    <section class="services">
+    <!-- ===== SERVICES ===== -->
+    <section class="services" style="background:var(--section-bg);">
         <div class="container">
-            <h2>Complete Technology Services</h2>
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle">From stunning websites to powerful PCs, we've got you covered.</p>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                <div class="service-card fade-in">
+                    <div class="icon"><i class="fas fa-code"></i></div>
                     <h3>Web Design & Development</h3>
-                    <p>Responsive websites for businesses worldwide. Affordable packages starting at <strong>R1,800</strong>.</p>
-                    <ul>
-                        <li>1-Page Website: <strong>R1,800</strong></li>
-                        <li>Accommodation Site: <strong>R2,800</strong></li>
-                        <li>E-commerce: <strong>R2,500</strong></li>
-                    </ul>
+                    <p>Responsive, SEO-friendly websites. Choose a base package and add features with our upsell system.</p>
                     <a href="web-design.html" class="btn btn-outline">Explore Packages</a>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Device Repairs</h3>
-                    <p>Fast, reliable phone repairs in Midrand and computer repair in Braamfontein. Same-day service.</p>
-                    <ul>
-                        <li>iPhone Screen Replacement</li>
-                        <li>Laptop Repair Services</li>
-                        <li>Virus Removal & Software Fixes</li>
-                        <li class="student-offer"><i class="fas fa-graduation-cap"></i> Students: 10% OFF Repairs</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Schedule Repair</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                <div class="service-card fade-in">
+                    <div class="icon"><i class="fas fa-microchip"></i></div>
                     <h3>Custom PC Builds</h3>
-                    <p>Custom gaming PC builds in South Africa for gamers, professionals, and businesses.</p>
-                    <ul>
-                        <li>Gaming Rigs & Workstations</li>
-                        <li>Budget Computer Builds</li>
-                        <li>Corporate PC Solutions</li>
-                        <li class="student-offer"><i class="fas fa-graduation-cap"></i> Students: 10% OFF PC Builds</li>
-                    </ul>
-                    <a href="pc-builds.html" class="btn btn-outline">Get PC Build Quote</a>
+                    <p>Gaming, workstation, or budget builds. Select Intel or AMD and we'll help you configure the perfect rig.</p>
+                    <a href="pc-builds.html" class="btn btn-outline">Configure Your PC</a>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="icon"><i class="fas fa-tools"></i></div>
+                    <h3>Tech Repairs</h3>
+                    <p>Phone repairs in Midrand, computer repairs in Braamfontein. Fast, reliable, and affordable.</p>
+                    <a href="contact.html" class="btn btn-outline">Get a Repair</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about">
+    <!-- ===== PORTFOLIO PREVIEW ===== -->
+    <section class="portfolio-preview">
         <div class="container">
-            <div class="about-content">
-                <h2>Your Local Tech Experts in Gauteng</h2>
-                <p>DynaFrame Studios is your trusted tech partner across South Africa. We specialize in complete tech solutions serving businesses and the student community.</p>
-                <div class="location-highlights">
-                    <div class="location-card">
-                        <h4><i class="fas fa-globe"></i> Web Design Services</h4>
-                        <p>Professional website development for clients worldwide. Responsive designs that work on all devices.</p>
-                    </div>
-                    <div class="location-card">
-                        <h4><i class="fas fa-map-pin"></i> Midrand Repairs</h4>
-                        <p>Convenient iPhone repair and computer virus removal in Midrand.</p>
-                    </div>
-                    <div class="location-card">
-                        <h4><i class="fas fa-university"></i> Braamfontein Services</h4>
-                        <p>Student-friendly phone repair near Wits University.</p>
-                    </div>
-                    <div class="location-card">
-                        <h4><i class="fas fa-desktop"></i> PC Builds RSA</h4>
-                        <p>Custom gaming PC builds with locally sourced components.</p>
-                    </div>
-                </div>
+            <div class="section-tag">Our Work</div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A glimpse at what we've built for our clients.</p>
+            <div class="portfolio-preview-grid">
+                <a href="portfolio.html#kayberg" class="portfolio-preview-item fade-in"><i class="fas fa-industry"></i><span>Kayberg Enterprises</span></a>
+                <a href="portfolio.html#luanda" class="portfolio-preview-item fade-in"><i class="fas fa-store"></i><span>Luanda Street</span></a>
+                <a href="portfolio.html#salefu" class="portfolio-preview-item fade-in"><i class="fas fa-seedling"></i><span>Salefu Irrigation</span></a>
+                <a href="portfolio.html#khumo" class="portfolio-preview-item fade-in"><i class="fas fa-ambulance"></i><span>Khumo EMS</span></a>
+                <a href="portfolio.html#nyco" class="portfolio-preview-item fade-in"><i class="fas fa-headphones"></i><span>Haus of NYCO</span></a>
+                <a href="portfolio.html#sotomori" class="portfolio-preview-item fade-in"><i class="fas fa-paint-brush"></i><span>Sotomori</span></a>
+                <a href="portfolio.html#handbags" class="portfolio-preview-item fade-in"><i class="fas fa-shopping-bag"></i><span>Exclusive Handbags</span></a>
+            </div>
+            <div style="text-align:center;margin-top:30px;">
+                <a href="portfolio.html" class="btn btn-primary">View Full Portfolio <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="reviews">
+    <!-- ===== REVIEWS ===== -->
+    <section style="background:var(--section-bg);">
         <div class="container">
-            <h2>What Our Clients Say</h2>
+            <div class="section-tag">Testimonials</div>
+            <h2 class="section-title">What Our Clients Say</h2>
             <div class="reviews-grid">
-                <div class="review-card">
-                    <p class="review-text">"Amazing web design company! My business website looks professional and ranks well on Google. Affordable and reliable."</p>
-                    <p class="review-author">Sarah M.</p>
-                    <p class="review-location">Midrand Business Owner</p>
+                <div class="review-card fade-in">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"DynaFrame built a stunning website for my business. The upsell system made it easy to add exactly what I needed."</p>
+                    <div class="reviewer"><div class="reviewer-avatar">SM</div><div><div class="reviewer-name">Sarah M.</div><div class="reviewer-loc">Midrand</div></div></div>
                 </div>
-                <div class="review-card">
-                    <p class="review-text">"Fast phone repair in Braamfontein. As a student, the 10% discount made it affordable. Great service near Wits!"</p>
-                    <p class="review-author">Nyamande T.</p>
-                    <p class="review-location">Wits University Student</p>
+                <div class="review-card fade-in">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"My custom gaming PC is a beast! The consultation process was smooth and the build quality is top-notch."</p>
+                    <div class="reviewer"><div class="reviewer-avatar">TM</div><div><div class="reviewer-name">Thabo M.</div><div class="reviewer-loc">Johannesburg</div></div></div>
                 </div>
-                <div class="review-card">
-                    <p class="review-text">"Incredible custom gaming PC build! They helped me choose the right components and built a beast for gaming and work."</p>
-                    <p class="review-author">Mfingwana S.</p>
-                    <p class="review-location">Johannesburg Gamer</p>
+                <div class="review-card fade-in">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Fast and reliable phone repair in Braamfontein. They fixed my screen in under an hour. Highly recommended!"</p>
+                    <div class="reviewer"><div class="reviewer-avatar">NP</div><div><div class="reviewer-name">Nompilo P.</div><div class="reviewer-loc">Braamfontein</div></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- ===== FOOTER ===== -->
+     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DynaFrame Studios</h3>
-                    <p>Your complete tech solutions partner for web design, custom PC builds, and device repairs in South Africa.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                   <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="footer-logo" />
+    <span class="logo-text">DynaFrame<span>Studios</span></span>
+                    </a>
+                    <p>Your trusted tech partner in South Africa. Web design, PC builds, and device repairs with a focus on quality and affordability.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Our Services</h3>
+                <div class="footer-col">
+                    <h4>Services</h4>
                     <ul>
                         <li><a href="web-design.html">Web Design</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="pc-builds.html">PC Builds</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Tech Repairs</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Service Areas</h3>
-                    <p><i class="fas fa-wrench"></i> Repairs: Midrand & Braamfontein</p>
-                    <p><i class="fas fa-microchip"></i> PC Builds: South Africa Wide</p>
-                    <p><i class="fas fa-code"></i> Web Design: Global Service</p>
-                    <p><i class="fas fa-graduation-cap"></i> Student Discounts Available</p>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope" style="width:18px;"></i> Email Us</a></li>
+                        <li><a href="tel:+27754024178"><i class="fas fa-phone" style="width:18px;"></i> +27 75 402 4178</a></li>
+                        <li><span><i class="fas fa-map-marker-alt" style="width:18px;"></i> Midrand &amp; Braamfontein</span></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</p>
+                <span>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</span>
+                <span>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </span>
             </div>
         </div>
     </footer>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebDesigner",
-          "name": "DynaFrame Studios",
-          "description": "Professional web design and development services",
-          "areaServed": "Worldwide"
-        },
-        {
-          "@type": "LocalBusiness",
-          "name": "DynaFrame Studios - Tech Repairs",
-          "address": {
-            "@type": "PostalAddress", 
-            "addressLocality": ["Midrand", "Braamfontein"],
-            "addressRegion": "Gauteng",
-            "addressCountry": "South Africa"
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ===== DARK / LIGHT MODE =====
+        (function() {
+            const toggleBtn = document.getElementById('themeToggleTop');
+            const body = document.body;
 
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/68ec91b77e32cc195255b3de/1j7e1idgv';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+            // Check saved theme
+            const saved = localStorage.getItem('df-theme');
+            if (saved === 'dark') {
+                body.classList.add('dark-mode');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+            } else {
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
+            }
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function() {
+                    body.classList.toggle('dark-mode');
+                    const isDark = body.classList.contains('dark-mode');
+                    localStorage.setItem('df-theme', isDark ? 'dark' : 'light');
+                    toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light' :
+                        '<i class="fas fa-moon"></i> Dark';
+                });
+            }
+        })();
+
+        // ===== MOBILE BURGER MENU =====
+        (function() {
+            const toggle = document.getElementById('mobileToggle');
+            const menu = document.getElementById('navMenu');
+
+            if (toggle && menu) {
+                toggle.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+
+                // Close on link click
+                menu.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.remove('active');
+                    });
+                });
+
+                // Close on outside click
+                document.addEventListener('click', function(e) {
+                    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                        menu.classList.remove('active');
+                    }
+                });
+            }
+        })();
+
+        // ===== SCROLL REVEAL (Fade In) =====
+        (function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        })();
+
+        // ===== NAVBAR ACTIVE LINK =====
+        (function() {
+            const current = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === current) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        })();
     </script>
 </body>
 </html>

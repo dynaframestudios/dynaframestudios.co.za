@@ -1,99 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom PC Builds South Africa | Gaming & Workstation Computers | Midrand & Braamfontein</title>
-    <meta name="description" content="Professional custom PC building services in South Africa. Gaming PCs, workstations, and budget builds in Midrand and Braamfontein. Student discounts and free setup.">
-    <meta name="keywords" content="custom pc builds south africa, gaming pc builds rsa, pc assembly service johannesburg, computer builds gauteng, workstation pc south africa, budget gaming computer south africa">
-    <style>
-        :root {
-            --primary-orange: #FF6B35;
-            --secondary-orange: #FF8E53;
-            --white: #FFFFFF;
-            --black: #222222;
-            --dark-gray: #333333;
-            --light-gray: #F5F5F5;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: var(--black); background-color: var(--white); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-graphic { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%); border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3); }
-        .logo-graphic::before { content: ""; position: absolute; width: 25px; height: 25px; border: 3px solid var(--white); border-radius: 4px; transform: rotate(45deg); }
-        .logo-graphic::after { content: ""; position: absolute; width: 8px; height: 8px; background: var(--white); border-radius: 50%; bottom: 8px; right: 8px; }
-        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--black); }
-        .logo-text span { color: var(--primary-orange); }
-        .navbar { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-link { text-decoration: none; color: var(--black); font-weight: 500; transition: color 0.3s; }
-        .nav-link:hover, .nav-link.active { color: var(--primary-orange); }
-        
-        .page-hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; color: var(--white); padding: 150px 0 100px; text-align: center; margin-top: 70px; }
-        .page-hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .student-banner { background: linear-gradient(135deg, #FF6B35, #FF8E53); color: white; padding: 12px 20px; border-radius: 8px; margin: 15px 0; text-align: center; font-weight: 600; box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3); }
-        .location-badge { background: var(--light-gray); color: var(--black); padding: 8px 16px; border-radius: 20px; display: inline-block; margin: 10px 0; font-size: 0.9rem; }
-        
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s; margin: 5px; }
-        .btn-primary { background: var(--primary-orange); color: var(--white); }
-        .btn-primary:hover { background: var(--secondary-orange); transform: translateY(-2px); }
-        
-        .build-types { padding: 80px 0; }
-        .build-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .build-card { background: var(--white); padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid var(--primary-orange); }
-        .build-icon { font-size: 3rem; margin-bottom: 20px; }
-        
-        .build-form { padding: 80px 0; background: var(--light-gray); }
-        .form-container { max-width: 600px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
-        .form-group textarea { height: 120px; resize: vertical; }
-        
-        .footer { background: var(--dark-gray); color: var(--white); padding: 50px 0 20px; margin-top: 50px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px; }
-        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .page-hero h1 { font-size: 2rem; }
-            .form-container { padding: 20px; }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom PC Builds | DynaFrame Studios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="logo.jpeg" type="image/png" />
 </head>
 <body>
-    <nav class="navbar">
+    <!-- TOP BAR & NAVBAR (copy from index) -->
+     <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+                <a href="tel:+27754024178"><i class="fas fa-phone"></i> +27 75 402 4178</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" class="social-icon-top" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" class="social-icon-top" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <button class="theme-toggle-top" id="themeToggleTop"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-graphic"></div>
-                <div class="logo-text">Dyna<span>Frame</span></div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
+           <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="nav-logo" />
+    <span class="logo-text">Dynaframe<span>Studios</span></span>
+</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="web-design.html" class="nav-link">Web Design</a></li>
-                <li><a href="repairs.html" class="nav-link">Repairs</a></li>
-                <li><a href="pc-builds.html" class="nav-link active">PC Builds</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
-
+    <!-- PAGE HERO -->
     <section class="page-hero">
-        <div class="container">
-            <h1>Custom PC Build Services South Africa</h1>
-            <p><strong>Where to buy custom gaming PC in South Africa?</strong> Professional <strong>PC assembly service in Johannesburg</strong> and surrounding areas</p>
-            <div class="student-banner">
-                🎓 <strong>Students: 10% OFF + Free Setup</strong> - Perfect for Wits University students in Braamfontein!
-            </div>
-            <div class="location-badge">
-                🖥️ Serving: South Africa Wide • Midrand • Braamfontein • Johannesburg • Pretoria
-            </div>
-        </div>
+        <div class="container"><h1>Custom PC Builds</h1><p>Select your platform, then contact us for a personalised quote.</p></div>
     </section>
-
-    <section class="build-types">
+	
+	  <section class="build-types">
         <div class="container">
             <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px;">Custom PC Build Packages</h2>
             <p style="text-align: center; max-width: 600px; margin: 0 auto 50px; font-size: 1.1rem;"><strong>How much does a gaming computer cost in RSA?</strong> We offer custom builds for every budget and purpose</p>
@@ -147,142 +105,180 @@
         </div>
     </section>
 
-    <section class="build-form">
+    <!-- PC BUILDER -->
+    <section style="padding:60px 0;background:var(--section-bg);">
         <div class="container">
-            <div class="form-container">
-                <h2 style="text-align: center; margin-bottom: 30px;">Schedule Your PC Build Consultation</h2>
-                <p style="text-align: center; margin-bottom: 30px; color: var(--dark-gray);"><strong>Custom PC building service South Africa</strong> - Get the perfect computer for your needs and budget</p>
-                <form id="buildForm" action="https://formsubmit.co/info.dynaframestudio@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="New PC Build Consultation - DynaFrame Studios">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://dynaframe-studios.surge.sh/thank-you.html">
-                    
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="location">Your Location in South Africa *</label>
-                        <select id="location" name="location" required>
-                            <option value="">Select Location</option>
-                            <option value="midrand">Midrand</option>
-                            <option value="braamfontein">Braamfontein</option>
-                            <option value="johannesburg">Johannesburg</option>
-                            <option value="pretoria">Pretoria</option>
-                            <option value="other-gauteng">Other Gauteng</option>
-                            <option value="other-sa">Other South Africa</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="buildType">PC Build Type *</label>
-                        <select id="buildType" name="buildType" required>
-                            <option value="">Select Build Type</option>
-                            <option value="gaming">Gaming PC Build</option>
-                            <option value="workstation">Workstation PC</option>
-                            <option value="budget">Budget Computer</option>
-                            <option value="custom">Custom Build (Specify below)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="budget">Budget Range (ZAR) *</label>
-                        <select id="budget" name="budget" required>
-                            <option value="">Select Budget</option>
-                            <option value="5000-10000">R5,000 - R10,000</option>
-                            <option value="10000-20000">R10,000 - R20,000</option>
-                            <option value="20000-30000">R20,000 - R30,000</option>
-                            <option value="30000+">R30,000+ Custom Build</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="requirements">Specific PC Requirements</label>
-                        <textarea id="requirements" name="requirements" placeholder="Any specific components, software needs, gaming requirements, or special features needed..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="student" value="yes"> I am a student (10% discount + free setup included)
-                        </label>
-                    </div>
+            <div class="upsell-container" style="max-width:700px;margin:0 auto;background:var(--card-bg);border-radius:var(--radius-lg);padding:40px 48px;box-shadow:var(--shadow-lg);border:1.5px solid var(--border);">
+                <h2 style="font-size:1.6rem;margin-bottom:6px;">Choose Your Platform</h2>
+                <p style="color:var(--text-secondary);margin-bottom:20px;">Tell us your preference and we'll help you configure the perfect build.</p>
 
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="urgent" value="yes"> I need this PC build urgently
-                        </label>
+                <div class="pc-selector" id="cpuSelector">
+                    <button class="pill active" data-cpu="intel">Intel</button>
+                    <button class="pill" data-cpu="amd">AMD</button>
+                </div>
+
+                <div class="pc-gen-select">
+                    <label style="font-weight:600;display:block;margin-bottom:6px;">Select Generation / Series</label>
+                    <select id="cpuGen">
+                        <option value="12th Gen Intel Core">12th Gen Intel Core</option>
+                        <option value="13th Gen Intel Core">13th Gen Intel Core</option>
+                        <option value="14th Gen Intel Core">14th Gen Intel Core</option>
+                        <option value="AMD Ryzen 5000">AMD Ryzen 5000</option>
+                        <option value="AMD Ryzen 7000">AMD Ryzen 7000</option>
+                        <option value="AMD Ryzen 9000">AMD Ryzen 9000</option>
+                    </select>
+                </div>
+
+                <div style="margin:24px 0;">
+                    <p style="font-weight:600;">Ready to build? Contact us for a free consultation:</p>
+                    <div class="pc-contact-btns">
+                        <a href="mailto:info.dynaframestudios@gmail.com?subject=PC%20Build%20Consultation" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Us</a>
+                        <a href="https://wa.me/27754024178?text=Hi%2C%20I%27d%20like%20a%20PC%20build%20consultation%20%28Intel%2FAMD%29" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Get PC Build Quote & Consultation</button>
-                </form>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-secondary);">We'll get back to you within 2 hours with component recommendations and pricing.</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- FOOTER -->
+     <!-- ===== FOOTER ===== -->
+     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DynaFrame Studios PC Builds</h3>
-                    <p>Professional <strong>custom PC building services across South Africa</strong>. Quality builds for gaming, work, and study.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                   <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="footer-logo" />
+    <span class="logo-text">DynaFrame<span>Studios</span></span>
+                    </a>
+                    <p>Your trusted tech partner in South Africa. Web design, PC builds, and device repairs with a focus on quality and affordability.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>PC Build Services</h3>
+                <div class="footer-col">
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="pc-builds.html" style="color: var(--white);">Gaming PC Builds RSA</a></li>
-                        <li><a href="pc-builds.html" style="color: var(--white);">Workstation Computers</a></li>
-                        <li><a href="pc-builds.html" style="color: var(--white);">Budget PC Solutions</a></li>
-                        <li><a href="pc-builds.html" style="color: var(--white);">Custom Build Consultations</a></li>
+                        <li><a href="web-design.html">Web Design</a></li>
+                        <li><a href="pc-builds.html">PC Builds</a></li>
+                        <li><a href="contact.html">Tech Repairs</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Service Areas</h3>
-                    <p>🖥️ <strong>PC Builds:</strong> South Africa Wide</p>
-                    <p>📍 <strong>Consultations:</strong> Midrand & Braamfontein</p>
-                    <p>🎓 <strong>Student Discounts</strong> Available Nationwide</p>
-                    <p>🚚 <strong>Delivery Options</strong> Across RSA</p>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope" style="width:18px;"></i> Email Us</a></li>
+                        <li><a href="tel:+27754024178"><i class="fas fa-phone" style="width:18px;"></i> +27 75 402 4178</a></li>
+                        <li><span><i class="fas fa-map-marker-alt" style="width:18px;"></i> Midrand &amp; Braamfontein</span></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</p>
+                <span>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</span>
+                <span>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </span>
             </div>
         </div>
     </footer>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness", 
-      "name": "DynaFrame Studios - PC Builds",
-      "description": "Custom PC building services throughout South Africa",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": ["Midrand", "Braamfontein"],
-        "addressRegion": "Gauteng",
-        "addressCountry": "South Africa"
-      },
-      "areaServed": "South Africa",
-      "serviceType": ["PC Building", "Computer Assembly", "Custom Computers", "Gaming PC Builds"]
+<script>
+  // Dark mode toggle
+  (function() {
+    const toggleBtn = document.getElementById('themeToggleTop');
+    const body = document.body;
+    const saved = localStorage.getItem('df-theme');
+    if (saved === 'dark') {
+      body.classList.add('dark-mode');
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+    } else {
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
     }
-    </script>
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('df-theme', isDark ? 'dark' : 'light');
+        toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light' : '<i class="fas fa-moon"></i> Dark';
+      });
+    }
+  })();
+
+  // Mobile menu toggle
+  (function() {
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        menu.classList.toggle('active');
+      });
+      menu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => menu.classList.remove('active'));
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          menu.classList.remove('active');
+        }
+      });
+    }
+  })();
+
+  // Scroll reveal (fade-in)
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  })();
+
+  // Active nav link highlight
+  (function() {
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === current) link.classList.add('active');
+      else link.classList.remove('active');
+    });
+  })();
+</script>
 
     <script>
-        document.getElementById('buildForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your PC build consultation has been scheduled. We will contact you within 24 hours with component recommendations and pricing.');
-            this.submit();
+        // CPU selector toggle
+        document.querySelectorAll('.pc-selector .pill').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.pc-selector .pill').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Optionally update the dropdown options based on selection
+                const cpu = this.dataset.cpu;
+                const genSelect = document.getElementById('cpuGen');
+                if (cpu === 'intel') {
+                    genSelect.innerHTML = `
+                        <option value="12th Gen Intel Core">12th Gen Intel Core</option>
+                        <option value="13th Gen Intel Core">13th Gen Intel Core</option>
+                        <option value="14th Gen Intel Core">14th Gen Intel Core</option>
+                    `;
+                } else {
+                    genSelect.innerHTML = `
+                        <option value="AMD Ryzen 5000">AMD Ryzen 5000</option>
+                        <option value="AMD Ryzen 7000">AMD Ryzen 7000</option>
+                        <option value="AMD Ryzen 9000">AMD Ryzen 9000</option>
+                    `;
+                }
+            });
         });
     </script>
     

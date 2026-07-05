@@ -1,366 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | DynaFrame Studios – Web Design & Development Projects</title>
-    <meta name="description" content="View our portfolio of custom websites, accommodation booking systems, e-commerce stores, and more. See our work and request a demo.">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-orange: #FF6B35;
-            --secondary-orange: #FF8E53;
-            --white: #FFFFFF;
-            --black: #222222;
-            --dark-gray: #333333;
-            --light-gray: #F5F5F5;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background-color: var(--white);
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Logo & Navigation */
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-graphic { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%); border-radius: 10px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25); }
-        .logo-graphic::before { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--white); border-radius: 5px; transform: rotate(45deg); }
-        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
-        .logo-text span { color: var(--primary-orange); }
-        .navbar { background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-link { text-decoration: none; color: var(--black); font-weight: 500; transition: color 0.2s; }
-        .nav-link:hover, .nav-link.active { color: var(--primary-orange); }
-        
-        /* Hero Section */
-        .page-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 140px 0 80px;
-            text-align: center;
-            margin-top: 70px;
-        }
-        .page-hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .page-hero p { font-size: 1.1rem; opacity: 0.9; }
-        
-        /* Portfolio Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */
-        .portfolio-grid {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.12);
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.03);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-            padding: 20px;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-            color: white;
-        }
-        
-        .portfolio-overlay h3 {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-        
-        .portfolio-overlay p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            margin-bottom: 12px;
-        }
-        
-        .portfolio-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary-orange);
-            color: white;
-            text-decoration: none;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transition: background 0.2s, transform 0.2s;
-        }
-        
-        .portfolio-link:hover {
-            background: var(--secondary-orange);
-            transform: translateY(-2px);
-        }
-        
-        .portfolio-link i {
-            font-size: 0.7rem;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--dark-gray);
-            color: var(--white);
-            padding: 50px 0 20px;
-            margin-top: 50px;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: var(--primary-orange);
-        }
-        .footer-section ul {
-            list-style: none;
-        }
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-section a:hover {
-            color: var(--primary-orange);
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            max-width: 1200px;
-            margin: 0 auto;
-            font-size: 0.85rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 900px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-menu {
-                display: none;
-            }
-            .page-hero h1 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        /* Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | DynaFrame Studios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="logo.jpeg" type="image/png" />
 </head>
 <body>
+    <!-- TOP BAR & NAVBAR (copy from index) -->
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+                <a href="tel:+27754024178"><i class="fas fa-phone"></i> +27 75 402 4178</a>
+            </div>
+            <div class="top-bar-right">
+              <a href="https://www.facebook.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" class="social-icon-top" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" class="social-icon-top" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <button class="theme-toggle-top" id="themeToggleTop"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+        </div>
+    </div>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <div class="logo-graphic"></div>
-            <div class="logo-text">Dyna<span>Frame</span></div>
-        </a>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="web-design.html" class="nav-link">Web Design</a></li>
-            <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
-            <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<section class="page-hero">
-    <div class="container">
-        <h1>Our Work</h1>
-        <p>Need to see some works before deciding? See what we can create for you.</p>
-    </div>
-</section>
-
-<div class="portfolio-grid">
-    <div class="portfolio-item reveal">
-        <img src="image1.png" alt="Project 1 - Residential Irrigation Website" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>Residential Drip System</h3>
-            <p>Water-wise garden installation</p>
-            <a href="https://dynaframestudios.github.io/salefuirrigation-landscaping/" class="portfolio-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-    
-    <div class="portfolio-item reveal">
-        <img src="image2.png" alt="Project 2 - Landscape Design Website" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>Industrial Gas Company</h3>
-            <p>A website built for Kayberg Enterprises</p>
-            <a href="https://kaybergenterprises.co.za" class="portfolio-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-    
-    <div class="portfolio-item reveal">
-        <img src="image3.png" alt="Project 3 - Artificial Turf Website" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>E-commerce with Yaga integration</h3>
-            <p>Online shop specialising in bags and fashion</p>
-            <a href="https://exclusivehandbagspurse.surge.sh" class="portfolio-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-    
-    <div class="portfolio-item reveal">
-        <img src="image4.png" alt="Project 4 - Water Feature Website" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>A business hub</h3>
-            <p>Official Website built for Luanda Street</p>
-            <a href="https://luandastreet.demo.surge.sh" class="portfolio-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-    
-    <div class="portfolio-item reveal">
-        <img src="image5.png" alt="Project 5 - Commercial Irrigation Website" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>Commercial Artisan</h3>
-            <p>Large-scale efficiency website for Mobile Electrician</p>
-            <a href="https://dynaframestudios.github.io/mobileelectrician/" class="portfolio-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-    
-    <div class="portfolio-item reveal">
-        <img src="image6.png" alt="Project 6 - Garden Renovation Website" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>Accommodation & E-commerce demo</h3>
-            <p>Concept of an accommodation website with e-commerce integrations</p>
-            <a href="https://guesthouse-zmtp.onrender.com/" class="portfolio-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-        </div>
-    </div>
-</div>
-
-<!-- Tech Stack Marquee -->
-<div class="tech-marquee">
-  <div class="tech-marquee-content">
-    <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-    <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
-    <span class="tech-item"><i class="fas fa-code"></i> XML</span>
-    <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-    <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-    <span class="tech-item"><i class="fab fa-node-js"></i> Node.js</span>
-    <span class="tech-item"><i class="fab fa-react"></i> React.js</span>
-    <!-- Duplicate for seamless loop -->
-    <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-    <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
-    <span class="tech-item"><i class="fas fa-code"></i> XML</span>
-    <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-    <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-    <span class="tech-item"><i class="fab fa-node-js"></i> Node.js</span>
-    <span class="tech-item"><i class="fab fa-react"></i> React.js</span>
-  </div>
-</div>
-
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>DynaFrame Studios</h3>
-            <p>Quality web design and development.</p>
-        </div>
-        <div class="footer-section">
-            <h3>Explore</h3>
-            <ul>
-                <li><a href="web-design.html">Web Design</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+           <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="nav-logo" />
+    <span class="logo-text">Dynaframe<span>Studios</span></span>
+</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Design</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <div class="footer-section">
-            <h3>Connect</h3>
-            <p><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 DynaFrame Studios. All rights reserved.</p>
-    </div>
-</footer>
+    </nav>
 
-<script>
-    // Scroll reveal animation
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container"><h1>Our Work</h1><p>See the projects we've delivered for our clients.</p></div>
+    </section>
+
+    <!-- PORTFOLIO GRID -->
+    <section style="padding:60px 0;">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Kayberg Enterprises -->
+                <div class="portfolio-item" id="kayberg">
+                    <div class="thumb"><img src="image1.png" alt="Kayberg Enterprises" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Kayberg Enterprises <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>Industrial gas supplier website with product catalogue.</p>
+                        <div class="tags"><span>Industrial</span><span>B2B</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A full business website built for Kayberg Enterprises, a supplier of industrial gases. The site presents their product catalogue clearly for B2B buyers, alongside company info and contact details, giving the brand a professional online presence to match their industrial clientele.</p>
+                        <a href="https://kaybergenterprises.co.za" target="_blank" class="visit-link">Visit Page <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Luanda Street -->
+                <div class="portfolio-item" id="luanda">
+                    <div class="thumb"><img src="image2.png" alt="Luanda Street" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Luanda Street <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>Multi‑business hub website showcasing tenants and services.</p>
+                        <div class="tags"><span>Business Hub</span><span>Directory</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A directory-style site built for Luanda Street, a multi-business hub. It showcases each tenant business under one roof, making it easy for visitors to browse the different services and shops available on-site.</p>
+                        <a href="https://luandastreet.demo.surge.sh" target="_blank" class="visit-link">Visit Page <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Salefu Irrigation -->
+                <div class="portfolio-item" id="salefu">
+                    <div class="thumb"><img src="image3.png" alt="Salefu Irrigation" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Salefu Irrigation <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>Gardening and landscaping project portfolio and booking.</p>
+                        <div class="tags"><span>Landscaping</span><span>Portfolio</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A portfolio-driven site for Salefu Irrigation, showcasing completed gardening and landscaping projects. Built to help potential clients browse past work and get in touch to book new irrigation and landscaping jobs.</p>
+                        <a href="https://salefuirrigation.co.za/" target="_blank" class="visit-link">Visit Page <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Khumo EMS -->
+                <div class="portfolio-item" id="khumo">
+                    <div class="thumb"><img src="image4.png" alt="Khumo Emergency Medical Services" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Khumo Emergency Medical Services <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>Emergency response service website with contact and info.</p>
+                        <div class="tags"><span>Medical</span><span>Emergency</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A one-page site for Khumo EMS, a private emergency medical services provider in Gauteng. Features an animated ECG-style hero section and dispatch-code visual theme, with fast access to contact details for emergencies.</p>
+                        <a href="https://khumoems.co.za/" target="_blank" class="visit-link">Visit Page <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Haus of NYCO -->
+                <div class="portfolio-item" id="nyco">
+                    <div class="thumb"><img src="image5.png" alt="Haus of NYCO" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Haus of NYCO <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>Headphone company – product showcase and online store.</p>
+                        <div class="tags"><span>E‑commerce</span><span>Audio</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A multi-page store for Haus of NYCO, an audio products brand. Includes a transparent product grid, a sliding info panel for product details, and a logo-as-background aesthetic that carries the brand identity throughout.</p>
+                        <a href="https://hausofnyco.co.za/" target="_blank" class="visit-link">Site in progress <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Sotomori -->
+                <div class="portfolio-item" id="sotomori">
+                    <div class="thumb"><img src="image6.png" alt="Sotomori" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Sotomori <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>Commission graphic designer – portfolio and booking.</p>
+                        <div class="tags"><span>Design</span><span>Portfolio</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A portfolio site for Sotomori, a commission-based graphic designer. Displays past artwork and design commissions, with a straightforward path for clients to get in touch and book new work.</p>
+                        <a href="#" target="_blank" class="visit-link">Site in progress <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Exclusive Handbags -->
+                <div class="portfolio-item" id="handbags">
+                    <div class="thumb"><img src="image7.png" alt="Exclusive Handbags & Purses" /></div>
+                    <div class="info" data-toggle>
+                        <h3>Exclusive Handbags &amp; Purses <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                        <p>E‑commerce store with Yaga integration for fashion accessories.</p>
+                        <div class="tags"><span>E‑commerce</span><span>Fashion</span></div>
+                    </div>
+                    <div class="portfolio-dropdown">
+                        <p>A luxury e-commerce store built for a Johannesburg-based handbag and purse brand, with Stripe-powered checkout and Yaga marketplace integration for fashion accessory sales.</p>
+                        <a href="https://exclusivehandbagspurse.surge.sh" target="_blank" class="visit-link">site in progress <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                   <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="footer-logo" />
+    <span class="logo-text">DynaFrame<span>Studios</span></span>
+                    </a>
+                    <p>Your trusted tech partner in South Africa. Web design, PC builds, and device repairs with a focus on quality and affordability.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="web-design.html">Web Design</a></li>
+                        <li><a href="pc-builds.html">PC Builds</a></li>
+                        <li><a href="contact.html">Tech Repairs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope" style="width:18px;"></i> Email Us</a></li>
+                        <li><a href="tel:+27754024178"><i class="fas fa-phone" style="width:18px;"></i> +27 75 402 4178</a></li>
+                        <li><span><i class="fas fa-map-marker-alt" style="width:18px;"></i> Midrand &amp; Braamfontein</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</span>
+                <span>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+ <script>
+  // Dark mode toggle
+  (function() {
+    const toggleBtn = document.getElementById('themeToggleTop');
+    const body = document.body;
+    const saved = localStorage.getItem('df-theme');
+    if (saved === 'dark') {
+      body.classList.add('dark-mode');
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+    } else {
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
+    }
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('df-theme', isDark ? 'dark' : 'light');
+        toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light' : '<i class="fas fa-moon"></i> Dark';
+      });
+    }
+  })();
+
+  // Mobile menu toggle
+  (function() {
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        menu.classList.toggle('active');
+      });
+      menu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => menu.classList.remove('active'));
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          menu.classList.remove('active');
+        }
+      });
+    }
+  })();
+
+  // Scroll reveal (fade-in)
+  (function() {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  })();
 
-<!-- Tawk.to Chat Script -->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/68ec91b77e32cc195255b3de/1j7e1idgv';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
+  // Portfolio item expand/collapse
+  (function() {
+    document.querySelectorAll('.portfolio-item [data-toggle]').forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const item = this.closest('.portfolio-item');
+        const wasExpanded = item.classList.contains('expanded');
+        document.querySelectorAll('.portfolio-item.expanded').forEach(el => {
+          if (el !== item) el.classList.remove('expanded');
+        });
+        item.classList.toggle('expanded', !wasExpanded);
+      });
+    });
+  })();
 </script>
+             
+	 <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68ec91b77e32cc195255b3de/1j7e1idgv';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 </body>
 </html>

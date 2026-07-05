@@ -1,206 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Packages | DynaFrame Studios – 1-Page, Accommodation, E-commerce</title>
-    <meta name="description" content="Affordable web design packages: 1-page website R1,800, accommodation site R2,800, e-commerce R2,500. Professional, responsive designs.">
-    <meta name="keywords" content="1 page website price, accommodation booking website, e-commerce development South Africa, affordable web design">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-orange: #FF6B35;
-            --secondary-orange: #FF8E53;
-            --white: #FFFFFF;
-            --black: #222222;
-            --dark-gray: #333333;
-            --light-gray: #F5F5F5;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background: var(--white);
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-graphic { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%); border-radius: 10px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25); }
-        .logo-graphic::before { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--white); border-radius: 5px; transform: rotate(45deg); }
-        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
-        .logo-text span { color: var(--primary-orange); }
-        .navbar { background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-link { text-decoration: none; color: var(--black); font-weight: 500; transition: color 0.2s; }
-        .nav-link:hover, .nav-link.active { color: var(--primary-orange); }
-        
-        .page-hero { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; color: var(--white); padding: 150px 0 100px; text-align: center; margin-top: 70px; }
-        .page-hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .student-banner { background: linear-gradient(135deg, #FF6B35, #FF8E53); color: white; padding: 10px 20px; border-radius: 40px; margin: 15px auto; display: inline-block; font-weight: 600; }
-        .location-badge { background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 8px 18px; border-radius: 40px; display: inline-block; margin: 10px 0; font-size: 0.9rem; }
-        
-        .pricing { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 20px; }
-        .section-subtitle { text-align: center; max-width: 700px; margin: 0 auto 50px; font-size: 1.1rem; color: #555; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 20px; }
-        .pricing-card { background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.08); transition: transform 0.2s; }
-        .pricing-card:hover { transform: translateY(-6px); }
-        .pricing-header { background: var(--primary-orange); color: var(--white); padding: 30px; text-align: center; }
-        .pricing-header h3 { font-size: 1.6rem; margin-bottom: 10px; }
-        .price { font-size: 3rem; font-weight: 800; }
-        .pricing-body { padding: 30px; }
-        .features-list { list-style: none; }
-        .features-list li { padding: 10px 0; border-bottom: 1px solid var(--light-gray); }
-        .features-list li i { color: var(--primary-orange); margin-right: 10px; width: 20px; }
-        
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: all 0.2s; border: none; cursor: pointer; }
-        .btn-primary { background: var(--primary-orange); color: var(--white); }
-        .btn-primary:hover { background: var(--secondary-orange); transform: translateY(-2px); }
-        
-        .footer { background: var(--dark-gray); color: var(--white); padding: 50px 0 20px; margin-top: 50px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px; }
-        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .page-hero h1 { font-size: 2rem; }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Design Upsell | DynaFrame Studios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+   <link rel="stylesheet" href="styles.css" />
+   <link rel="icon" href="logo.jpeg" type="image/png" />
 </head>
 <body>
-    <nav class="navbar">
+     <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+                <a href="tel:+27754024178"><i class="fas fa-phone"></i> +27 75 402 4178</a>
+            </div>
+            <div class="top-bar-right">
+                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" class="social-icon-top" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" class="social-icon-top" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <button class="theme-toggle-top" id="themeToggleTop"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-graphic"></div>
-                <div class="logo-text">Dyna<span>Frame</span></div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="web-design.html" class="nav-link active">Web Design</a></li>
+           <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="nav-logo" />
+    <span class="logo-text">Dynaframe<span>Studios</span></span>
+</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Design</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- PAGE HERO -->
     <section class="page-hero">
-        <div class="container">
-            <h1>Web Design Packages for Every Need</h1>
-            <p>Simple pricing, modern designs, and complete transparency</p>
-            <div class="student-banner">
-                <i class="fas fa-graduation-cap"></i> Students get 10% OFF any package
-            </div>
-            <div class="location-badge">
-                <i class="fas fa-globe"></i> Serving clients worldwide
-            </div>
-        </div>
+        <div class="container"><h1>Build Your Website</h1><p>Start with a 1‑page site and add exactly what you need.</p></div>
     </section>
 
-    <section class="pricing">
+    <!-- UPSELL FORM -->
+    <section class="upsell-section">
         <div class="container">
-            <h2 class="section-title">Choose Your Package</h2>
-            <p class="section-subtitle">All websites are responsive, SEO-friendly, and include 1 month of free support.</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3><i class="fas fa-file-alt"></i> Basic 1-Page</h3>
-                        <div class="price">R1,800</div>
-                        <p>Perfect for startups and personal brands</p>
-                    </div>
-                    <div class="pricing-body">
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> 1 Custom Designed Page</li>
-                            <li><i class="fas fa-mobile-alt"></i> Fully Responsive Design</li>
-                            <li><i class="fas fa-envelope"></i> Contact Form Integration</li>
-                            <li><i class="fab fa-searchengin"></i> Basic SEO Setup</li>
-                            <li><i class="fas fa-chart-line"></i> Google Analytics Ready</li>
-                            <li><i class="fas fa-headset"></i> 1 Month Free Support</li>
-                        </ul>
-                        <div style="text-align: center; margin-top: 30px;">
-                            <a href="contact.html?package=basic" class="btn btn-primary">Get This Package</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header" style="background: var(--dark-gray);">
-                        <h3><i class="fas fa-hotel"></i> Accommodation Site</h3>
-                        <div class="price">R2,800</div>
-                        <p>For B&Bs, lodges, and guest houses</p>
-                    </div>
-                    <div class="pricing-body">
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> 5+ Pages (Rooms, Gallery, etc.)</li>
-                            <li><i class="fas fa-calendar-alt"></i> Booking/Inquiry System</li>
-                            <li><i class="fas fa-image"></i> Photo Gallery Integration</li>
-                            <li><i class="fas fa-map-marked-alt"></i> Google Maps Integration</li>
-                            <li><i class="fas fa-star"></i> Testimonials Section</li>
-                            <li><i class="fas fa-chart-simple"></i> Advanced SEO Optimization</li>
-                            <li><i class="fas fa-headset"></i> 3 Months Free Support</li>
-                        </ul>
-                        <div style="text-align: center; margin-top: 30px;">
-                            <a href="contact.html?package=accommodation" class="btn btn-primary">Get Accommodation Package</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header" style="background: var(--primary-orange);">
-                        <h3><i class="fas fa-shopping-cart"></i> E-commerce</h3>
-                        <div class="price">R2,500</div>
-                        <p>Sell products online with ease</p>
-                    </div>
-                    <div class="pricing-body">
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> Up to 10 Products</li>
-                            <li><i class="fas fa-credit-card"></i> Payment Gateway Integration</li>
-                            <li><i class="fas fa-box"></i> Inventory Management</li>
-                            <li><i class="fas fa-truck"></i> Shipping Methods Setup</li>
-                            <li><i class="fas fa-chart-line"></i> Sales Analytics Dashboard</li>
-                            <li><i class="fas fa-envelope"></i> Automated Order Emails</li>
-                            <li><i class="fas fa-headset"></i> 2 Months Free Support</li>
-                        </ul>
-                        <div style="text-align: center; margin-top: 30px;">
-                            <a href="contact.html?package=ecommerce" class="btn btn-primary">Start Selling</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="upsell-container">
+                <h2>Choose Your Features</h2>
+                <p class="sub">Base 1‑page website: <strong>R2,000</strong>. Add extras below.</p>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DynaFrame Studios</h3>
-                    <p>Professional web design that drives results.</p>
+                <div class="upsell-option">
+                    <label for="extraPages">Extra webpages <span class="desc">(+R500 per page)</span></label>
+                    <div class="qty-control">
+                        <button type="button" class="qty-btn" data-target="extraPages" data-step="-1">−</button>
+                        <input type="number" id="extraPages" class="qty-input" value="0" min="0" step="1" />
+                        <button type="button" class="qty-btn" data-target="extraPages" data-step="1">+</button>
+                    </div>
+                    <span class="price-tag" id="extraPagesPrice">+R0</span>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
+
+                <div class="upsell-option">
+                    <label><input type="checkbox" class="upsell-check" data-price="250" id="logoCheck" /> Logo design <span class="desc">(or skip if you have one)</span></label>
+                    <span class="price-tag">+R250</span>
+                </div>
+
+                <div class="upsell-option">
+                    <label><input type="checkbox" class="upsell-check" data-price="200" id="imagesCheck" /> Custom images <span class="desc">(sourced/edited photography for your site)</span></label>
+                    <span class="price-tag">+R200</span>
+                </div>
+
+                <div class="upsell-option upsell-option-group" id="adminOption">
+                    <label><input type="checkbox" class="upsell-check" data-price="3400" data-monthly="300" id="adminCheck" /> Admin panel + server <span class="desc">(R3,400 setup + R300/month)</span></label>
+                    <span class="price-tag">+R3,400 + R300/mo</span>
+                    <div class="upsell-suboption">
+                        <label><input type="checkbox" class="upsell-check" data-price="400" id="schedulerCheck" /> + Booking / scheduler tool <span class="desc">(calendar bookings built into your admin panel)</span></label>
+                        <span class="price-tag">+R400</span>
+                    </div>
+                </div>
+
+                <div class="upsell-option upsell-option-group">
+                    <label><input type="checkbox" class="upsell-check" data-price="5200" data-monthly="300" id="ecommerceCheck" /> Full e‑commerce <span class="desc">(R5,200 setup + R300/month — admin panel included, no need to add it separately)</span></label>
+                    <span class="price-tag">+R5,200 + R300/mo</span>
+                    <div class="upsell-suboption" id="productsWrap" style="display:none;">
+                        <label for="productCount">Number of products <span class="desc">(+R450 per 50 products)</span></label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" data-target="productCount" data-step="-10">−</button>
+                            <input type="number" id="productCount" class="qty-input" value="0" min="0" step="10" />
+                            <button type="button" class="qty-btn" data-target="productCount" data-step="10">+</button>
+                        </div>
+                        <span class="price-tag" id="productsPrice">+R0</span>
+                    </div>
+                </div>
+
+                <div class="upsell-option">
+                    <label><input type="checkbox" class="upsell-check" data-price="50" id="expediteCheck" /> Rush turnaround <span class="desc">(delivered within 36 hours, basic sites only)</span></label>
+                    <span class="price-tag">+R50</span>
+                </div>
+
+                <div class="upsell-total">
+                    <span>Total (one‑time)</span>
+                    <span class="total-price" id="totalPrice">R2,000</span>
+                </div>
+                <div style="text-align:right;font-size:0.85rem;color:var(--text-secondary);margin-top:4px;" id="monthlyInfo"></div>
+
+                <div class="turnaround-info" id="turnaroundInfo"><i class="fas fa-clock"></i> <span>Estimated turnaround: 2‑3 days (depending on number of webpages)</span></div>
+
+                <div class="upsell-perks">
+                    <h3><i class="fas fa-gift"></i> Included with every project, no charge</h3>
                     <ul>
-                        <li><a href="web-design.html">Web Design</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="pc-builds.html">PC Builds</a></li>
+                        <li><i class="fas fa-check-circle"></i> Free demos, calls &amp; consultations before we start</li>
+                        <li><i class="fas fa-check-circle"></i> Free ongoing maintenance</li>
+                        <li><i class="fas fa-check-circle"></i> Free Google Business setup</li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +27 75 402 4178</p>
+
+                <form id="webUpsellForm" action="https://formsubmit.co/info.dynaframestudios@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Web Design Upsell Inquiry" />
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_next" value="https://dynaframe-studios.surge.sh/thank-you.html" />
+                    <input type="hidden" name="package_details" id="packageDetails" />
+
+                    <div class="upsell-form-row">
+                        <div class="upsell-form-group"><label>Full Name *</label><input type="text" name="name" required /></div>
+                        <div class="upsell-form-group"><label>Email *</label><input type="email" name="email" required /></div>
+                    </div>
+                    <div class="upsell-form-group"><label>Phone</label><input type="tel" name="phone" /></div>
+                    <div class="upsell-form-group"><label>Project Details</label><textarea name="message" placeholder="Tell us about your business or requirements..."></textarea></div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px;">Send Request <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+  <!-- ===== FOOTER ===== -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                   <a href="index.html" class="logo">
+    <img src="logo.jpeg" alt="DynaFrame Studios" class="footer-logo" />
+    <span class="logo-text">DynaFrame<span>Studios</span></span>
+                    </a>
+                    <p>Your trusted tech partner in South Africa. Web design, PC builds, and device repairs with a focus on quality and affordability.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="web-design.html">Web Design</a></li>
+                        <li><a href="pc-builds.html">PC Builds</a></li>
+                        <li><a href="contact.html">Tech Repairs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope" style="width:18px;"></i> Email Us</a></li>
+                        <li><a href="tel:+27754024178"><i class="fas fa-phone" style="width:18px;"></i> +27 75 402 4178</a></li>
+                        <li><span><i class="fas fa-map-marker-alt" style="width:18px;"></i> Midrand &amp; Braamfontein</span></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DynaFrame Studios. All rights reserved.</p>
+                <span>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</span>
+                <span>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </span>
             </div>
         </div>
     </footer>
+	<script>
+  // Dark mode toggle
+  (function() {
+    const toggleBtn = document.getElementById('themeToggleTop');
+    const body = document.body;
+    const saved = localStorage.getItem('df-theme');
+    if (saved === 'dark') {
+      body.classList.add('dark-mode');
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+    } else {
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
+    }
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('df-theme', isDark ? 'dark' : 'light');
+        toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light' : '<i class="fas fa-moon"></i> Dark';
+      });
+    }
+  })();
 
-    <script type="text/javascript">
+  // Mobile menu toggle
+  (function() {
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        menu.classList.toggle('active');
+      });
+      menu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => menu.classList.remove('active'));
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          menu.classList.remove('active');
+        }
+      });
+    }
+  })();
+
+  // Scroll reveal (fade-in)
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  })();
+
+  // Active nav link highlight
+  (function() {
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === current) link.classList.add('active');
+      else link.classList.remove('active');
+    });
+  })();
+</script>
+
+    <script>
+        // Upsell calculation
+        (function() {
+            const base = 2000;
+
+            const extraPagesInput = document.getElementById('extraPages');
+            const extraPagesPrice = document.getElementById('extraPagesPrice');
+            const productCountInput = document.getElementById('productCount');
+            const productsPrice = document.getElementById('productsPrice');
+            const productsWrap = document.getElementById('productsWrap');
+            const adminOption = document.getElementById('adminOption');
+            const adminCheck = document.getElementById('adminCheck');
+            const ecommerceCheck = document.getElementById('ecommerceCheck');
+            const schedulerCheck = document.getElementById('schedulerCheck');
+            const logoCheck = document.getElementById('logoCheck');
+            const imagesCheck = document.getElementById('imagesCheck');
+            const expediteCheck = document.getElementById('expediteCheck');
+
+            const totalSpan = document.getElementById('totalPrice');
+            const monthlyInfo = document.getElementById('monthlyInfo');
+            const turnaroundInfo = document.getElementById('turnaroundInfo');
+            const packageDetails = document.getElementById('packageDetails');
+
+            // Stepper buttons for quantity inputs
+            document.querySelectorAll('.qty-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = document.getElementById(btn.dataset.target);
+                    const step = parseInt(btn.dataset.step);
+                    const min = parseInt(target.min) || 0;
+                    let val = (parseInt(target.value) || 0) + step;
+                    if (val < min) val = min;
+                    target.value = val;
+                    updateTotal();
+                });
+            });
+
+            function moneyFmt(n) { return 'R' + n.toLocaleString(); }
+
+            function updateTotal() {
+                // E-commerce voids the separate admin panel charge, since it's bundled in
+                const ecommerceOn = ecommerceCheck.checked;
+                if (ecommerceOn) {
+                    adminCheck.checked = false;
+                    adminCheck.disabled = true;
+                    adminOption.classList.add('disabled-option');
+                    productsWrap.style.display = 'flex';
+                } else {
+                    adminCheck.disabled = false;
+                    adminOption.classList.remove('disabled-option');
+                    productsWrap.style.display = 'none';
+                    if (!productCountInput.value || parseInt(productCountInput.value) === 0) {
+                        // leave as-is
+                    }
+                }
+
+                const extraPages = Math.max(0, parseInt(extraPagesInput.value) || 0);
+                const extraPagesCost = extraPages * 500;
+                extraPagesPrice.textContent = '+' + moneyFmt(extraPagesCost);
+
+                const productCount = ecommerceOn ? Math.max(0, parseInt(productCountInput.value) || 0) : 0;
+                const productBlocks = Math.ceil(productCount / 50);
+                const productsCost = productBlocks * 450;
+                productsPrice.textContent = '+' + moneyFmt(productsCost);
+
+                let total = base + extraPagesCost;
+                let monthly = 0;
+
+                if (logoCheck.checked) total += 250;
+                if (imagesCheck.checked) total += 200;
+                if (schedulerCheck.checked) total += 400;
+                if (expediteCheck.checked) total += 50;
+
+                if (ecommerceOn) {
+                    total += 5200 + productsCost;
+                    monthly += 300;
+                } else if (adminCheck.checked) {
+                    total += 3400;
+                    monthly += 300;
+                }
+
+                totalSpan.textContent = moneyFmt(total);
+                monthlyInfo.textContent = monthly > 0 ? 'Monthly hosting/maintenance: ' + moneyFmt(monthly) : '';
+
+                // Turnaround estimate
+                let timeline = '';
+                if (ecommerceOn) {
+                    timeline = '10‑13 days (depending on number of products)';
+                } else if (adminCheck.checked) {
+                    timeline = '6‑8 days (site with admin integration)';
+                } else {
+                    timeline = '2‑3 days (depending on number of webpages)';
+                }
+                if (expediteCheck.checked) {
+                    timeline += ecommerceOn || adminCheck.checked
+                        ? ' — note: 36‑hour rush only applies to basic sites, larger builds follow the standard timeline above'
+                        : ' → upgraded to 36‑hour rush delivery';
+                }
+                turnaroundInfo.querySelector('span').textContent = 'Estimated turnaround: ' + timeline;
+
+                // Hidden field summary for the email
+                const details = [];
+                if (extraPages > 0) details.push(extraPages + ' extra webpage(s)');
+                if (logoCheck.checked) details.push('Logo design');
+                if (imagesCheck.checked) details.push('Custom images');
+                if (ecommerceOn) {
+                    details.push('Full e-commerce (includes admin panel)');
+                    if (productCount > 0) details.push(productCount + ' products');
+                } else if (adminCheck.checked) {
+                    details.push('Admin panel + server');
+                }
+                if (schedulerCheck.checked) details.push('Booking/scheduler tool');
+                if (expediteCheck.checked) details.push('Rush turnaround requested');
+                packageDetails.value = 'Base 1-page + ' + (details.length ? details.join(', ') : 'No extras') + ' | Total: ' + moneyFmt(total) + (monthly > 0 ? ' + ' + moneyFmt(monthly) + '/mo' : '');
+            }
+
+            [extraPagesInput, productCountInput].forEach(el => el && el.addEventListener('input', updateTotal));
+            [logoCheck, imagesCheck, adminCheck, ecommerceCheck, schedulerCheck, expediteCheck].forEach(cb => cb && cb.addEventListener('change', updateTotal));
+
+            updateTotal();
+        })();
+    </script>
+    	 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];

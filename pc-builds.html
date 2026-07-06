@@ -48,57 +48,54 @@
     </nav>
     <!-- PAGE HERO -->
     <section class="page-hero">
-        <div class="container"><h1>Custom PC Builds</h1><p>Select your platform, then contact us for a personalised quote.</p></div>
+        <div class="container"><h1>Custom PC Builds</h1><p>Tell us what you're building, and we'll guide you to the right configuration.</p></div>
     </section>
 	
 	  <section class="build-types">
         <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px;">Custom PC Build Packages</h2>
-            <p style="text-align: center; max-width: 600px; margin: 0 auto 50px; font-size: 1.1rem;"><strong>How much does a gaming computer cost in RSA?</strong> We offer custom builds for every budget and purpose</p>
-            
+            <h2 class="section-title">Custom PC Build Packages</h2>
+            <p class="section-subtitle"><strong>How much does a gaming computer cost in RSA?</strong> We offer custom builds for every budget and purpose.</p>
+
             <div class="build-grid">
                 <div class="build-card">
-                    <div class="build-icon">🎮</div>
+                    <div class="build-icon"><i class="fas fa-gamepad"></i></div>
                     <h3>Gaming PC Build South Africa</h3>
-                    <p>High-performance <strong>custom gaming PC builds in South Africa</strong> for smooth gameplay, streaming, and content creation</p>
-                    <ul style="text-align: left; margin-top: 15px;">
+                    <p>High-performance <strong>custom gaming PC builds in South Africa</strong> for smooth gameplay, streaming, and content creation.</p>
+                    <ul>
                         <li>High-end Graphics Cards (NVIDIA/AMD)</li>
                         <li>Fast Multi-core Processors</li>
                         <li>RGB Lighting & Custom Cooling</li>
                         <li>Liquid Cooling Options Available</li>
                         <li>Gaming Peripherals Setup Included</li>
                         <li>Optimized for South African conditions</li>
-                        <li class="student-offer">🎓 Students: 10% OFF Gaming Builds</li>
                     </ul>
                 </div>
-                
+
                 <div class="build-card">
-                    <div class="build-icon">💼</div>
+                    <div class="build-icon"><i class="fas fa-briefcase"></i></div>
                     <h3>Workstation PC Build RSA</h3>
-                    <p>Powerful <strong>high-performance PC builds RSA</strong> for professionals, creators, developers, and businesses</p>
-                    <ul style="text-align: left; margin-top: 15px;">
+                    <p>Powerful <strong>high-performance PC builds RSA</strong> for professionals, creators, developers, and businesses.</p>
+                    <ul>
                         <li>Professional Grade Components</li>
                         <li>Multiple Monitor Support Setup</li>
                         <li>Large Storage & RAID Solutions</li>
                         <li>Quiet Operation & Thermal Management</li>
                         <li>Professional Software Installation</li>
                         <li>Corporate & Business Solutions</li>
-                        <li class="student-offer">🎓 Students: 10% OFF Workstations</li>
                     </ul>
                 </div>
-                
+
                 <div class="build-card">
-                    <div class="build-icon">📚</div>
+                    <div class="build-icon"><i class="fas fa-piggy-bank"></i></div>
                     <h3>Budget PC Build South Africa</h3>
-                    <p>Affordable yet reliable <strong>budget gaming computer South Africa</strong> solutions for students and everyday computing</p>
-                    <ul style="text-align: left; margin-top: 15px;">
+                    <p>Affordable yet reliable <strong>budget computer South Africa</strong> solutions for everyday computing.</p>
+                    <ul>
                         <li>Cost-effective Quality Components</li>
-                        <li>Reliable Performance for Studies</li>
+                        <li>Reliable Everyday Performance</li>
                         <li>Energy Efficient Operation</li>
                         <li>Basic Software Installation Included</li>
-                        <li>Perfect for Remote Learning</li>
-                        <li>Great value for South African students</li>
-                        <li class="student-offer">🎓 Students: 10% OFF + Free Setup</li>
+                        <li>Great for Home & Remote Work</li>
+                        <li>Great Value Without Compromise</li>
                     </ul>
                 </div>
             </div>
@@ -108,35 +105,65 @@
     <!-- PC BUILDER -->
     <section style="padding:60px 0;background:var(--section-bg);">
         <div class="container">
-            <div class="upsell-container" style="max-width:700px;margin:0 auto;background:var(--card-bg);border-radius:var(--radius-lg);padding:40px 48px;box-shadow:var(--shadow-lg);border:1.5px solid var(--border);">
-                <h2 style="font-size:1.6rem;margin-bottom:6px;">Choose Your Platform</h2>
-                <p style="color:var(--text-secondary);margin-bottom:20px;">Tell us your preference and we'll help you configure the perfect build.</p>
+            <div class="upsell-container">
+                <h2 style="font-size:1.6rem;margin-bottom:6px;">Build Your Configuration</h2>
+                <p class="sub">Answer a few quick questions and we'll tailor a build recommendation for you.</p>
 
-                <div class="pc-selector" id="cpuSelector">
-                    <button class="pill active" data-cpu="intel">Intel</button>
-                    <button class="pill" data-cpu="amd">AMD</button>
-                </div>
-
-                <div class="pc-gen-select">
-                    <label style="font-weight:600;display:block;margin-bottom:6px;">Select Generation / Series</label>
-                    <select id="cpuGen">
-                        <option value="12th Gen Intel Core">12th Gen Intel Core</option>
-                        <option value="13th Gen Intel Core">13th Gen Intel Core</option>
-                        <option value="14th Gen Intel Core">14th Gen Intel Core</option>
-                        <option value="AMD Ryzen 5000">AMD Ryzen 5000</option>
-                        <option value="AMD Ryzen 7000">AMD Ryzen 7000</option>
-                        <option value="AMD Ryzen 9000">AMD Ryzen 9000</option>
-                    </select>
-                </div>
-
-                <div style="margin:24px 0;">
-                    <p style="font-weight:600;">Ready to build? Contact us for a free consultation:</p>
-                    <div class="pc-contact-btns">
-                        <a href="mailto:info.dynaframestudios@gmail.com?subject=PC%20Build%20Consultation" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Us</a>
-                        <a href="https://wa.me/27754024178?text=Hi%2C%20I%27d%20like%20a%20PC%20build%20consultation%20%28Intel%2FAMD%29" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <!-- STEP 1: PURPOSE -->
+                <div class="pc-step" id="purposeStep">
+                    <span class="pc-step-label"><span class="step-num">1</span>What are you building?</span>
+                    <div class="pc-selector" id="purposeSelector">
+                        <button class="pill" data-purpose="work">Work PC</button>
+                        <button class="pill" data-purpose="intranet">Company Intranet</button>
+                        <button class="pill" data-purpose="gaming">Custom Gaming Rig</button>
                     </div>
                 </div>
-                <p style="font-size:0.85rem;color:var(--text-secondary);">We'll get back to you within 2 hours with component recommendations and pricing.</p>
+
+                <!-- STEP 2: TIER (work / intranet only) -->
+                <div class="pc-step hidden-step" id="tierStep">
+                    <span class="pc-step-label"><span class="step-num">2</span>Choose your build tier</span>
+                    <div class="pc-selector" id="tierSelector">
+                        <button class="pill" data-tier="latest">Latest Tech</button>
+                        <button class="pill" data-tier="budget">Seamless Budget Build</button>
+                    </div>
+                    <ul class="tier-specs hidden-step" id="tierSpecs"></ul>
+                </div>
+
+                <!-- Gaming spec preview (gaming path only) -->
+                <ul class="tier-specs hidden-step" id="gamingSpecs">
+                    <li>High-end Graphics Cards (NVIDIA/AMD)</li>
+                    <li>Fast Multi-core Processors</li>
+                    <li>RGB Lighting & Custom Cooling</li>
+                    <li>Liquid Cooling Options Available</li>
+                </ul>
+
+                <!-- STEP 3: PLATFORM -->
+                <div class="pc-step hidden-step" id="cpuStep">
+                    <span class="pc-step-label"><span class="step-num" id="cpuStepNum">3</span>Choose your platform</span>
+                    <div class="pc-selector" id="cpuSelector">
+                        <button class="pill active" data-cpu="intel">Intel</button>
+                        <button class="pill" data-cpu="amd">AMD</button>
+                    </div>
+
+                    <div class="pc-gen-select">
+                        <label style="font-weight:600;display:block;margin-bottom:6px;">Select Generation / Series</label>
+                        <select id="cpuGen"></select>
+                    </div>
+                </div>
+
+                <!-- STEP 4: CONTACT -->
+                <div class="pc-step hidden-step" id="contactStep">
+                    <span class="pc-step-label"><span class="step-num" id="contactStepNum">4</span>Ready to build? Contact us for a free consultation:</span>
+                    <div class="pc-contact-btns">
+                        <a href="#" id="pcEmailBtn" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Us</a>
+                        <a href="#" id="pcWhatsappBtn" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:14px;">We'll get back to you within 2 hours with component recommendations and pricing.</p>
+                    <div class="turnaround-info">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <span>Please note: payment for all PC builds is required <strong>upfront</strong> before we begin sourcing components.</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -257,29 +284,144 @@
 </script>
 
     <script>
-        // CPU selector toggle
-        document.querySelectorAll('.pc-selector .pill').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.pc-selector .pill').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                // Optionally update the dropdown options based on selection
-                const cpu = this.dataset.cpu;
-                const genSelect = document.getElementById('cpuGen');
-                if (cpu === 'intel') {
-                    genSelect.innerHTML = `
-                        <option value="12th Gen Intel Core">12th Gen Intel Core</option>
-                        <option value="13th Gen Intel Core">13th Gen Intel Core</option>
-                        <option value="14th Gen Intel Core">14th Gen Intel Core</option>
-                    `;
-                } else {
-                    genSelect.innerHTML = `
-                        <option value="AMD Ryzen 5000">AMD Ryzen 5000</option>
-                        <option value="AMD Ryzen 7000">AMD Ryzen 7000</option>
-                        <option value="AMD Ryzen 9000">AMD Ryzen 9000</option>
-                    `;
+        (function () {
+            const GEN_OPTIONS = {
+                gaming: {
+                    intel: ['14th Gen Intel Core', '13th Gen Intel Core', '12th Gen Intel Core', 'Intel Core Ultra (Series 2)'],
+                    amd: ['AMD Ryzen 9000', 'AMD Ryzen 7000', 'AMD Ryzen 5000']
+                },
+                latest: {
+                    intel: ['14th Gen Intel Core', '13th Gen Intel Core', 'Intel Core Ultra (Series 2)'],
+                    amd: ['AMD Ryzen 9000', 'AMD Ryzen 7000']
+                },
+                budget: {
+                    intel: ['12th Gen Intel Core', '11th Gen Intel Core', '10th Gen Intel Core'],
+                    amd: ['AMD Ryzen 5000', 'AMD Ryzen 3000']
                 }
+            };
+
+            const TIER_SPECS = {
+                latest: [
+                    'Newest-generation Intel/AMD processors',
+                    'Fast NVMe SSD storage',
+                    '16GB+ RAM standard',
+                    'Future-proofed for years of use',
+                    'Ideal for multitasking & heavy software'
+                ],
+                budget: [
+                    'Cost-effective, reliable components',
+                    'Great for everyday office tasks',
+                    'Energy efficient operation',
+                    'Perfect for browsing, docs & email',
+                    'Lower upfront cost'
+                ]
+            };
+
+            const PURPOSE_LABELS = { work: 'Work PC', intranet: 'Company Intranet', gaming: 'Custom Gaming Rig' };
+            const TIER_LABELS = { latest: 'Latest Tech', budget: 'Seamless Budget Build' };
+
+            const purposeSelector = document.getElementById('purposeSelector');
+            const tierStep = document.getElementById('tierStep');
+            const tierSelector = document.getElementById('tierSelector');
+            const tierSpecsEl = document.getElementById('tierSpecs');
+            const gamingSpecsEl = document.getElementById('gamingSpecs');
+            const cpuStep = document.getElementById('cpuStep');
+            const cpuSelector = document.getElementById('cpuSelector');
+            const cpuGenSelect = document.getElementById('cpuGen');
+            const contactStep = document.getElementById('contactStep');
+            const cpuStepNum = document.getElementById('cpuStepNum');
+            const contactStepNum = document.getElementById('contactStepNum');
+
+            let purpose = null;
+            let tier = null;
+            let cpuBrand = 'intel';
+
+            function resetAfterPurpose() {
+                tierStep.classList.add('hidden-step');
+                gamingSpecsEl.classList.add('hidden-step');
+                tierSpecsEl.classList.add('hidden-step');
+                cpuStep.classList.add('hidden-step');
+                contactStep.classList.add('hidden-step');
+                tierSelector.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                tier = null;
+            }
+
+            function populateGenOptions() {
+                const key = purpose === 'gaming' ? 'gaming' : tier;
+                if (!key) return;
+                const list = GEN_OPTIONS[key][cpuBrand];
+                cpuGenSelect.innerHTML = list.map(g => `<option value="${g}">${g}</option>`).join('');
+            }
+
+            function showCpuStep() {
+                cpuStep.classList.remove('hidden-step');
+                cpuStepNum.textContent = purpose === 'gaming' ? '2' : '3';
+                populateGenOptions();
+                revealContact();
+            }
+
+            function revealContact() {
+                contactStep.classList.remove('hidden-step');
+                contactStepNum.textContent = purpose === 'gaming' ? '3' : '4';
+                updateContactLinks();
+            }
+
+            function updateContactLinks() {
+                const genLabel = cpuGenSelect.options[cpuGenSelect.selectedIndex]?.text || '';
+                const brandLabel = cpuBrand === 'intel' ? 'Intel' : 'AMD';
+                const purposeLabel = PURPOSE_LABELS[purpose] || '';
+                const tierLabel = tier ? TIER_LABELS[tier] : '';
+
+                let lines = [`Hi DynaFrame Studios, I'd like a consultation for a custom PC build.`, ``, `Purpose: ${purposeLabel}`];
+                if (tierLabel) lines.push(`Tier: ${tierLabel}`);
+                lines.push(`Processor brand: ${brandLabel}`, `Generation: ${genLabel}`);
+                const msg = lines.join('\n');
+
+                document.getElementById('pcEmailBtn').href = `mailto:info.dynaframestudios@gmail.com?subject=${encodeURIComponent('PC Build Consultation - ' + purposeLabel)}&body=${encodeURIComponent(msg)}`;
+                document.getElementById('pcWhatsappBtn').href = `https://wa.me/27754024178?text=${encodeURIComponent(msg)}`;
+            }
+
+            purposeSelector.querySelectorAll('.pill').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    purposeSelector.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    purpose = this.dataset.purpose;
+                    resetAfterPurpose();
+
+                    if (purpose === 'gaming') {
+                        gamingSpecsEl.classList.remove('hidden-step');
+                        showCpuStep();
+                    } else {
+                        tierStep.classList.remove('hidden-step');
+                    }
+                });
             });
-        });
+
+            tierSelector.querySelectorAll('.pill').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    tierSelector.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    tier = this.dataset.tier;
+
+                    tierSpecsEl.innerHTML = TIER_SPECS[tier].map(s => `<li>${s}</li>`).join('');
+                    tierSpecsEl.classList.remove('hidden-step');
+
+                    showCpuStep();
+                });
+            });
+
+            cpuSelector.querySelectorAll('.pill').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    cpuSelector.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    cpuBrand = this.dataset.cpu;
+                    populateGenOptions();
+                    updateContactLinks();
+                });
+            });
+
+            cpuGenSelect.addEventListener('change', updateContactLinks);
+        })();
     </script>
     
     <script type="text/javascript">

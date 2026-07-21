@@ -1,0 +1,3274 @@
+/*=========================================================
+  PROJECT TITAN
+  PC BUILDS PAGE
+  PART 1
+  Global + Hero
+=========================================================*/
+
+/*==============================
+ROOT
+==============================*/
+
+:root{
+
+    --titan-bg:#05070d;
+    --titan-bg2:#0d1220;
+    --titan-panel:#111827;
+
+    --titan-orange:#ff6b00;
+    --titan-cyan:#00d9ff;
+    --titan-green:#22c55e;
+    --titan-red:#ef4444;
+
+    --titan-text:#ffffff;
+    --titan-muted:#a5b4c7;
+    --titan-border:rgba(255,255,255,.08);
+
+    --hero-gradient:
+        radial-gradient(circle at top,
+        rgba(0,217,255,.18),
+        transparent 45%),
+        radial-gradient(circle at right,
+        rgba(255,107,0,.15),
+        transparent 35%),
+        linear-gradient(
+            180deg,
+            #05070d 0%,
+            #08111d 100%
+        );
+
+    --glass:
+        rgba(255,255,255,.05);
+
+}
+
+/*==============================
+PAGE
+==============================*/
+
+.pc-builds-page{
+
+    background:var(--hero-gradient);
+
+    color:var(--titan-text);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+/*==============================
+SECTION
+==============================*/
+
+.pc-builds-page section{
+
+    position:relative;
+
+    padding:110px 0;
+
+}
+
+/*==============================
+CONTAINER
+==============================*/
+
+.pc-builds-page .container{
+
+    width:min(92%,1400px);
+
+    margin:auto;
+
+}
+
+/*==============================
+HEADINGS
+==============================*/
+
+.pc-builds-page h1{
+
+    font-size:4rem;
+
+    line-height:1.05;
+
+    font-weight:900;
+
+    margin-bottom:1rem;
+
+}
+
+.pc-builds-page h2{
+
+    font-size:2.7rem;
+
+    margin-bottom:1rem;
+
+}
+
+.pc-builds-page h3{
+
+    font-size:1.6rem;
+
+}
+
+.pc-builds-page p{
+
+    color:var(--titan-muted);
+
+    line-height:1.8;
+
+}
+
+/*=========================================================
+HERO
+=========================================================*/
+
+.hero{
+
+    position:relative;
+
+    padding:170px 0 130px;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(circle,
+        rgba(0,217,255,.12),
+        transparent 60%);
+
+    pointer-events:none;
+
+}
+
+/*==============================
+HERO GRID
+==============================*/
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.15fr
+        .85fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+/*==============================
+HERO CONTENT
+==============================*/
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.hero-tag{
+
+    display:inline-flex;
+
+    gap:.75rem;
+
+    align-items:center;
+
+    padding:.6rem 1.1rem;
+
+    margin-bottom:2rem;
+
+    border-radius:999px;
+
+    background:rgba(255,107,0,.12);
+
+    color:var(--titan-orange);
+
+    border:1px solid rgba(255,107,0,.25);
+
+    font-size:.85rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+.hero h1 span{
+
+    color:var(--titan-cyan);
+
+}
+
+.hero p{
+
+    max-width:720px;
+
+    margin:2rem 0;
+
+    font-size:1.08rem;
+
+}
+
+/*==============================
+BUTTONS
+==============================*/
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+
+    margin-top:2rem;
+
+}
+
+.hero-buttons a{
+
+    padding:16px 30px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    text-decoration:none;
+
+}
+
+.hero-buttons .primary{
+
+    background:linear-gradient(
+        135deg,
+        var(--titan-orange),
+        #ff8d32
+    );
+
+    color:#fff;
+
+}
+
+.hero-buttons .secondary{
+
+    border:1px solid var(--titan-border);
+
+    background:var(--glass);
+
+    backdrop-filter:blur(14px);
+
+    color:#fff;
+
+}
+
+.hero-buttons a:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================================
+HERO VISUAL
+=========================================================*/
+
+.hero-visual{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.pc-frame{
+
+    position:relative;
+
+    width:430px;
+
+    height:560px;
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.45);
+
+}
+
+/*==============================
+RGB BORDER
+==============================*/
+
+.pc-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:inherit;
+
+    background:
+
+        linear-gradient(
+            45deg,
+            var(--titan-orange),
+            var(--titan-cyan),
+            var(--titan-orange)
+        );
+
+    z-index:-1;
+
+    filter:blur(18px);
+
+    opacity:.55;
+
+}
+
+/*==============================
+FLOAT
+==============================*/
+
+.pc-frame{
+
+    animation:
+
+        titanFloat
+        6s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes titanFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+/*=========================================================
+HERO STATS
+=========================================================*/
+
+.hero-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin-top:60px;
+
+}
+
+.hero-stat{
+
+    padding:24px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid var(--titan-border);
+
+    backdrop-filter:blur(14px);
+
+    text-align:center;
+
+}
+
+.hero-stat h3{
+
+    font-size:2rem;
+
+    color:var(--titan-cyan);
+
+}
+
+.hero-stat span{
+
+    display:block;
+
+    margin-top:.5rem;
+
+    color:var(--titan-muted);
+
+}
+
+/*=========================================================
+GLASS CARDS
+=========================================================*/
+
+.overview-card,
+.question-card,
+.recommend-card,
+.quality-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid var(--titan-border);
+
+    border-radius:22px;
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
+}
+
+.overview-card:hover,
+.question-card:hover,
+.recommend-card:hover,
+.quality-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,217,255,.35);
+
+    box-shadow:
+
+        0 20px 45px
+        rgba(0,217,255,.12);
+
+}
+
+/*=========================================================
+PROJECT TITAN
+PC BUILDS PAGE
+PART 2
+PC BUILDER + CONFIGURATOR
+=========================================================*/
+
+
+/*=========================================================
+BUILDER SECTION
+=========================================================*/
+
+.builder-section{
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.015),
+            transparent
+        );
+
+}
+
+.builder-header{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:0 auto 80px;
+
+}
+
+.builder-header h2{
+
+    margin-bottom:20px;
+
+}
+
+.builder-header p{
+
+    font-size:1.05rem;
+
+}
+
+
+/*=========================================================
+BUILDER GRID
+=========================================================*/
+
+.builder-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.6fr
+        .8fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+
+/*=========================================================
+CONFIGURATOR
+=========================================================*/
+
+.builder-config{
+
+    display:grid;
+
+    gap:28px;
+
+}
+
+
+/*=========================================================
+CONFIG CARDS
+=========================================================*/
+
+.builder-card{
+
+    position:relative;
+
+    padding:32px;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(16px);
+
+    transition:.35s;
+
+}
+
+.builder-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(0,217,255,.28);
+
+    box-shadow:
+
+        0 18px 45px
+        rgba(0,217,255,.12);
+
+}
+
+
+/*=========================================================
+CARD HEADER
+=========================================================*/
+
+.builder-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.builder-card-title{
+
+    font-size:1.35rem;
+
+    font-weight:800;
+
+}
+
+.builder-card-subtitle{
+
+    color:var(--titan-muted);
+
+}
+
+
+/*=========================================================
+OPTION GRID
+=========================================================*/
+
+.option-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(
+            auto-fit,
+            minmax(230px,1fr)
+        );
+
+    gap:18px;
+
+}
+
+
+/*=========================================================
+OPTION CARD
+=========================================================*/
+
+.option-card{
+
+    position:relative;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.03);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.option-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--titan-cyan);
+
+}
+
+.option-card.active{
+
+    border-color:var(--titan-orange);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(255,107,0,.22);
+
+}
+
+.option-card h4{
+
+    margin-bottom:10px;
+
+}
+
+.option-card p{
+
+    font-size:.92rem;
+
+}
+
+.option-price{
+
+    display:block;
+
+    margin-top:18px;
+
+    font-size:1.25rem;
+
+    font-weight:800;
+
+    color:var(--titan-orange);
+
+}
+
+
+/*=========================================================
+COMPONENT LIST
+=========================================================*/
+
+.component-list{
+
+    display:grid;
+
+    gap:16px;
+
+}
+
+.component-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.3s;
+
+}
+
+.component-item:hover{
+
+    border-color:rgba(0,217,255,.28);
+
+}
+
+.component-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.component-name{
+
+    font-weight:700;
+
+}
+
+.component-spec{
+
+    color:var(--titan-muted);
+
+    font-size:.9rem;
+
+}
+
+.component-value{
+
+    font-weight:800;
+
+    color:var(--titan-cyan);
+
+}
+
+
+/*=========================================================
+SELECTS
+=========================================================*/
+
+.builder-select{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+.builder-select:focus{
+
+    outline:none;
+
+    border-color:var(--titan-cyan);
+
+    box-shadow:
+
+        0 0 18px
+        rgba(0,217,255,.2);
+
+}
+
+
+/*=========================================================
+SUMMARY PANEL
+=========================================================*/
+
+.builder-summary{
+
+    position:sticky;
+
+    top:110px;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+}
+
+.builder-summary h3{
+
+    margin-bottom:25px;
+
+}
+
+
+/*=========================================================
+SUMMARY ROW
+=========================================================*/
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.summary-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.summary-label{
+
+    color:var(--titan-muted);
+
+}
+
+.summary-value{
+
+    font-weight:700;
+
+}
+
+
+/*=========================================================
+TOTAL
+=========================================================*/
+
+.total-price{
+
+    margin:35px 0;
+
+    text-align:center;
+
+}
+
+.total-price span{
+
+    display:block;
+
+    color:var(--titan-muted);
+
+}
+
+.total-price strong{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:2.7rem;
+
+    color:var(--titan-orange);
+
+}
+
+
+/*=========================================================
+ACTION BUTTONS
+=========================================================*/
+
+.summary-actions{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+.summary-actions a,
+
+.summary-actions button{
+
+    width:100%;
+
+}
+
+
+/*=========================================================
+STATUS BOX
+=========================================================*/
+
+.compatibility-status{
+
+    margin-top:28px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:
+
+        rgba(34,197,94,.08);
+
+    border:1px solid
+
+        rgba(34,197,94,.22);
+
+}
+
+.compatibility-status h4{
+
+    color:var(--titan-green);
+
+    margin-bottom:10px;
+
+}
+
+
+/*=========================================================
+POWER DRAW
+=========================================================*/
+
+.power-bar{
+
+    width:100%;
+
+    height:10px;
+
+    margin-top:12px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.power-fill{
+
+    width:55%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #facc15,
+            #ef4444
+        );
+
+}
+
+
+/*=========================================================
+FPS PREVIEW
+=========================================================*/
+
+.fps-preview{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:30px;
+
+}
+
+.fps-box{
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.03);
+
+}
+
+.fps-box strong{
+
+    display:block;
+
+    font-size:2rem;
+
+    color:var(--titan-cyan);
+
+}
+
+.fps-box span{
+
+    color:var(--titan-muted);
+
+}
+/*=========================================================
+PROJECT TITAN
+PC BUILDS PAGE
+PART 3
+PERFORMANCE LAB + COMPONENT ARMORY
+=========================================================*/
+
+
+/*=========================================================
+PERFORMANCE LAB
+=========================================================*/
+
+.performance-lab{
+
+    position:relative;
+
+}
+
+.performance-header{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:0 auto 70px;
+
+}
+
+.performance-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(
+            auto-fit,
+            minmax(320px,1fr)
+        );
+
+    gap:28px;
+
+}
+
+
+/*=========================================================
+DASHBOARD TILES
+=========================================================*/
+
+.dashboard-tile{
+
+    position:relative;
+
+    padding:32px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
+}
+
+.dashboard-tile:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,217,255,.35);
+
+    box-shadow:
+
+        0 22px 50px
+
+        rgba(0,217,255,.15);
+
+}
+
+.dashboard-tile::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            transparent,
+
+            rgba(0,217,255,.06),
+
+            transparent
+
+        );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.dashboard-tile:hover::before{
+
+    opacity:1;
+
+}
+
+.dashboard-tile h3{
+
+    margin-bottom:20px;
+
+}
+
+
+/*=========================================================
+METRICS
+=========================================================*/
+
+.metric{
+
+    margin-top:25px;
+
+}
+
+.metric-value{
+
+    font-size:3rem;
+
+    font-weight:900;
+
+    color:var(--titan-cyan);
+
+    line-height:1;
+
+}
+
+.metric-label{
+
+    margin-top:10px;
+
+    color:var(--titan-muted);
+
+}
+
+
+/*=========================================================
+BENCHMARK BARS
+=========================================================*/
+
+.benchmark-list{
+
+    display:grid;
+
+    gap:18px;
+
+    margin-top:30px;
+
+}
+
+.benchmark-item{
+
+    display:grid;
+
+    gap:10px;
+
+}
+
+.benchmark-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.benchmark-name{
+
+    font-weight:700;
+
+}
+
+.benchmark-score{
+
+    color:var(--titan-cyan);
+
+    font-weight:800;
+
+}
+
+.benchmark-bar{
+
+    width:100%;
+
+    height:10px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.benchmark-fill{
+
+    height:100%;
+
+    border-radius:inherit;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            var(--titan-orange),
+
+            var(--titan-cyan)
+
+        );
+
+}
+
+
+/*=========================================================
+FPS GRID
+=========================================================*/
+
+.fps-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:25px;
+
+}
+
+.fps-card{
+
+    padding:22px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.fps-card strong{
+
+    display:block;
+
+    font-size:2.2rem;
+
+    color:var(--titan-green);
+
+}
+
+.fps-card span{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:var(--titan-muted);
+
+}
+
+
+/*=========================================================
+COMPONENT ARMORY
+=========================================================*/
+
+.component-armory{
+
+    position:relative;
+
+}
+
+.armory-header{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.armory-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(
+
+            auto-fit,
+
+            minmax(320px,1fr)
+
+        );
+
+    gap:30px;
+
+}
+
+
+/*=========================================================
+COMPONENT CARD
+=========================================================*/
+
+.component-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.05),
+
+            rgba(255,255,255,.02)
+
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.component-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,107,0,.35);
+
+    box-shadow:
+
+        0 20px 45px
+
+        rgba(255,107,0,.14);
+
+}
+
+.component-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            circle at top right,
+
+            rgba(255,107,0,.12),
+
+            transparent 55%
+
+        );
+
+    pointer-events:none;
+
+}
+
+
+/*=========================================================
+COMPONENT IMAGE
+=========================================================*/
+
+.component-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:180px;
+
+    margin-bottom:25px;
+
+}
+
+.component-image img{
+
+    max-width:100%;
+
+    max-height:170px;
+
+    object-fit:contain;
+
+    transition:.4s;
+
+}
+
+.component-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/*=========================================================
+COMPONENT DETAILS
+=========================================================*/
+
+.component-title{
+
+    margin-bottom:10px;
+
+    font-size:1.4rem;
+
+}
+
+.component-description{
+
+    margin-bottom:20px;
+
+}
+
+.component-specs{
+
+    display:grid;
+
+    gap:12px;
+
+    margin:25px 0;
+
+}
+
+.component-spec{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.component-spec:last-child{
+
+    border-bottom:none;
+
+}
+
+.spec-name{
+
+    color:var(--titan-muted);
+
+}
+
+.spec-value{
+
+    font-weight:700;
+
+    color:var(--titan-cyan);
+
+}
+
+
+/*=========================================================
+PRICE TAG
+=========================================================*/
+
+.component-price{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.component-price strong{
+
+    font-size:1.8rem;
+
+    color:var(--titan-orange);
+
+}
+
+
+/*=========================================================
+QUALITY SCORE
+=========================================================*/
+
+.quality-score{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.10);
+
+    color:var(--titan-green);
+
+    font-weight:700;
+
+}
+
+
+/*=========================================================
+COMPARISON TABLE
+=========================================================*/
+
+.comparison-table{
+
+    overflow-x:auto;
+
+    margin-top:40px;
+
+}
+
+.comparison-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.comparison-table th{
+
+    padding:18px;
+
+    background:rgba(255,255,255,.05);
+
+    text-align:left;
+
+    color:#fff;
+
+}
+
+.comparison-table td{
+
+    padding:18px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:var(--titan-muted);
+
+}
+
+.comparison-table tr:hover{
+
+    background:rgba(255,255,255,.03);
+
+}
+
+
+/*=========================================================
+LIVE STATUS PANEL
+=========================================================*/
+
+.live-status{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-top:60px;
+
+}
+
+.status-box{
+
+    padding:24px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.status-box strong{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:2rem;
+
+    color:var(--titan-cyan);
+
+}
+
+.status-box span{
+
+    color:var(--titan-muted);
+
+}
+
+
+/*=========================================================
+PROJECT TITAN
+PC BUILDS PAGE
+PART 4
+DYNAFRAME ACADEMY
+TITAN AI
+GAMING OBSERVATORY
+=========================================================*/
+
+
+/*=========================================================
+DYNAFRAME ACADEMY
+=========================================================*/
+
+.academy-section{
+
+    position:relative;
+
+}
+
+.academy-header{
+
+    max-width:900px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+}
+
+.academy-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+
+/*=========================================================
+LESSON CARD
+=========================================================*/
+
+.lesson-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.lesson-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,217,255,.35);
+
+}
+
+.lesson-image{
+
+    height:220px;
+
+    overflow:hidden;
+
+}
+
+.lesson-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s;
+
+}
+
+.lesson-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.lesson-content{
+
+    padding:30px;
+
+}
+
+.lesson-level{
+
+    display:inline-flex;
+
+    padding:7px 14px;
+
+    margin-bottom:18px;
+
+    border-radius:999px;
+
+    background:rgba(0,217,255,.12);
+
+    color:var(--titan-cyan);
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+}
+
+.lesson-content h3{
+
+    margin-bottom:15px;
+
+}
+
+.lesson-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:30px;
+
+    color:var(--titan-muted);
+
+}
+
+
+/*=========================================================
+TITAN AI
+=========================================================*/
+
+.ai-section{
+
+    position:relative;
+
+}
+
+.ai-panel{
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,.08),
+            rgba(255,255,255,.03)
+        );
+
+    border:1px solid rgba(0,217,255,.18);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.ai-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.2fr
+        .8fr;
+
+    gap:40px;
+
+    align-items:center;
+
+}
+
+.ai-response{
+
+    margin-top:30px;
+
+    padding:24px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border-left:4px solid var(--titan-cyan);
+
+}
+
+.ai-response strong{
+
+    color:var(--titan-cyan);
+
+}
+
+.ai-actions{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:35px;
+
+}
+
+
+/*=========================================================
+AI RECOMMENDATIONS
+=========================================================*/
+
+.recommendation-list{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.recommend-card{
+
+    padding:26px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.recommend-card:hover{
+
+    border-color:var(--titan-orange);
+
+    transform:translateX(8px);
+
+}
+
+.recommend-score{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.10);
+
+    color:var(--titan-green);
+
+    font-weight:700;
+
+}
+
+
+/*=========================================================
+OBSERVATORY
+=========================================================*/
+
+.observatory-section{
+
+    position:relative;
+
+}
+
+.games-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(300px,1fr));
+
+    gap:28px;
+
+}
+
+.game-card{
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.game-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.game-cover{
+
+    height:220px;
+
+    overflow:hidden;
+
+}
+
+.game-cover img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s;
+
+}
+
+.game-card:hover img{
+
+    transform:scale(1.1);
+
+}
+
+.game-content{
+
+    padding:28px;
+
+}
+
+.game-title{
+
+    margin-bottom:15px;
+
+}
+
+.game-fps{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:25px;
+
+}
+
+.game-fps strong{
+
+    font-size:2rem;
+
+    color:var(--titan-green);
+
+}
+
+.game-settings{
+
+    color:var(--titan-muted);
+
+}
+
+
+/*=========================================================
+FEATURED BUILDS
+=========================================================*/
+
+.featured-builds{
+
+    margin-top:80px;
+
+}
+
+.build-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(340px,1fr));
+
+    gap:30px;
+
+}
+
+.build-card{
+
+    position:relative;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.build-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--titan-orange);
+
+}
+
+.build-tier{
+
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border-radius:999px;
+
+    margin-bottom:20px;
+
+    background:rgba(255,107,0,.12);
+
+    color:var(--titan-orange);
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+}
+
+.build-price{
+
+    margin:30px 0;
+
+    font-size:2.3rem;
+
+    font-weight:900;
+
+    color:var(--titan-orange);
+
+}
+
+.build-specs{
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.build-spec{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:10px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.build-spec:last-child{
+
+    border-bottom:none;
+
+}
+
+/*=========================================================
+PROJECT TITAN
+PC BUILDS PAGE
+PART 5
+ENGINEERING GARAGE
+COOLING LAB
+MISSION TIMELINE
+SUPPORT COMMAND
+TITAN VAULT
+=========================================================*/
+
+
+/*=========================================================
+ENGINEERING GARAGE
+=========================================================*/
+
+.garage-section{
+
+    position:relative;
+
+}
+
+.garage-header{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:0 auto 70px;
+
+}
+
+.garage-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.garage-card{
+
+    padding:34px;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.garage-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,107,0,.30);
+
+}
+
+.tool-list{
+
+    display:grid;
+
+    gap:14px;
+
+    margin-top:25px;
+
+}
+
+.tool-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.03);
+
+}
+
+
+/*=========================================================
+COOLING LAB
+=========================================================*/
+
+.cooling-section{
+
+    position:relative;
+
+}
+
+.cooling-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.cooling-card{
+
+    padding:32px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.temp-display{
+
+    margin:30px 0;
+
+    font-size:3rem;
+
+    font-weight:900;
+
+    color:var(--titan-cyan);
+
+}
+
+.temp-bar{
+
+    width:100%;
+
+    height:12px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.temp-fill{
+
+    height:100%;
+
+    width:35%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #00d9ff
+        );
+
+}
+
+
+/*=========================================================
+MISSION TIMELINE
+=========================================================*/
+
+.timeline-section{
+
+    position:relative;
+
+}
+
+.timeline{
+
+    position:relative;
+
+    max-width:1000px;
+
+    margin:70px auto;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    bottom:0;
+
+    width:2px;
+
+    background:rgba(255,255,255,.10);
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    width:50%;
+
+    padding:0 50px 60px;
+
+}
+
+.timeline-item:nth-child(even){
+
+    margin-left:50%;
+
+}
+
+.timeline-dot{
+
+    position:absolute;
+
+    top:6px;
+
+    right:-10px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:var(--titan-orange);
+
+    box-shadow:
+
+        0 0 20px
+
+        rgba(255,107,0,.5);
+
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+
+    left:-10px;
+
+}
+
+.timeline-card{
+
+    padding:28px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/*=========================================================
+SUPPORT COMMAND
+=========================================================*/
+
+.support-section{
+
+    position:relative;
+
+}
+
+.support-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+}
+
+.support-card{
+
+    padding:34px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.support-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,217,255,.35);
+
+}
+
+.support-icon{
+
+    width:82px;
+
+    height:82px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(0,217,255,.12);
+
+    color:var(--titan-cyan);
+
+    font-size:2rem;
+
+}
+
+.support-card h3{
+
+    margin-bottom:15px;
+
+}
+
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.pc-footer{
+
+    padding:80px 0;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    background:#040608;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(260px,1fr));
+
+    gap:40px;
+
+}
+
+.footer-column h4{
+
+    margin-bottom:20px;
+
+}
+
+.footer-column a{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    color:var(--titan-muted);
+
+    transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+    color:var(--titan-cyan);
+
+}
+
+
+/*=========================================================
+TITAN VAULT
+=========================================================*/
+
+.titan-vault{
+
+    display:none;
+
+    padding:60px;
+
+    margin-top:80px;
+
+    border-radius:22px;
+
+    background:#020202;
+
+    color:#00ff66;
+
+    border:2px solid rgba(0,255,120,.18);
+
+    font-family:
+
+        Consolas,
+        "Courier New",
+        monospace;
+
+}
+
+.titan-vault.active{
+
+    display:block;
+
+}
+
+.vault-header{
+
+    margin-bottom:40px;
+
+    color:#00ff66;
+
+    font-size:1.8rem;
+
+}
+
+.boot-log{
+
+    display:grid;
+
+    gap:8px;
+
+    margin-bottom:35px;
+
+}
+
+.boot-log span{
+
+    display:block;
+
+    animation:
+
+        bootBlink
+        .5s linear;
+
+}
+
+.dev-console{
+
+    margin-top:40px;
+
+    padding:25px;
+
+    border:1px solid rgba(0,255,120,.18);
+
+    background:#050505;
+
+}
+
+.dev-console input{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    background:#000;
+
+    color:#00ff66;
+
+    border:1px solid rgba(0,255,120,.20);
+
+    font-family:inherit;
+
+}
+
+.dev-console input:focus{
+
+    outline:none;
+
+    border-color:#00ff66;
+
+}
+
+@keyframes bootBlink{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/*=========================================================
+PROJECT TITAN
+PC BUILDS PAGE
+PART 6
+RESPONSIVE
+UTILITIES
+FINAL POLISH
+=========================================================*/
+
+
+/*=========================================================
+LAPTOPS
+=========================================================*/
+
+@media (max-width:1200px){
+
+.hero-grid,
+.builder-grid,
+.ai-grid{
+
+    grid-template-columns:1fr;
+
+    gap:50px;
+
+}
+
+.hero{
+
+    text-align:center;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+.hero-stats{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.pc-frame{
+
+    margin:auto;
+
+}
+
+.timeline::before{
+
+    left:30px;
+
+}
+
+.timeline-item{
+
+    width:100%;
+
+    margin-left:0 !important;
+
+    padding-left:80px;
+
+    padding-right:0;
+
+}
+
+.timeline-dot{
+
+    left:20px !important;
+
+    right:auto;
+
+}
+
+.live-status{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+/*=========================================================
+TABLETS
+=========================================================*/
+
+@media (max-width:992px){
+
+section{
+
+    padding:80px 0;
+
+}
+
+h1{
+
+    font-size:3rem;
+
+}
+
+h2{
+
+    font-size:2.2rem;
+
+}
+
+.hero{
+
+    padding:120px 0 90px;
+
+}
+
+.hero-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+.performance-grid,
+
+.armory-grid,
+
+.academy-grid,
+
+.games-grid,
+
+.build-grid,
+
+.garage-grid,
+
+.cooling-grid,
+
+.support-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.option-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.fps-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.builder-summary{
+
+    position:relative;
+
+    top:0;
+
+}
+
+.footer-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width:768px){
+
+.container{
+
+    width:94%;
+
+}
+
+.hero{
+
+    padding:90px 0 70px;
+
+}
+
+.hero h1{
+
+    font-size:2.4rem;
+
+}
+
+.hero p{
+
+    font-size:1rem;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.hero-buttons a{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.pc-frame{
+
+    width:100%;
+
+    max-width:360px;
+
+    height:460px;
+
+}
+
+.builder-card,
+
+.component-card,
+
+.dashboard-tile,
+
+.lesson-card,
+
+.build-card,
+
+.support-card,
+
+.cooling-card,
+
+.garage-card,
+
+.timeline-card{
+
+    padding:22px;
+
+}
+
+.component-item{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.summary-row{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+}
+
+.total-price strong{
+
+    font-size:2rem;
+
+}
+
+.footer-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.titan-vault{
+
+    padding:25px;
+
+}
+
+.dev-console{
+
+    padding:18px;
+
+}
+
+}
+
+
+/*=========================================================
+SMALL DEVICES
+=========================================================*/
+
+@media (max-width:576px){
+
+h1{
+
+    font-size:2rem;
+
+}
+
+h2{
+
+    font-size:1.7rem;
+
+}
+
+h3{
+
+    font-size:1.2rem;
+
+}
+
+.hero-stat h3{
+
+    font-size:1.5rem;
+
+}
+
+.metric-value{
+
+    font-size:2.2rem;
+
+}
+
+.game-fps{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.component-price{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+.timeline-item{
+
+    padding-left:65px;
+
+}
+
+.timeline::before{
+
+    left:22px;
+
+}
+
+.timeline-dot{
+
+    left:12px !important;
+
+}
+
+.status-box strong{
+
+    font-size:1.5rem;
+
+}
+
+.live-status{
+
+    grid-template-columns:1fr;
+
+}
+
+.boot-log{
+
+    font-size:.8rem;
+
+    word-break:break-word;
+
+}
+
+}
+
+
+/*=========================================================
+EXTRA SMALL
+=========================================================*/
+
+@media (max-width:400px){
+
+.hero h1{
+
+    font-size:1.7rem;
+
+}
+
+.hero-tag{
+
+    font-size:.7rem;
+
+}
+
+.pc-frame{
+
+    height:390px;
+
+}
+
+.total-price strong{
+
+    font-size:1.7rem;
+
+}
+
+.builder-card,
+
+.dashboard-tile,
+
+.component-card,
+
+.lesson-card,
+
+.support-card{
+
+    padding:18px;
+
+}
+
+.hero-buttons a{
+
+    padding:14px 18px;
+
+}
+
+}
+
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+:focus-visible{
+
+    outline:2px solid var(--titan-cyan);
+
+    outline-offset:4px;
+
+}
+
+
+/*=========================================================
+SELECTION
+=========================================================*/
+
+::selection{
+
+    background:var(--titan-orange);
+
+    color:#fff;
+
+}
+
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*,
+*::before,
+*::after{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
+
+
+/*=========================================================
+SCROLLBAR
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#05070d;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        180deg,
+        var(--titan-orange),
+        var(--titan-cyan)
+    );
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    opacity:.9;
+
+}
+
+
+/*=========================================================
+END OF PROJECT TITAN CSS
+=========================================================*/

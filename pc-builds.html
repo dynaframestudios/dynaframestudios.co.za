@@ -1,439 +1,1851 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom PC Builds | DynaFrame Studios</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-	<link rel="icon" href="logo.jpeg" type="image/png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Gaming PCs | Dynaframe Studios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* ==========================================================
+           FULL STYLES (all site + builder + vault + new features)
+        ========================================================== */
+        :root {
+            --orange: #FF6B35;
+            --orange-dark: #E55A2B;
+            --orange-glow: rgba(255,107,53,0.25);
+            --navy: #0D0F1A;
+            --navy-mid: #141629;
+            --white: #FFFFFF;
+            --off-white: #F7F8FC;
+            --text-primary: #0D0F1A;
+            --text-secondary: #5A6070;
+            --border: #E8EAF0;
+            --card-bg: #FFFFFF;
+            --section-bg: #F4F5FA;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.07);
+            --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+            --shadow-orange: 0 8px 32px rgba(255,107,53,0.28);
+            --font-display: 'Inter', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --dm-bg: #080A14;
+            --dm-surface: #111320;
+            --dm-card: #171A2D;
+            --dm-border: #252840;
+            --dm-text: #E8EBF5;
+            --dm-text-secondary: #8B91AD;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--white); color: var(--text-primary); line-height:1.6; transition:background .35s,color .35s; }
+        body.dark-mode { background:var(--dm-bg); color:var(--dm-text); }
+        a { text-decoration:none; color:inherit; }
+        ul { list-style:none; }
+        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+        ::-webkit-scrollbar { width:6px; }
+        ::-webkit-scrollbar-track { background:transparent; }
+        ::-webkit-scrollbar-thumb { background:var(--orange); border-radius:6px; }
+
+        .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 28px; border-radius:12px; text-decoration:none; font-weight:600; font-size:.95rem; font-family:var(--font-body); transition:all .25s; border:none; cursor:pointer; }
+        .btn-primary { background:var(--orange); color:var(--white); box-shadow:var(--shadow-orange); }
+        .btn-primary:hover { background:var(--orange-dark); transform:translateY(-2px); box-shadow:0 12px 36px rgba(255,107,53,0.38); }
+        .btn-secondary { background:rgba(255,255,255,0.12); color:var(--white); border:1.5px solid rgba(255,255,255,0.35); backdrop-filter:blur(8px); }
+        .btn-secondary:hover { background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.6); }
+        .btn-success { background:#22c55e; color:#fff; }
+        .btn-success:hover { background:#16a34a; transform:translateY(-2px); }
+        .btn-outline { background:transparent; color:var(--orange); border:1.5px solid var(--orange); border-radius:12px; padding:10px 22px; font-weight:600; font-size:.9rem; }
+        .btn-outline:hover { background:var(--orange); color:var(--white); }
+
+        /* ----- TOP BAR ----- */
+        .top-bar { background:var(--navy); color:rgba(255,255,255,0.85); padding:10px 0; position:relative; z-index:1001; border-bottom:1px solid rgba(255,107,53,0.2); font-size:.85rem; }
+        body.dark-mode .top-bar { background:var(--dm-surface); border-bottom-color:var(--dm-border); }
+        .top-bar-content { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+        .top-bar-left { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+        .top-bar-left a { color:rgba(255,255,255,0.8); display:flex; align-items:center; gap:6px; font-size:.82rem; transition:color .2s; }
+        .top-bar-left a i { color:var(--orange); }
+        .top-bar-left a:hover { color:var(--orange); }
+        .top-bar-right { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .social-icon-top { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:rgba(255,107,53,0.12); border:1px solid rgba(255,107,53,0.3); color:var(--orange); font-size:.8rem; transition:all .25s; }
+        .social-icon-top:hover { background:var(--orange); color:#fff; transform:translateY(-2px); }
+        .theme-toggle-top { background:rgba(255,107,53,0.15); border:1px solid rgba(255,107,53,0.35); color:var(--orange); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:.75rem; font-weight:600; transition:all .2s; display:flex; align-items:center; gap:5px; }
+        .theme-toggle-top:hover { background:var(--orange); color:#fff; }
+
+        /* ----- NAVBAR ----- */
+        .navbar { background:rgba(255,255,255,0.95); backdrop-filter:blur(16px); box-shadow:0 1px 0 var(--border); position:sticky; top:0; width:100%; z-index:1000; transition:background .35s,box-shadow .35s; }
+        body.dark-mode .navbar { background:rgba(17,19,32,0.95); box-shadow:0 1px 0 var(--dm-border); }
+        .nav-container { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; height:68px; }
+        .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.3rem; color:var(--text-primary); cursor:pointer; }
+        body.dark-mode .logo { color:var(--dm-text); }
+        .logo i { color:var(--orange); font-size:1.8rem; }
+        .logo span { color:var(--orange); }
+        .logo img { max-height:40px; width:auto; display:block; }
+        .nav-menu { display:flex; list-style:none; gap:4px; align-items:center; }
+        .nav-link { text-decoration:none; color:var(--text-secondary); font-weight:500; font-size:.92rem; padding:8px 14px; border-radius:10px; transition:all .2s; }
+        body.dark-mode .nav-link { color:var(--dm-text-secondary); }
+        .nav-link:hover, .nav-link.active { color:var(--orange); background:rgba(255,107,53,0.08); }
+        .mobile-menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; padding:4px; background:none; border:none; }
+        .mobile-menu-toggle span { width:26px; height:2.5px; background:var(--text-primary); border-radius:4px; transition:.3s; }
+        body.dark-mode .mobile-menu-toggle span { background:var(--dm-text); }
+
+        /* ----- HERO ----- */
+        .hero { background:linear-gradient(160deg, rgba(13,15,26,0.93) 0%, rgba(13,15,26,0.75) 50%, rgba(255,107,53,0.15) 100%), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover; color:#fff; padding:120px 0 90px; text-align:center; position:relative; overflow:hidden; }
+        .hero::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 120%, rgba(255,107,53,0.18) 0%, transparent 70%); pointer-events:none; }
+        .hero-content { position:relative; z-index:2; }
+        .hero h1 { font-size:clamp(2.2rem,5vw,3.8rem); font-weight:800; letter-spacing:-.02em; margin-bottom:16px; }
+        .hero h1 .accent { color:var(--orange); }
+        .hero p { font-size:1.1rem; color:rgba(255,255,255,0.8); max-width:620px; margin:0 auto 30px; }
+        .hero-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+        .hero-stats { display:flex; justify-content:center; gap:40px; margin-top:48px; flex-wrap:wrap; }
+        .stat-item { text-align:center; }
+        .stat-num { font-size:1.8rem; font-weight:800; color:var(--orange); display:block; }
+        .stat-label { font-size:.78rem; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:.06em; }
+
+        section { padding:80px 0; }
+        .section-tag { font-size:.75rem; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:.1em; display:flex; align-items:center; gap:8px; justify-content:center; margin-bottom:10px; }
+        .section-tag::before, .section-tag::after { content:''; flex:1; max-width:40px; height:1px; background:var(--orange); opacity:.5; }
+        .section-title { text-align:center; font-size:clamp(1.6rem,3.2vw,2.4rem); font-weight:800; margin-bottom:12px; letter-spacing:-.02em; }
+        .section-subtitle { text-align:center; color:var(--text-secondary); max-width:620px; margin:0 auto 40px; font-size:1rem; }
+        body.dark-mode .section-subtitle { color:var(--dm-text-secondary); }
+
+        /* ----- FEATURED BUILDS (placeholder) ----- */
+        .services-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px; margin-top:10px; }
+        .service-card { background:var(--card-bg); border-radius:var(--radius-lg); padding:32px 28px; box-shadow:var(--shadow); border:1.5px solid var(--border); transition:transform .3s,box-shadow .3s,border-color .3s; text-align:center; }
+        body.dark-mode .service-card { background:var(--dm-card); border-color:var(--dm-border); box-shadow:0 4px 24px rgba(0,0,0,0.25); }
+        .service-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(255,107,53,0.3); }
+        .service-card .icon { font-size:2.4rem; color:var(--orange); margin-bottom:16px; }
+        .service-card h3 { font-size:1.2rem; font-weight:700; margin-bottom:8px; }
+        .service-card p { color:var(--text-secondary); font-size:.92rem; line-height:1.55; }
+        body.dark-mode .service-card p { color:var(--dm-text-secondary); }
+        .service-card .btn-outline { margin-top:16px; }
+
+        /* ----- FOOTER ----- */
+        .footer { background:var(--navy); color:rgba(255,255,255,0.8); padding:60px 0 20px; }
+        body.dark-mode .footer { background:var(--dm-surface); }
+        .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.08); }
+        .footer-brand .logo { color:#fff; font-size:1.4rem; margin-bottom:12px; }
+        .footer-brand .logo i { color:var(--orange); }
+        .footer-brand p { font-size:.88rem; color:rgba(255,255,255,0.55); line-height:1.7; max-width:300px; }
+        .footer-social { display:flex; gap:10px; margin-top:16px; }
+        .footer-social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.7); font-size:.9rem; transition:all .2s; }
+        .footer-social a:hover { background:var(--orange); border-color:var(--orange); color:#fff; transform:translateY(-2px); }
+        .footer-col h4 { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+        .footer-col ul li { margin-bottom:10px; }
+        .footer-col ul li a { color:rgba(255,255,255,0.65); font-size:.88rem; transition:color .2s; }
+        .footer-col ul li a:hover { color:var(--orange); }
+        .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:20px; font-size:.8rem; color:rgba(255,255,255,0.35); flex-wrap:wrap; gap:10px; }
+        .footer-bottom a { color:rgba(255,255,255,0.5); transition:color .2s; margin-left:16px; }
+        .footer-bottom a:hover { color:var(--orange); }
+
+        /* ----- BUILDER STYLES ----- */
+        .builder-wrapper { display:grid; grid-template-columns:1fr 380px; gap:40px; margin-top:40px; align-items:start; }
+        .builder-panel { display:flex; flex-direction:column; gap:20px; }
+        .builder-section { background:var(--card-bg); border:1.5px solid var(--border); border-radius:var(--radius); padding:22px 26px; transition:border-color .3s; }
+        body.dark-mode .builder-section { background:var(--dm-card); border-color:var(--dm-border); }
+        .builder-section:hover { border-color:rgba(255,107,53,0.3); }
+        .builder-title { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+        .builder-title span { font-size:13px; font-weight:700; color:var(--orange); background:rgba(255,107,53,0.12); padding:2px 12px; border-radius:20px; flex-shrink:0; }
+        .builder-title h3 { font-size:17px; font-weight:700; margin:0; font-family:var(--font-display); }
+        .builder-title h3 small { font-weight:400; font-size:13px; color:var(--text-secondary); margin-left:6px; }
+        body.dark-mode .builder-title h3 small { color:var(--dm-text-secondary); }
+        .builder-info { margin-bottom:10px; }
+        .component-explanation { font-size:14px; color:var(--text-secondary); line-height:1.5; margin:0; padding:10px 16px; background:rgba(255,107,53,0.06); border-radius:8px; border-left:3px solid var(--orange); min-height:44px; }
+        body.dark-mode .component-explanation { color:var(--dm-text-secondary); background:rgba(255,107,53,0.08); }
+        .titan-select { width:100%; padding:12px 16px; border-radius:10px; border:1.5px solid var(--border); background:var(--off-white); color:var(--text-primary); font-size:15px; font-family:var(--font-body); cursor:pointer; transition:border-color .2s,box-shadow .2s; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A6070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:40px; }
+        body.dark-mode .titan-select { background:var(--dm-surface); border-color:var(--dm-border); color:var(--dm-text); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B91AD' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); }
+        .titan-select:focus { outline:none; border-color:var(--orange); box-shadow:0 0 0 3px rgba(255,107,53,0.12); }
+        .titan-select option { background:var(--white); color:var(--text-primary); padding:8px; }
+        body.dark-mode .titan-select option { background:var(--dm-surface); color:var(--dm-text); }
+        .titan-select:disabled { opacity:0.4; cursor:not-allowed; }
+
+        .option-grid.two { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .titan-builder-card { padding:16px; border-radius:12px; border:2px solid var(--border); background:var(--off-white); color:var(--text-primary); cursor:pointer; text-align:center; transition:all .25s; font-family:var(--font-body); }
+        body.dark-mode .titan-builder-card { background:var(--dm-surface); border-color:var(--dm-border); color:var(--dm-text); }
+        .titan-builder-card:hover { background:rgba(255,107,53,0.06); border-color:rgba(255,107,53,0.3); }
+        body.dark-mode .titan-builder-card:hover { background:rgba(255,107,53,0.08); }
+        .titan-builder-card.active { border-color:var(--orange); background:rgba(255,107,53,0.12); box-shadow:0 0 30px rgba(255,107,53,0.08); }
+        body.dark-mode .titan-builder-card.active { background:rgba(255,107,53,0.15); }
+        .titan-builder-card i { font-size:28px; color:var(--orange); display:block; margin-bottom:4px; }
+        .titan-builder-card h4 { font-size:16px; font-weight:700; margin:4px 0 2px; font-family:var(--font-display); }
+        .titan-builder-card p { font-size:12px; color:var(--text-secondary); margin:0; }
+        body.dark-mode .titan-builder-card p { color:var(--dm-text-secondary); }
+
+        .section-status { font-size:12px; color:var(--text-secondary); margin-top:8px; display:block; }
+        body.dark-mode .section-status { color:var(--dm-text-secondary); }
+        .section-status .ready { color:#22c55e; }
+        .section-status .waiting { color:#f59e0b; }
+
+        .build-summary { position:sticky; top:100px; align-self:start; background:var(--card-bg); border:1.5px solid var(--border); border-radius:var(--radius-lg); padding:28px 30px; box-shadow:var(--shadow-lg); }
+        body.dark-mode .build-summary { background:var(--dm-card); border-color:var(--dm-border); }
+        .summary-header { text-align:center; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+        body.dark-mode .summary-header { border-bottom-color:var(--dm-border); }
+        .summary-header span { font-size:11px; color:var(--orange); font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+        .summary-header h3 { font-size:22px; font-weight:700; margin:4px 0 0; font-family:var(--font-display); }
+        .summary-image { text-align:center; margin-bottom:16px; }
+        .summary-image img { max-width:100px; border-radius:12px; opacity:.7; }
+        .summary-specs { display:flex; flex-direction:column; gap:2px; margin-bottom:16px; }
+        .summary-row { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); font-size:14px; }
+        body.dark-mode .summary-row { border-bottom-color:var(--dm-border); }
+        .summary-row span { color:var(--text-secondary); }
+        body.dark-mode .summary-row span { color:var(--dm-text-secondary); }
+        .summary-row strong { color:var(--text-primary); font-weight:600; text-align:right; max-width:60%; }
+        body.dark-mode .summary-row strong { color:var(--dm-text); }
+        .summary-row.total { border-top:2px solid var(--orange); padding-top:12px; margin-top:4px; font-size:17px; }
+        .summary-row.total strong { color:var(--orange); font-weight:700; font-size:20px; }
+        .summary-row.fee-row { border-top:1px solid var(--border); padding-top:10px; margin-top:4px; }
+        body.dark-mode .summary-row.fee-row { border-top-color:var(--dm-border); }
+        .summary-row.fee-row strong { color:#f59e0b; font-weight:600; }
+
+        .summary-features { display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; padding:12px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:16px; }
+        body.dark-mode .summary-features { border-color:var(--dm-border); }
+        .summary-features div { font-size:13px; color:var(--text-secondary); display:flex; align-items:center; gap:6px; }
+        body.dark-mode .summary-features div { color:var(--dm-text-secondary); }
+        .summary-features i { color:#22c55e; font-size:13px; }
+        .summary-actions { display:flex; flex-direction:column; gap:10px; }
+        .summary-actions .btn { width:100%; justify-content:center; padding:14px; }
+
+        .build-status { text-align:center; padding:10px; font-size:13px; color:var(--text-secondary); border-top:1px solid var(--border); margin-top:14px; }
+        body.dark-mode .build-status { color:var(--dm-text-secondary); border-top-color:var(--dm-border); }
+        .build-status .ready { color:#22c55e; font-weight:600; }
+
+        .build-fee-banner { background:linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,107,53,0.04)); border:1px solid rgba(255,107,53,0.2); border-radius:var(--radius); padding:16px 28px; margin-bottom:40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+        body.dark-mode .build-fee-banner { background:rgba(255,107,53,0.08); border-color:rgba(255,107,53,0.15); }
+        .build-fee-banner .fee-label { font-size:15px; color:var(--text-secondary); }
+        body.dark-mode .build-fee-banner .fee-label { color:var(--dm-text-secondary); }
+        .build-fee-banner .fee-label i { color:var(--orange); margin-right:10px; }
+        .build-fee-banner .fee-amount { font-size:28px; font-weight:800; color:var(--orange); font-family:var(--font-display); }
+        .build-fee-banner .fee-note { font-size:13px; color:var(--text-secondary); }
+        body.dark-mode .build-fee-banner .fee-note { color:var(--dm-text-secondary); }
+
+        .fa-spinner { animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+
+        /* ----- QUANTITY INPUTS ----- */
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .qty-wrapper label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        body.dark-mode .qty-wrapper label {
+            color: var(--dm-text-secondary);
+        }
+        .qty-wrapper input[type="number"] {
+            width: 60px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            border: 1.5px solid var(--border);
+            background: var(--off-white);
+            font-size: 14px;
+            text-align: center;
+            font-family: var(--font-body);
+            color: var(--text-primary);
+        }
+        body.dark-mode .qty-wrapper input[type="number"] {
+            background: var(--dm-surface);
+            border-color: var(--dm-border);
+            color: var(--dm-text);
+        }
+        .qty-wrapper input[type="number"]:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        /* ----- EXTRAS GRID ----- */
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .extras-grid label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+        body.dark-mode .extras-grid label {
+            color: var(--dm-text);
+        }
+        .extras-grid input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--orange);
+            cursor: pointer;
+        }
+        .extras-grid .price-tag {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-left: auto;
+        }
+        body.dark-mode .extras-grid .price-tag {
+            color: var(--dm-text-secondary);
+        }
+
+        /* ----- SAVED BUILDS TABLE ----- */
+        .saved-builds {
+            margin-top: 40px;
+            border-top: 2px solid var(--orange);
+            padding-top: 30px;
+        }
+        .saved-builds h3 {
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .saved-builds table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .saved-builds th, .saved-builds td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        body.dark-mode .saved-builds th, body.dark-mode .saved-builds td {
+            border-bottom-color: var(--dm-border);
+        }
+        .saved-builds th {
+            background: rgba(255,107,53,0.08);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .saved-builds .remove-btn {
+            color: #ef4444;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            padding: 4px 8px;
+        }
+        .saved-builds .remove-btn:hover {
+            color: #dc2626;
+        }
+        .saved-builds .grand-total {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--orange);
+        }
+        .saved-builds .build-count {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        body.dark-mode .saved-builds .build-count {
+            color: var(--dm-text-secondary);
+        }
+
+        /* ----- VAULT STYLES (same as before) ----- */
+        .titan-boot-overlay {
+            position:fixed; inset:0; z-index:9999;
+            background:#000;
+            display:flex; align-items:center; justify-content:center;
+            opacity:0; visibility:hidden;
+            transition:opacity .5s ease;
+        }
+        .titan-boot-overlay.active { opacity:1; visibility:visible; }
+        .titan-boot-overlay.fading { opacity:0; }
+        .titan-boot-inner { width:min(90%,480px); text-align:center; font-family:monospace; }
+        .titan-boot-logo {
+            font-family:var(--font-display); font-weight:800; font-size:1.4rem; letter-spacing:1px;
+            color:#fff; margin-bottom:36px; opacity:.9;
+        }
+        .titan-boot-logo i { color:var(--orange); margin-right:8px; }
+        .titan-boot-logo span { color:var(--orange); }
+        .titan-boot-line {
+            color:#0f0; font-size:.9rem; margin-bottom:18px; min-height:1.2em;
+            letter-spacing:.5px;
+        }
+        .titan-boot-bar-track {
+            width:100%; height:6px; border-radius:4px; background:rgba(0,255,120,.12);
+            border:1px solid rgba(0,255,120,.25); overflow:hidden; margin-bottom:12px;
+        }
+        .titan-boot-bar-fill {
+            height:100%; width:0%; background:linear-gradient(90deg,var(--orange),#0f0);
+            box-shadow:0 0 12px rgba(0,255,120,.5);
+            transition:width .25s linear;
+        }
+        .titan-boot-percent { color:rgba(0,255,120,.7); font-size:.8rem; }
+        #titan-vault { display:none; padding:60px 0; background:var(--dm-bg); color:var(--dm-text); border-top:2px solid var(--orange); }
+        #titan-vault.visible { display:block; }
+        .vault-container { max-width:900px; margin:0 auto; padding:20px; }
+        .vault-container pre { background:#0a0a14; padding:20px; border-radius:8px; border-left:4px solid var(--orange); overflow-x:auto; color:#0f0; font-family:monospace; font-size:.9rem; }
+        .vault-container h2 { color:var(--orange); margin-top:30px; font-size:1.6rem; }
+        .vault-container h3 { color:var(--orange); margin-top:16px; }
+        .vault-message p { color:var(--dm-text-secondary); line-height:1.8; }
+        .vault-status .status-terminal { background:#0a0a14; padding:16px; border-radius:8px; border:1px solid var(--dm-border); font-family:monospace; color:#0f0; }
+        .vault-roadmap .roadmap-timeline { display:grid; gap:12px; margin-top:16px; }
+        .vault-roadmap .roadmap-phase { background:var(--dm-card); padding:14px 18px; border-radius:8px; border-left:4px solid var(--orange); }
+        .vault-roadmap .roadmap-phase .phase-status { font-size:.7rem; font-weight:700; color:var(--orange); text-transform:uppercase; }
+        .vault-roadmap .roadmap-phase h3 { color:var(--dm-text); margin:4px 0 2px; }
+        .vault-roadmap .roadmap-phase p { color:var(--dm-text-secondary); font-size:.9rem; margin:0; }
+        .vault-philosophy .principles-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:12px; margin-top:12px; }
+        .vault-philosophy .principles-grid div { background:var(--dm-card); padding:12px 16px; border-radius:8px; border:1px solid var(--dm-border); text-align:center; font-weight:500; color:var(--dm-text); }
+        .vault-terminal .vault-console-line { display:flex; align-items:center; gap:8px; background:#0a0a14; padding:8px 12px; border-radius:6px; border:1px solid var(--dm-border); margin-top:8px; }
+        .vault-terminal .vault-prompt { color:#0f0; font-family:monospace; }
+        .vault-terminal #vaultCommandInput { background:transparent; border:none; color:#fff; font-family:monospace; font-size:.9rem; width:100%; outline:none; }
+        .vault-terminal .vault-output { background:#0a0a14; padding:12px; border-radius:6px; margin-top:8px; border:1px solid var(--dm-border); color:#0f0; font-family:monospace; min-height:40px; }
+        .vault-credits p { color:var(--dm-text-secondary); line-height:1.8; }
+
+        .no-print { display:block; }
+        @media print { .no-print { display:none !important; } }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width:1024px) { .builder-wrapper { grid-template-columns:1fr; } .build-summary { position:static; max-width:500px; margin:0 auto; } }
+        @media (max-width:992px) { .footer-grid { grid-template-columns:1fr 1fr; } }
+        @media (max-width:768px) {
+            .top-bar-content { flex-direction:column; align-items:center; text-align:center; }
+            .top-bar-left { justify-content:center; }
+            .top-bar-right { justify-content:center; }
+            .mobile-menu-toggle { display:flex; }
+            .nav-menu { display:none; position:absolute; top:68px; left:0; width:100%; background:var(--white); flex-direction:column; padding:16px 20px 28px; box-shadow:0 12px 30px rgba(0,0,0,0.12); gap:2px; z-index:999; }
+            body.dark-mode .nav-menu { background:var(--dm-surface); }
+            .nav-menu.active { display:flex; }
+            .nav-menu li { width:100%; }
+            .nav-link { display:block; padding:10px 16px; }
+            .footer-grid { grid-template-columns:1fr; gap:28px; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+            .hero { padding:90px 0 60px; }
+            .hero-stats { gap:20px; }
+            .builder-section { padding:16px 18px; }
+            .option-grid.two { grid-template-columns:1fr; }
+            .summary-features { grid-template-columns:1fr; }
+            .build-summary { padding:20px; }
+            .build-fee-banner { flex-direction:column; text-align:center; padding:16px 20px; }
+            .build-fee-banner .fee-amount { font-size:24px; }
+            .vault-container { padding:12px; }
+            .saved-builds table { font-size:11px; }
+            .saved-builds th, .saved-builds td { padding:4px 6px; }
+        }
+        @media (max-width:480px) {
+            .hero-buttons { flex-direction:column; align-items:center; }
+            .hero-buttons .btn { width:100%; max-width:280px; justify-content:center; }
+            .services-grid { grid-template-columns:1fr; }
+            .extras-grid { grid-template-columns:1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <!-- TOP BAR & NAVBAR (copy from index) -->
-     <!-- ===== TOP BAR ===== -->
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="top-bar-left">
-                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
-                <a href="tel:+27754024178"><i class="fas fa-phone"></i> +27 75 402 4178</a>
-            </div>
-            <div class="top-bar-right">
-                <a href="https://www.facebook.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://wa.me/27754024178" target="_blank" class="social-icon-top" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" class="social-icon-top" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <button class="theme-toggle-top" id="themeToggleTop"><i class="fas fa-moon"></i> Dark</button>
-            </div>
+
+<!-- ==========================================================
+TOP BAR
+=========================================================== -->
+<div class="top-bar no-print">
+    <div class="container top-bar-content">
+        <div class="top-bar-left">
+            <a href="mailto:info@dynaframestudios.co.za"><i class="fa-solid fa-envelope"></i> info@dynaframestudios.co.za</a>
+            <a href="tel:+27761234567"><i class="fa-solid fa-phone"></i> +27 76 123 4567</a>
+            <span><i class="fa-solid fa-location-dot"></i> South Africa</span>
+        </div>
+        <div class="top-bar-right">
+            <a href="#" class="social-icon-top"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-top"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-top"><i class="fa-brands fa-youtube"></i></a>
+            <button class="theme-toggle-top" id="themeToggleTop"><i class="fa-solid fa-moon"></i> Dark</button>
         </div>
     </div>
+</div>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-           <a href="index.html" class="logo">
-    <img src="logo.jpeg" alt="DynaFrame Studios" class="nav-logo" />
-    <span class="logo-text">Dynaframe<span>Studios</span></span>
-</a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="web-design.html" class="nav-link">Web Design</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+<!-- ==========================================================
+NAVBAR
+=========================================================== -->
+<nav class="navbar no-print">
+    <div class="nav-container">
+        <a href="index.html" class="logo" id="dynaframeLogo">
+            <img src="images/logo.jpeg" alt="Dynaframe Studios" style="max-height:40px;width:auto;">
+            <span>Dynaframe<span>Studios</span></span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="web-design.html" class="nav-link">Web Design</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="pc-builds.html" class="nav-link active">PC Builds</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" id="mobileToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ==========================================================
+HERO
+=========================================================== -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Custom Gaming PCs <span class="accent">Built To Dominate.</span></h1>
+        <p>Whether you're chasing ultra-high FPS, editing cinematic 8K footage, or streaming to thousands, Dynaframe Studios designs powerful systems engineered around your workflow.</p>
+        <div class="hero-buttons">
+            <a href="#featured-builds" class="btn btn-primary">Explore Builds</a>
+            <a href="#custom-builder" class="btn btn-secondary">Build My PC</a>
         </div>
-    </nav>
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-        <div class="container"><h1>Custom PC Builds</h1><p>Tell us what you're building, and we'll guide you to the right configuration.</p></div>
-    </section>
-	
-	  <section class="build-types">
-        <div class="container">
-            <h2 class="section-title">Custom PC Build Packages</h2>
-            <p class="section-subtitle"><strong>How much does a gaming computer cost in RSA?</strong> We offer custom builds for every budget and purpose.</p>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Components Available</span></div>
+            <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Stress Tested</span></div>
+            <div class="stat-item"><span class="stat-num">3 Year</span><span class="stat-label">Support Available</span></div>
+        </div>
+    </div>
+</section>
 
-            <div class="build-grid">
-                <div class="build-card">
-                    <div class="build-icon"><i class="fas fa-gamepad"></i></div>
-                    <h3>Gaming PC Build South Africa</h3>
-                    <p>High-performance <strong>custom gaming PC builds in South Africa</strong> for smooth gameplay, streaming, and content creation.</p>
-                    <ul>
-                        <li>High-end Graphics Cards (NVIDIA/AMD)</li>
-                        <li>Fast Multi-core Processors</li>
-                        <li>RGB Lighting & Custom Cooling</li>
-                        <li>Liquid Cooling Options Available</li>
-                        <li>Gaming Peripherals Setup Included</li>
-                        <li>Optimized for South African conditions</li>
-                    </ul>
+<!-- ==========================================================
+FEATURED BUILDS (placeholder)
+=========================================================== -->
+<section id="featured-builds" style="padding:60px 0;background:var(--section-bg);">
+    <div class="container">
+        <div class="section-tag">FEATURED SYSTEMS</div>
+        <h2 class="section-title">Built For Every Level Of Performance</h2>
+        <p class="section-subtitle">Every build can be customized with different processors, graphics cards, and cooling solutions.</p>
+        <div class="services-grid">
+            <div class="service-card"><div class="icon"><i class="fa-solid fa-gamepad"></i></div><h3>Bronze Series</h3><p>Entry Gaming — RTX 4060 / Ryzen 5</p><a href="#custom-builder" class="btn btn-outline">Configure</a></div>
+            <div class="service-card"><div class="icon"><i class="fa-solid fa-desktop"></i></div><h3>Silver Series</h3><p>Most Popular — RTX 5070 / Ryzen 7</p><a href="#custom-builder" class="btn btn-outline">Configure</a></div>
+            <div class="service-card"><div class="icon"><i class="fa-solid fa-microchip"></i></div><h3>Gold Series</h3><p>Enthusiast — RTX 5080 / Ryzen 9</p><a href="#custom-builder" class="btn btn-outline">Configure</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================================
+CUSTOM PC CONFIGURATOR (with quantities, extras, multiple builds)
+=========================================================== -->
+<section id="custom-builder" style="padding:80px 0;background:var(--white);">
+    <div class="container">
+        <div class="section-tag">TITAN CONFIGURATOR</div>
+        <h2 class="section-title">Build Your Dream PC.</h2>
+        <p class="section-subtitle">Select components, choose quantities for RAM &amp; Storage, add extras, then save your build. You can create multiple builds in one quote.</p>
+
+        <!-- Build Fee Banner -->
+        <div class="build-fee-banner no-print">
+            <div class="fee-label"><i class="fa-solid fa-toolbox"></i> Professional Assembly & Testing Fee</div>
+            <div class="fee-amount">R2,200</div>
+            <div class="fee-note"><i class="fa-solid fa-check-circle" style="color:#22c55e;"></i> Includes assembly, cable management, stress testing &amp; BIOS config</div>
+        </div>
+
+        <div class="builder-wrapper">
+
+            <!-- LEFT PANEL -->
+            <div class="builder-panel">
+
+                <!-- PLATFORM -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>01</span><h3>Platform</h3></div>
+                    <div class="option-grid two" id="platformGrid">
+                        <button class="titan-builder-card active" data-platform="amd"><i class="fa-solid fa-microchip"></i><h4>AMD</h4><p>Ryzen / Threadripper</p></button>
+                        <button class="titan-builder-card" data-platform="intel"><i class="fa-solid fa-microchip"></i><h4>Intel</h4><p>Core / Ultra</p></button>
+                    </div>
+                    <span class="section-status"><span class="ready">●</span> Platform selected</span>
                 </div>
 
-                <div class="build-card">
-                    <div class="build-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Workstation PC Build RSA</h3>
-                    <p>Powerful <strong>high-performance PC builds RSA</strong> for professionals, creators, developers, and businesses.</p>
-                    <ul>
-                        <li>Professional Grade Components</li>
-                        <li>Multiple Monitor Support Setup</li>
-                        <li>Large Storage & RAID Solutions</li>
-                        <li>Quiet Operation & Thermal Management</li>
-                        <li>Professional Software Installation</li>
-                        <li>Corporate & Business Solutions</li>
-                    </ul>
+                <!-- CPU -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>02</span><h3>Processor <small>(CPU)</small></h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="cpuExplanation">The CPU is the brain. Select one to start your build.</p></div>
+                    <select id="cpuSelect" class="titan-select"><option value="">— Select a CPU —</option></select>
+                    <span class="section-status" id="cpuStatus"><span class="waiting">○</span> Select a CPU first</span>
                 </div>
 
-                <div class="build-card">
-                    <div class="build-icon"><i class="fas fa-piggy-bank"></i></div>
-                    <h3>Budget PC Build South Africa</h3>
-                    <p>Affordable yet reliable <strong>budget computer South Africa</strong> solutions for everyday computing.</p>
-                    <ul>
-                        <li>Cost-effective Quality Components</li>
-                        <li>Reliable Everyday Performance</li>
-                        <li>Energy Efficient Operation</li>
-                        <li>Basic Software Installation Included</li>
-                        <li>Great for Home & Remote Work</li>
-                        <li>Great Value Without Compromise</li>
-                    </ul>
+                <!-- MOTHERBOARD -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>03</span><h3>Motherboard</h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="mbExplanation">The motherboard connects everything. Compatible options appear after you pick a CPU.</p></div>
+                    <select id="motherboardSelect" class="titan-select"><option value="">— Select a CPU first —</option></select>
+                    <span class="section-status" id="mbStatus"><span class="waiting">○</span> Waiting for CPU</span>
                 </div>
+
+                <!-- GPU -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>04</span><h3>Graphics Card <small>(GPU)</small></h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="gpuExplanation">The GPU renders everything you see. For gaming, this is your most important component.</p></div>
+                    <select id="gpuSelect" class="titan-select"><option value="">— Select a GPU —</option></select>
+                    <span class="section-status" id="gpuStatus"><span class="waiting">○</span> Select a GPU</span>
+                </div>
+
+                <!-- RAM with quantity -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>05</span><h3>Memory <small>(RAM)</small></h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="ramExplanation">RAM is short-term memory. 16GB is great for gaming, 32GB+ for creators.</p></div>
+                    <select id="ramSelect" class="titan-select"><option value="">— Select RAM —</option></select>
+                    <div class="qty-wrapper">
+                        <label for="ramQty">Quantity:</label>
+                        <input type="number" id="ramQty" min="1" max="10" value="1">
+                    </div>
+                    <span class="section-status" id="ramStatus"><span class="waiting">○</span> Select RAM</span>
+                </div>
+
+                <!-- Storage with quantity -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>06</span><h3>Storage</h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="storageExplanation">Storage holds your files. NVMe is fastest, SATA is great value.</p></div>
+                    <select id="storageSelect" class="titan-select"><option value="">— Select storage —</option></select>
+                    <div class="qty-wrapper">
+                        <label for="storageQty">Quantity:</label>
+                        <input type="number" id="storageQty" min="1" max="10" value="1">
+                    </div>
+                    <span class="section-status" id="storageStatus"><span class="waiting">○</span> Select storage</span>
+                </div>
+
+                <!-- PSU -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>07</span><h3>Power Supply <small>(PSU)</small></h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="psuExplanation">The PSU powers everything. Options are filtered based on your GPU's power draw.</p></div>
+                    <select id="psuSelect" class="titan-select"><option value="">— Select a GPU first —</option></select>
+                    <span class="section-status" id="psuStatus"><span class="waiting">○</span> Select a GPU first</span>
+                </div>
+
+                <!-- CASE -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>08</span><h3>Case</h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="caseExplanation">The case holds everything. Make sure it supports your motherboard size.</p></div>
+                    <select id="caseSelect" class="titan-select"><option value="">— Select a case —</option></select>
+                    <span class="section-status" id="caseStatus"><span class="waiting">○</span> Select a case</span>
+                </div>
+
+                <!-- COOLING -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>09</span><h3>Cooling</h3></div>
+                    <div class="builder-info"><p class="component-explanation" id="coolingExplanation">Air cooling only. Stock is fine for basic use, tower coolers for better performance.</p></div>
+                    <select id="coolingSelect" class="titan-select"><option value="">— Select cooling —</option></select>
+                    <span class="section-status" id="coolingStatus"><span class="waiting">○</span> Select cooling</span>
+                </div>
+
+                <!-- EXTRAS (new) -->
+                <div class="builder-section">
+                    <div class="builder-title"><span>10</span><h3>Add-ons &amp; Peripherals</h3></div>
+                    <div class="builder-info"><p class="component-explanation">Select any extras you need (Wi‑Fi, Bluetooth, monitors, etc.).</p></div>
+                    <div class="extras-grid" id="extrasGrid"></div>
+                    <span class="section-status" id="extrasStatus"><span class="waiting">○</span> Select extras (optional)</span>
+                </div>
+
+                <!-- SAVE BUILD BUTTON -->
+                <div class="builder-section" style="border-color:var(--orange);">
+                    <button id="saveBuildBtn" class="btn btn-success" style="width:100%;">
+                        <i class="fa-solid fa-plus"></i> Save This Build
+                    </button>
+                    <span class="section-status" id="saveStatus">Current build will be added to your quote.</span>
+                </div>
+
+            </div>
+
+            <!-- RIGHT PANEL - SUMMARY -->
+            <aside class="build-summary">
+                <div class="summary-header"><span>LIVE BUILD SUMMARY</span><h3>Your Custom PC</h3></div>
+                <div class="summary-image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='16' fill='%231a1a2e'/%3E%3Crect x='20' y='20' width='80' height='60' rx='6' fill='%232d2d44'/%3E%3Crect x='30' y='30' width='60' height='10' rx='3' fill='%234a4a6a'/%3E%3Crect x='30' y='48' width='60' height='8' rx='3' fill='%234a4a6a'/%3E%3Crect x='30' y='64' width='30' height='6' rx='2' fill='%234a4a6a'/%3E%3Crect x='25' y='90' width='70' height='12' rx='4' fill='%232d2d44'/%3E%3Ccircle cx='35' cy='96' r='4' fill='%234a4a6a'/%3E%3Ccircle cx='85' cy='96' r='4' fill='%234a4a6a'/%3E%3C/svg%3E" alt="PC"></div>
+                <div class="summary-specs">
+                    <div class="summary-row"><span>CPU</span><strong id="summaryCpu">—</strong></div>
+                    <div class="summary-row"><span>Motherboard</span><strong id="summaryMb">—</strong></div>
+                    <div class="summary-row"><span>GPU</span><strong id="summaryGpu">—</strong></div>
+                    <div class="summary-row"><span>RAM</span><strong id="summaryRam">—</strong> <span id="summaryRamQty" style="font-size:12px;color:var(--text-secondary);"></span></div>
+                    <div class="summary-row"><span>Storage</span><strong id="summaryStorage">—</strong> <span id="summaryStorageQty" style="font-size:12px;color:var(--text-secondary);"></span></div>
+                    <div class="summary-row"><span>PSU</span><strong id="summaryPsu">—</strong></div>
+                    <div class="summary-row"><span>Case</span><strong id="summaryCase">—</strong></div>
+                    <div class="summary-row"><span>Cooling</span><strong id="summaryCooling">—</strong></div>
+                    <div class="summary-row"><span>Extras</span><strong id="summaryExtras">—</strong></div>
+                    <div class="summary-row fee-row"><span>Assembly &amp; Testing</span><strong id="summaryFee">R2,200</strong></div>
+                    <div class="summary-row total"><span>Total Price</span><strong id="summaryTotal">R2,200</strong></div>
+                </div>
+                <div class="summary-features">
+                    <div><i class="fa-solid fa-check"></i> Professional Assembly</div>
+                    <div><i class="fa-solid fa-check"></i> Stress Tested</div>
+                    <div><i class="fa-solid fa-check"></i> Cable Management</div>
+                    <div><i class="fa-solid fa-check"></i> BIOS Configuration</div>
+                    <div><i class="fa-solid fa-check"></i> Driver Installation</div>
+                    <div><i class="fa-solid fa-check"></i> Benchmark Verified</div>
+                </div>
+                <div class="summary-actions">
+                    <button id="generatePdfBtn" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Generate PDF Quote</button>
+                    <a href="contact.html" class="btn btn-secondary">Request This Build</a>
+                </div>
+                <div class="build-status"><span class="ready">●</span> All systems ready — R2,200 build fee per PC</div>
+            </aside>
+
+        </div>
+
+        <!-- SAVED BUILDS TABLE -->
+        <div class="saved-builds no-print" id="savedBuildsSection" style="display:none;">
+            <h3>
+                <span><i class="fa-solid fa-list"></i> Saved Builds</span>
+                <span class="build-count" id="savedCount">0 builds</span>
+            </h3>
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>CPU</th>
+                            <th>MB</th>
+                            <th>GPU</th>
+                            <th>RAM (qty)</th>
+                            <th>Storage (qty)</th>
+                            <th>PSU</th>
+                            <th>Case</th>
+                            <th>Cooling</th>
+                            <th>Extras</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="savedBuildsBody"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="10" style="text-align:right;font-weight:700;">Grand Total:</td>
+                            <td colspan="2" class="grand-total" id="grandTotal">R0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+                <button id="clearAllBtn" class="btn btn-outline" style="border-color:#ef4444;color:#ef4444;">
+                    <i class="fa-solid fa-trash"></i> Clear All Builds
+                </button>
+                <button id="exportAllBtn" class="btn btn-primary" style="background:#22c55e;border-color:#22c55e;">
+                    <i class="fa-solid fa-file-pdf"></i> Export All as PDF
+                </button>
             </div>
         </div>
-    </section>
 
-    <!-- PC BUILDER -->
-    <section style="padding:60px 0;background:var(--section-bg);">
-        <div class="container">
-            <div class="upsell-container">
-                <h2 style="font-size:1.6rem;margin-bottom:6px;">Build Your Configuration</h2>
-                <p class="sub">Answer a few quick questions and we'll tailor a build recommendation for you.</p>
+    </div>
+</section>
 
-                <!-- STEP 1: PURPOSE -->
-                <div class="pc-step" id="purposeStep">
-                    <span class="pc-step-label"><span class="step-num">1</span>What are you building?</span>
-                    <div class="pc-selector" id="purposeSelector">
-                        <button class="pill" data-purpose="work">Work PC</button>
-                        <button class="pill" data-purpose="intranet">Company Intranet</button>
-                        <button class="pill" data-purpose="gaming">Custom Gaming Rig</button>
-                    </div>
-                </div>
-
-                <!-- STEP 2: TIER (work / intranet only) -->
-                <div class="pc-step hidden-step" id="tierStep">
-                    <span class="pc-step-label"><span class="step-num">2</span>Choose your build tier</span>
-                    <div class="pc-selector" id="tierSelector">
-                        <button class="pill" data-tier="latest">Latest Tech</button>
-                        <button class="pill" data-tier="budget">Seamless Budget Build</button>
-                    </div>
-                    <ul class="tier-specs hidden-step" id="tierSpecs"></ul>
-                </div>
-
-                <!-- Gaming spec preview (gaming path only) -->
-                <ul class="tier-specs hidden-step" id="gamingSpecs">
-                    <li>High-end Graphics Cards (NVIDIA/AMD)</li>
-                    <li>Fast Multi-core Processors</li>
-                    <li>RGB Lighting & Custom Cooling</li>
-                    <li>Liquid Cooling Options Available</li>
-                </ul>
-
-                <!-- STEP 3: PLATFORM -->
-                <div class="pc-step hidden-step" id="cpuStep">
-                    <span class="pc-step-label"><span class="step-num" id="cpuStepNum">3</span>Choose your platform</span>
-                    <div class="pc-selector" id="cpuSelector">
-                        <button class="pill active" data-cpu="intel">Intel</button>
-                        <button class="pill" data-cpu="amd">AMD</button>
-                    </div>
-
-                    <div class="pc-gen-select">
-                        <label style="font-weight:600;display:block;margin-bottom:6px;">Select Generation / Series</label>
-                        <select id="cpuGen"></select>
-                    </div>
-                </div>
-
-                <!-- STEP 4: CONTACT -->
-                <div class="pc-step hidden-step" id="contactStep">
-                    <span class="pc-step-label"><span class="step-num" id="contactStepNum">4</span>Ready to build? Contact us for a free consultation:</span>
-                    <div class="pc-contact-btns">
-                        <a href="#" id="pcEmailBtn" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Us</a>
-                        <a href="#" id="pcWhatsappBtn" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    </div>
-                    <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:14px;">We'll get back to you within 2 hours with component recommendations and pricing.</p>
-                    <div class="turnaround-info">
-                        <i class="fas fa-circle-exclamation"></i>
-                        <span>Please note: payment for all PC builds is required <strong>upfront</strong> before we begin sourcing components.</span>
-                    </div>
+<!-- ==========================================================
+FOOTER
+=========================================================== -->
+<footer class="footer no-print">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo"><img src="images/logo.jpeg" alt="DynaFrame Studios" style="max-height:32px;width:auto;margin-right:8px;">Dynaframe<span>Studios</span></div>
+                <p>Premium Custom PCs engineered for gamers, creators, and professionals who demand exceptional performance without compromise.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
+            <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="pc-builds.html">PC Builds</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="footer-col"><h4>Explore</h4><ul><li><a href="#custom-builder">Configurator</a></li><li><a href="#">Performance Lab</a></li><li><a href="#">Academy</a></li></ul></div>
+            <div class="footer-col"><h4>Support</h4><ul><li><a href="#">FAQs</a></li><li><a href="#">Warranty</a></li><li><a href="mailto:info@dynaframestudios.co.za">Email Us</a></li></ul></div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-     <!-- ===== FOOTER ===== -->
-     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                   <a href="index.html" class="logo">
-    <img src="logo.jpeg" alt="DynaFrame Studios" class="footer-logo" />
-    <span class="logo-text">DynaFrame<span>Studios</span></span>
-                    </a>
-                    <p>Your trusted tech partner in South Africa. Web design, PC builds, and device repairs with a focus on quality and affordability.</p>
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://wa.me/27754024178" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="web-design.html">Web Design</a></li>
-                        <li><a href="pc-builds.html">PC Builds</a></li>
-                        <li><a href="contact.html">Tech Repairs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope" style="width:18px;"></i> Email Us</a></li>
-                        <li><a href="tel:+27754024178"><i class="fas fa-phone" style="width:18px;"></i> +27 75 402 4178</a></li>
-                        <li><span><i class="fas fa-map-marker-alt" style="width:18px;"></i> Midrand &amp; Braamfontein</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2025 DynaFrame Studios, a subsidiary of Paladin's Dynasty. All rights reserved.</span>
-                <span>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
-                </span>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2026 Dynaframe Studios. All Rights Reserved.</p>
+            <p>Built For Performance.</p>
         </div>
-    </footer>
+    </div>
+</footer>
+
+<!-- ==========================================================
+TITAN VAULT (FULL - ALL SECTIONS RESTORED)
+=========================================================== -->
+<!-- FULLSCREEN BOOT OVERLAY -->
+<div id="titanBootOverlay" class="titan-boot-overlay">
+    <div class="titan-boot-inner">
+        <div class="titan-boot-logo"><i class="fa-solid fa-cube"></i> DYNAFRAME<span>STUDIOS</span></div>
+        <div id="titanBootLine" class="titan-boot-line">Initializing Titan Core...</div>
+        <div class="titan-boot-bar-track">
+            <div id="titanBootBar" class="titan-boot-bar-fill"></div>
+        </div>
+        <div id="titanBootPercent" class="titan-boot-percent">0%</div>
+    </div>
+</div>
+
+<section id="titan-vault" class="titan-vault" style="display:none;">
+    <div class="vault-container">
+
+        <!-- BIOS BOOT SCREEN -->
+        <div class="vault-boot">
+            <pre>
+DYNAFRAME STUDIOS BIOS v1.0.0
+
+Initializing Titan Core.....................OK
+
+Checking Processor..........................OK
+
+Checking Graphics...........................OK
+
+Checking Memory.............................OK
+
+Checking Storage............................OK
+
+Checking Cooling............................OK
+
+Checking RGB................................MAXIMUM PRIORITY
+
+Searching For Engineer......................
+
+Engineer Detected.
+
+Granting Access...
+
+████████████████████████████████████████
+
+ACCESS LEVEL : ENGINEER
+
+WELCOME TO THE TITAN VAULT
+
+████████████████████████████████████████
+            </pre>
+        </div>
+
+        <!-- SECRET MESSAGE -->
+        <section class="vault-message">
+            <span style="color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;">CONFIDENTIAL</span>
+            <h2>Hello, Curious Engineer.</h2>
+            <p>You weren't supposed to find this.</p>
+            <p>But since you're here, welcome behind the scenes.</p>
+            <p>Every company begins with an idea. This is ours.</p>
+        </section>
+
+        <!-- CURRENT STATUS -->
+        <section class="vault-status">
+            <h2>Current Objective</h2>
+            <div class="status-terminal">
+                <pre>
+MISSION
+
+Build something worth remembering.
+
+STATUS
+
+███████░░░░░░░░░░░░
+
+Current Phase
+
+Dynaframe Studios
+
+Mission Progress
+
+IN PROGRESS
+                </pre>
+            </div>
+        </section>
+
+        <!-- ROADMAP (PROJECT HORIZON) -->
+        <section class="vault-roadmap">
+            <div class="roadmap-heading">
+                <span style="color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;">PROJECT HORIZON</span>
+                <h2>Internal Vision Archive</h2>
+                <p style="color:var(--dm-text-secondary);">This is not a release schedule. It is simply the direction we're walking.</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="roadmap-phase"><span class="phase-status">ACTIVE</span><h3>Dynaframe Studios</h3><p>Premium Custom Computers</p></div>
+                <div class="roadmap-phase"><span class="phase-status">PLANNED</span><h3>Dynaframe Software</h3><p>Desktop software, utilities, productivity tools</p></div>
+                <div class="roadmap-phase"><span class="phase-status">PLANNED</span><h3>Dynaframe Mobile</h3><p>Android and iOS applications</p></div>
+                <div class="roadmap-phase"><span class="phase-status">PLANNED</span><h3>Dynaframe Interactive</h3><p>Games, simulations, digital entertainment</p></div>
+                <div class="roadmap-phase"><span class="phase-status">PLANNED</span><h3>Dynaframe Cloud</h3><p>Hosting, cloud infrastructure, developer services</p></div>
+                <div class="roadmap-phase"><span class="phase-status">PLANNED</span><h3>Dynaframe Data</h3><p>Database technologies, enterprise platforms</p></div>
+                <div class="roadmap-phase"><span class="phase-status">FUTURE</span><h3>Dynaframe AI</h3><p>Intelligent automation, assistants, machine learning</p></div>
+                <div class="roadmap-phase"><span class="phase-status">VISION</span><h3>Dynaframe Holdings</h3><p>Bringing every Dynaframe company together</p></div>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY -->
+        <section class="vault-philosophy">
+            <h2>Engineering Principles</h2>
+            <div class="principles-grid">
+                <div>Build before boasting.</div>
+                <div>Quality over speed.</div>
+                <div>Never stop learning.</div>
+                <div>Every product should solve a problem.</div>
+                <div>Design matters.</div>
+                <div>Details matter even more.</div>
+                <div>Stay curious.</div>
+                <div>Keep building.</div>
+            </div>
+        </section>
+
+        <!-- DEVELOPER TERMINAL -->
+        <section class="vault-terminal">
+            <h2>Developer Console</h2>
+            <pre style="background:#0a0a14;padding:12px;border-radius:6px;border:1px solid var(--dm-border);color:#0f0;font-family:monospace;">
+Available Commands
+
+help
+version
+roadmap
+credits
+clear
+exit
+            </pre>
+            <div class="vault-console-line">
+                <span class="vault-prompt">titan@dynaframe:~$</span>
+                <input type="text" id="vaultCommandInput" autocomplete="off" spellcheck="false" placeholder="Type a command...">
+            </div>
+            <div id="vaultCommandOutput" class="vault-output">Welcome to the Titan Vault. Type 'help' for commands.</div>
+        </section>
+
+        <!-- CREDITS -->
+        <section class="vault-credits">
+            <h2>Credits</h2>
+            <p>Project Titan</p>
+            <p>Designed, imagined and engineered by Dynaframe Studios.</p>
+            <p>Thank you for exploring beyond the surface.</p>
+        </section>
+
+    </div>
+</section>
+
+<!-- ==========================================================
+JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
+=========================================================== -->
 <script>
-  // Dark mode toggle
-  (function() {
-    const toggleBtn = document.getElementById('themeToggleTop');
-    const body = document.body;
-    const saved = localStorage.getItem('df-theme');
-    if (saved === 'dark') {
-      body.classList.add('dark-mode');
-      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
-    } else {
-      if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
-    }
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', function() {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('df-theme', isDark ? 'dark' : 'light');
-        toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light' : '<i class="fas fa-moon"></i> Dark';
-      });
-    }
-  })();
+    // ==========================================================
+    // 1. FULL COMPONENT DATA (all from your original files)
+    // ==========================================================
 
-  // Mobile menu toggle
-  (function() {
-    const toggle = document.getElementById('mobileToggle');
-    const menu = document.getElementById('navMenu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', function() {
-        menu.classList.toggle('active');
-      });
-      menu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => menu.classList.remove('active'));
-      });
-      document.addEventListener('click', function(e) {
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-          menu.classList.remove('active');
+    // ---- AMD CPUs ----
+    const AMDCPUs = [
+        { id:"r3-1200", brand:"AMD", family:"Ryzen 3", model:"1200", socket:"AM4", cores:4, price:0 },
+        { id:"r3-1300x", brand:"AMD", family:"Ryzen 3", model:"1300X", socket:"AM4", cores:4, price:0 },
+        { id:"r3-2200g", brand:"AMD", family:"Ryzen 3", model:"2200G", socket:"AM4", cores:4, price:0 },
+        { id:"r3-2300x", brand:"AMD", family:"Ryzen 3", model:"2300X", socket:"AM4", cores:4, price:0 },
+        { id:"r3-3100", brand:"AMD", family:"Ryzen 3", model:"3100", socket:"AM4", cores:4, price:0 },
+        { id:"r3-3300x", brand:"AMD", family:"Ryzen 3", model:"3300X", socket:"AM4", cores:4, price:0 },
+        { id:"r3-4100", brand:"AMD", family:"Ryzen 3", model:"4100", socket:"AM4", cores:4, price:0 },
+        { id:"r3-4300g", brand:"AMD", family:"Ryzen 3", model:"4300G", socket:"AM4", cores:4, price:0 },
+        { id:"r3-5100", brand:"AMD", family:"Ryzen 3", model:"5100", socket:"AM4", cores:4, price:0 },
+        { id:"r3-5300g", brand:"AMD", family:"Ryzen 3", model:"5300G", socket:"AM4", cores:4, price:0 },
+        { id:"r3-7100", brand:"AMD", family:"Ryzen 3", model:"7100", socket:"AM5", cores:4, price:0 },
+        { id:"r3-7300x", brand:"AMD", family:"Ryzen 3", model:"7300X", socket:"AM5", cores:4, price:0 },
+        { id:"r3-8300g", brand:"AMD", family:"Ryzen 3", model:"8300G", socket:"AM5", cores:4, price:0 },
+        { id:"r3-8500g", brand:"AMD", family:"Ryzen 3", model:"8500G", socket:"AM5", cores:4, price:0 },
+        { id:"r3-9100", brand:"AMD", family:"Ryzen 3", model:"9100", socket:"AM5", cores:4, price:0 },
+        { id:"r3-9300x", brand:"AMD", family:"Ryzen 3", model:"9300X", socket:"AM5", cores:4, price:0 },
+        // Ryzen 5
+        { id:"r5-1500x", brand:"AMD", family:"Ryzen 5", model:"1500X", socket:"AM4", cores:4, price:0 },
+        { id:"r5-1600", brand:"AMD", family:"Ryzen 5", model:"1600", socket:"AM4", cores:6, price:0 },
+        { id:"r5-2600", brand:"AMD", family:"Ryzen 5", model:"2600", socket:"AM4", cores:6, price:0 },
+        { id:"r5-2600x", brand:"AMD", family:"Ryzen 5", model:"2600X", socket:"AM4", cores:6, price:0 },
+        { id:"r5-3600", brand:"AMD", family:"Ryzen 5", model:"3600", socket:"AM4", cores:6, price:0 },
+        { id:"r5-3600x", brand:"AMD", family:"Ryzen 5", model:"3600X", socket:"AM4", cores:6, price:0 },
+        { id:"r5-4500", brand:"AMD", family:"Ryzen 5", model:"4500", socket:"AM4", cores:6, price:0 },
+        { id:"r5-4600g", brand:"AMD", family:"Ryzen 5", model:"4600G", socket:"AM4", cores:6, price:0 },
+        { id:"r5-5600", brand:"AMD", family:"Ryzen 5", model:"5600", socket:"AM4", cores:6, price:0 },
+        { id:"r5-5600x", brand:"AMD", family:"Ryzen 5", model:"5600X", socket:"AM4", cores:6, price:0 },
+        { id:"r5-7600", brand:"AMD", family:"Ryzen 5", model:"7600", socket:"AM5", cores:6, price:0 },
+        { id:"r5-7600x", brand:"AMD", family:"Ryzen 5", model:"7600X", socket:"AM5", cores:6, price:0 },
+        { id:"r5-8600g", brand:"AMD", family:"Ryzen 5", model:"8600G", socket:"AM5", cores:6, price:0 },
+        { id:"r5-8700f", brand:"AMD", family:"Ryzen 5", model:"8700F", socket:"AM5", cores:6, price:0 },
+        { id:"r5-9600", brand:"AMD", family:"Ryzen 5", model:"9600", socket:"AM5", cores:6, price:0 },
+        { id:"r5-9600x", brand:"AMD", family:"Ryzen 5", model:"9600X", socket:"AM5", cores:6, price:0 },
+        // Ryzen 7
+        { id:"r7-1700", brand:"AMD", family:"Ryzen 7", model:"1700", socket:"AM4", cores:8, price:0 },
+        { id:"r7-1800x", brand:"AMD", family:"Ryzen 7", model:"1800X", socket:"AM4", cores:8, price:0 },
+        { id:"r7-2700", brand:"AMD", family:"Ryzen 7", model:"2700", socket:"AM4", cores:8, price:0 },
+        { id:"r7-2700x", brand:"AMD", family:"Ryzen 7", model:"2700X", socket:"AM4", cores:8, price:0 },
+        { id:"r7-3700x", brand:"AMD", family:"Ryzen 7", model:"3700X", socket:"AM4", cores:8, price:0 },
+        { id:"r7-3800x", brand:"AMD", family:"Ryzen 7", model:"3800X", socket:"AM4", cores:8, price:0 },
+        { id:"r7-4700g", brand:"AMD", family:"Ryzen 7", model:"4700G", socket:"AM4", cores:8, price:0 },
+        { id:"r7-4800h", brand:"AMD", family:"Ryzen 7", model:"4800H", socket:"AM4", cores:8, price:0 },
+        { id:"r7-5700x", brand:"AMD", family:"Ryzen 7", model:"5700X", socket:"AM4", cores:8, price:0 },
+        { id:"r7-5800x3d", brand:"AMD", family:"Ryzen 7", model:"5800X3D", socket:"AM4", cores:8, price:0 },
+        { id:"r7-7700x", brand:"AMD", family:"Ryzen 7", model:"7700X", socket:"AM5", cores:8, price:0 },
+        { id:"r7-7800x3d", brand:"AMD", family:"Ryzen 7", model:"7800X3D", socket:"AM5", cores:8, price:0 },
+        { id:"r7-8700g", brand:"AMD", family:"Ryzen 7", model:"8700G", socket:"AM5", cores:8, price:0 },
+        { id:"r7-8800x3d", brand:"AMD", family:"Ryzen 7", model:"8800X3D", socket:"AM5", cores:8, price:0 },
+        { id:"r7-9700x", brand:"AMD", family:"Ryzen 7", model:"9700X", socket:"AM5", cores:8, price:0 },
+        { id:"r7-9800x3d", brand:"AMD", family:"Ryzen 7", model:"9800X3D", socket:"AM5", cores:8, price:0 },
+        // Threadripper
+        { id:"tr-1950x", brand:"AMD", family:"Threadripper", model:"1950X", socket:"TR4", cores:16, price:0 },
+        { id:"tr-2950x", brand:"AMD", family:"Threadripper", model:"2950X", socket:"TR4", cores:16, price:0 },
+        { id:"tr-3960x", brand:"AMD", family:"Threadripper", model:"3960X", socket:"sTRX4", cores:24, price:0 },
+        { id:"tr-3970x", brand:"AMD", family:"Threadripper", model:"3970X", socket:"sTRX4", cores:32, price:0 },
+        { id:"tr-5965wx", brand:"AMD", family:"Threadripper Pro", model:"5965WX", socket:"sWRX8", cores:24, price:0 },
+        { id:"tr-5995wx", brand:"AMD", family:"Threadripper Pro", model:"5995WX", socket:"sWRX8", cores:64, price:0 },
+        { id:"tr-7960x", brand:"AMD", family:"Threadripper", model:"7960X", socket:"sTR5", cores:24, price:0 },
+        { id:"tr-7980x", brand:"AMD", family:"Threadripper", model:"7980X", socket:"sTR5", cores:64, price:0 },
+        { id:"tr-9960x", brand:"AMD", family:"Threadripper", model:"9960X", socket:"sTR5", cores:24, price:0 },
+        { id:"tr-9980x", brand:"AMD", family:"Threadripper", model:"9980X", socket:"sTR5", cores:64, price:0 }
+    ];
+
+    // ---- Intel CPUs ----
+    const IntelCPUs = [
+        { id:"i3-12100f", brand:"Intel", family:"Core i3", model:"12100F", socket:"LGA1700", cores:4, price:0 },
+        { id:"i3-13100f", brand:"Intel", family:"Core i3", model:"13100F", socket:"LGA1700", cores:4, price:0 },
+        { id:"i5-12400f", brand:"Intel", family:"Core i5", model:"12400F", socket:"LGA1700", cores:6, price:0 },
+        { id:"i5-12600k", brand:"Intel", family:"Core i5", model:"12600K", socket:"LGA1700", cores:10, price:0 },
+        { id:"i5-13400f", brand:"Intel", family:"Core i5", model:"13400F", socket:"LGA1700", cores:10, price:0 },
+        { id:"i5-13600k", brand:"Intel", family:"Core i5", model:"13600K", socket:"LGA1700", cores:14, price:0 },
+        { id:"i7-12700k", brand:"Intel", family:"Core i7", model:"12700K", socket:"LGA1700", cores:12, price:0 },
+        { id:"i7-13700k", brand:"Intel", family:"Core i7", model:"13700K", socket:"LGA1700", cores:16, price:0 },
+        { id:"i9-12900k", brand:"Intel", family:"Core i9", model:"12900K", socket:"LGA1700", cores:16, price:0 },
+        { id:"i9-13900k", brand:"Intel", family:"Core i9", model:"13900K", socket:"LGA1700", cores:24, price:0 }
+    ];
+
+    // ---- AMD Motherboards ----
+    const AMDMotherboards = [
+        { id:"asus-prime-a520m-a-ii-csm", brand:"ASUS", model:"PRIME A520M-A II/CSM", socket:"AM4", ramType:"DDR4", formFactor:"mATX", wifi:false, price:0 },
+        { id:"gigabyte-a520m-k-v2", brand:"Gigabyte", model:"A520M K V2", socket:"AM4", ramType:"DDR4", formFactor:"mATX", wifi:false, price:0 },
+        { id:"asus-b450-plus-gaming", brand:"ASUS", model:"B450-PLUS GAMING", socket:"AM4", ramType:"DDR4", formFactor:"ATX", wifi:false, price:0 },
+        { id:"msi-b450m-pro-vdh-max", brand:"MSI", model:"B450M PRO-VDH MAX", socket:"AM4", ramType:"DDR4", formFactor:"mATX", wifi:false, price:0 },
+        { id:"gigabyte-b650-eagle-ax", brand:"Gigabyte", model:"B650 EAGLE AX", socket:"AM5", ramType:"DDR5", formFactor:"ATX", wifi:true, price:0 },
+        { id:"msi-mpg-b650i-edge-wifi", brand:"MSI", model:"MPG B650I Edge WiFi", socket:"AM5", ramType:"DDR5", formFactor:"ITX", wifi:true, price:0 },
+        { id:"msi-mag-x870-tomahawk", brand:"MSI", model:"MAG X870 Tomahawk WiFi", socket:"AM5", ramType:"DDR5", formFactor:"ATX", wifi:true, price:0 },
+        { id:"gigabyte-x870-aorus-elite", brand:"Gigabyte", model:"X870 AORUS Elite WIFI7", socket:"AM5", ramType:"DDR5", formFactor:"ATX", wifi:true, price:0 },
+        { id:"rog-zenith-extreme-str5", brand:"ASUS", model:"ROG ZENITH EXTREME", socket:"sTR5", ramType:"DDR5", formFactor:"EATX", wifi:true, price:0 },
+        { id:"pro-ws-trx50-sage", brand:"ASUS", model:"Pro WS TRX50-SAGE WIFI", socket:"sTR5", ramType:"DDR5", formFactor:"EATX", wifi:true, price:0 },
+        { id:"rog-zenith-ii-extreme-alpha", brand:"ASUS", model:"ROG Zenith II Extreme Alpha", socket:"sTRX4", ramType:"DDR4", formFactor:"EATX", wifi:true, price:0 },
+        { id:"trx40-aorus-master", brand:"Gigabyte", model:"TRX40 AORUS MASTER", socket:"sTRX4", ramType:"DDR4", formFactor:"ATX", wifi:true, price:0 },
+        { id:"wrx80e-sage", brand:"ASUS", model:"Pro WS WRX80E-SAGE SE WIFI II", socket:"sWRX8", ramType:"DDR4", formFactor:"E-ATX", wifi:true, price:0 },
+        { id:"wrx80-creator", brand:"ASRock", model:"WRX80 Creator", socket:"sWRX8", ramType:"DDR4", formFactor:"SSI EEB", wifi:true, price:0 },
+        { id:"rog-zenith-extreme-tr4", brand:"ASUS", model:"ROG ZENITH EXTREME", socket:"TR4", ramType:"DDR4", formFactor:"EATX", wifi:true, price:0 },
+        { id:"x399-taichi", brand:"ASRock", model:"X399 Taichi", socket:"TR4", ramType:"DDR4", formFactor:"ATX", wifi:true, price:0 }
+    ];
+
+    // ---- Intel Motherboards ----
+    const IntelMotherboards = [
+        { id:"asus-rog-maximus-z790-hero", brand:"ASUS", model:"ROG Maximus Z790 Hero", socket:"LGA1700", ramType:"DDR5", formFactor:"ATX", wifi:true, price:0 },
+        { id:"msi-meg-z790-godlike", brand:"MSI", model:"MEG Z790 GODLIKE", socket:"LGA1700", ramType:"DDR5", formFactor:"E-ATX", wifi:true, price:0 },
+        { id:"asus-z690-a-gaming-wifi", brand:"ASUS", model:"ROG Strix Z690-A Gaming WiFi", socket:"LGA1700", ramType:"DDR5", formFactor:"ATX", wifi:true, price:0 },
+        { id:"msi-pro-z690-a-ddr4", brand:"MSI", model:"PRO Z690-A WIFI DDR4", socket:"LGA1700", ramType:"DDR4", formFactor:"ATX", wifi:true, price:0 },
+        { id:"asus-tuf-b760m-plus", brand:"ASUS", model:"TUF Gaming B760M-Plus WiFi", socket:"LGA1700", ramType:"DDR5", formFactor:"mATX", wifi:true, price:0 },
+        { id:"msi-mag-b660m-mortar-ddr5", brand:"MSI", model:"MAG B660M Mortar WiFi", socket:"LGA1700", ramType:"DDR5", formFactor:"mATX", wifi:true, price:0 },
+        { id:"asus-tuf-b660m-plus-d4", brand:"ASUS", model:"TUF Gaming B660M-Plus WiFi D4", socket:"LGA1700", ramType:"DDR4", formFactor:"mATX", wifi:true, price:0 },
+        { id:"msi-mag-b660m-mortar-ddr4", brand:"MSI", model:"MAG B660M Mortar WiFi DDR4", socket:"LGA1700", ramType:"DDR4", formFactor:"mATX", wifi:true, price:0 }
+    ];
+
+    // ---- GPUs ----
+    const GPUs = [
+        { id:"gtx-750-ti", brand:"NVIDIA", series:"GTX", model:"750 Ti", vram:"2GB", powerDraw:60, price:0 },
+        { id:"gtx-950", brand:"NVIDIA", series:"GTX", model:"950", vram:"2GB", powerDraw:90, price:0 },
+        { id:"gtx-960", brand:"NVIDIA", series:"GTX", model:"960", vram:"2GB", powerDraw:120, price:0 },
+        { id:"gtx-970", brand:"NVIDIA", series:"GTX", model:"970", vram:"4GB", powerDraw:145, price:0 },
+        { id:"gtx-980", brand:"NVIDIA", series:"GTX", model:"980", vram:"4GB", powerDraw:165, price:0 },
+        { id:"gtx-1050", brand:"NVIDIA", series:"GTX", model:"1050", vram:"2GB", powerDraw:75, price:0 },
+        { id:"gtx-1050-ti", brand:"NVIDIA", series:"GTX", model:"1050 Ti", vram:"4GB", powerDraw:75, price:0 },
+        { id:"gtx-1060", brand:"NVIDIA", series:"GTX", model:"1060", vram:"6GB", powerDraw:120, price:0 },
+        { id:"gtx-1070", brand:"NVIDIA", series:"GTX", model:"1070", vram:"8GB", powerDraw:150, price:0 },
+        { id:"gtx-1080", brand:"NVIDIA", series:"GTX", model:"1080", vram:"8GB", powerDraw:180, price:0 },
+        { id:"rtx-2060", brand:"NVIDIA", series:"RTX 20", model:"2060", vram:"6GB", powerDraw:160, price:0 },
+        { id:"rtx-2070", brand:"NVIDIA", series:"RTX 20", model:"2070", vram:"8GB", powerDraw:175, price:0 },
+        { id:"rtx-2080", brand:"NVIDIA", series:"RTX 20", model:"2080", vram:"8GB", powerDraw:215, price:0 },
+        { id:"rtx-3050", brand:"NVIDIA", series:"RTX 30", model:"3050", vram:"8GB", powerDraw:130, price:0 },
+        { id:"rtx-3060", brand:"NVIDIA", series:"RTX 30", model:"3060", vram:"12GB", powerDraw:170, price:0 },
+        { id:"rtx-3060-ti", brand:"NVIDIA", series:"RTX 30", model:"3060 Ti", vram:"8GB", powerDraw:200, price:0 },
+        { id:"rtx-3070", brand:"NVIDIA", series:"RTX 30", model:"3070", vram:"8GB", powerDraw:220, price:0 },
+        { id:"rtx-3080", brand:"NVIDIA", series:"RTX 30", model:"3080", vram:"10GB", powerDraw:320, price:0 },
+        { id:"rtx-3090", brand:"NVIDIA", series:"RTX 30", model:"3090", vram:"24GB", powerDraw:350, price:0 },
+        { id:"rtx-4060", brand:"NVIDIA", series:"RTX 40", model:"4060", vram:"8GB", powerDraw:115, price:0 },
+        { id:"rtx-4060-ti", brand:"NVIDIA", series:"RTX 40", model:"4060 Ti", vram:"8GB", powerDraw:160, price:0 },
+        { id:"rtx-4070", brand:"NVIDIA", series:"RTX 40", model:"4070", vram:"12GB", powerDraw:200, price:0 },
+        { id:"rtx-4070-ti", brand:"NVIDIA", series:"RTX 40", model:"4070 Ti", vram:"12GB", powerDraw:285, price:0 },
+        { id:"rtx-4080", brand:"NVIDIA", series:"RTX 40", model:"4080", vram:"16GB", powerDraw:320, price:0 },
+        { id:"rtx-4090", brand:"NVIDIA", series:"RTX 40", model:"4090", vram:"24GB", powerDraw:450, price:0 },
+        { id:"rx-550", brand:"AMD", series:"RX 500", model:"RX 550", vram:"4GB", powerDraw:50, price:0 },
+        { id:"rx-560", brand:"AMD", series:"RX 500", model:"RX 560", vram:"4GB", powerDraw:80, price:0 },
+        { id:"rx-570", brand:"AMD", series:"RX 500", model:"RX 570", vram:"4GB", powerDraw:150, price:0 },
+        { id:"rx-580", brand:"AMD", series:"RX 500", model:"RX 580", vram:"8GB", powerDraw:185, price:0 },
+        { id:"rx-590", brand:"AMD", series:"RX 500", model:"RX 590", vram:"8GB", powerDraw:225, price:0 },
+        { id:"rx-6600", brand:"AMD", series:"RX 6000", model:"RX 6600", vram:"8GB", powerDraw:132, price:0 },
+        { id:"rx-6600-xt", brand:"AMD", series:"RX 6000", model:"RX 6600 XT", vram:"8GB", powerDraw:160, price:0 },
+        { id:"rx-6700-xt", brand:"AMD", series:"RX 6000", model:"RX 6700 XT", vram:"12GB", powerDraw:230, price:0 },
+        { id:"rx-6800", brand:"AMD", series:"RX 6000", model:"RX 6800", vram:"16GB", powerDraw:250, price:0 },
+        { id:"rx-6800-xt", brand:"AMD", series:"RX 6000", model:"RX 6800 XT", vram:"16GB", powerDraw:300, price:0 },
+        { id:"rx-6900-xt", brand:"AMD", series:"RX 6000", model:"RX 6900 XT", vram:"16GB", powerDraw:300, price:0 },
+        { id:"rx-7600", brand:"AMD", series:"RX 7000", model:"RX 7600", vram:"8GB", powerDraw:165, price:0 },
+        { id:"rx-7700-xt", brand:"AMD", series:"RX 7000", model:"RX 7700 XT", vram:"12GB", powerDraw:245, price:0 },
+        { id:"rx-7800-xt", brand:"AMD", series:"RX 7000", model:"RX 7800 XT", vram:"16GB", powerDraw:263, price:0 },
+        { id:"rx-7900-xt", brand:"AMD", series:"RX 7000", model:"RX 7900 XT", vram:"20GB", powerDraw:315, price:0 },
+        { id:"rx-7900-xtx", brand:"AMD", series:"RX 7000", model:"RX 7900 XTX", vram:"24GB", powerDraw:355, price:0 }
+    ];
+
+    // ---- RAM ----
+    const RAM = [
+        { id:"ddr4-4-2133", type:"DDR4", capacity:4, speed:2133, price:0 },
+        { id:"ddr4-4-2400", type:"DDR4", capacity:4, speed:2400, price:0 },
+        { id:"ddr4-4-2666", type:"DDR4", capacity:4, speed:2666, price:0 },
+        { id:"ddr4-4-3000", type:"DDR4", capacity:4, speed:3000, price:0 },
+        { id:"ddr4-4-3200", type:"DDR4", capacity:4, speed:3200, price:0 },
+        { id:"ddr4-4-3600", type:"DDR4", capacity:4, speed:3600, price:0 },
+        { id:"ddr4-4-4000", type:"DDR4", capacity:4, speed:4000, price:0 },
+        { id:"ddr4-8-2133", type:"DDR4", capacity:8, speed:2133, price:0 },
+        { id:"ddr4-8-2400", type:"DDR4", capacity:8, speed:2400, price:0 },
+        { id:"ddr4-8-2666", type:"DDR4", capacity:8, speed:2666, price:0 },
+        { id:"ddr4-8-3000", type:"DDR4", capacity:8, speed:3000, price:0 },
+        { id:"ddr4-8-3200", type:"DDR4", capacity:8, speed:3200, price:0 },
+        { id:"ddr4-8-3600", type:"DDR4", capacity:8, speed:3600, price:0 },
+        { id:"ddr4-8-4000", type:"DDR4", capacity:8, speed:4000, price:0 },
+        { id:"ddr4-16-2133", type:"DDR4", capacity:16, speed:2133, price:0 },
+        { id:"ddr4-16-2400", type:"DDR4", capacity:16, speed:2400, price:0 },
+        { id:"ddr4-16-2666", type:"DDR4", capacity:16, speed:2666, price:0 },
+        { id:"ddr4-16-3000", type:"DDR4", capacity:16, speed:3000, price:0 },
+        { id:"ddr4-16-3200", type:"DDR4", capacity:16, speed:3200, price:0 },
+        { id:"ddr4-16-3600", type:"DDR4", capacity:16, speed:3600, price:0 },
+        { id:"ddr4-16-4000", type:"DDR4", capacity:16, speed:4000, price:0 },
+        { id:"ddr4-32-2133", type:"DDR4", capacity:32, speed:2133, price:0 },
+        { id:"ddr4-32-2400", type:"DDR4", capacity:32, speed:2400, price:0 },
+        { id:"ddr4-32-2666", type:"DDR4", capacity:32, speed:2666, price:0 },
+        { id:"ddr4-32-3000", type:"DDR4", capacity:32, speed:3000, price:0 },
+        { id:"ddr4-32-3200", type:"DDR4", capacity:32, speed:3200, price:0 },
+        { id:"ddr4-32-3600", type:"DDR4", capacity:32, speed:3600, price:0 },
+        { id:"ddr4-32-4000", type:"DDR4", capacity:32, speed:4000, price:0 },
+        { id:"ddr4-64-2133", type:"DDR4", capacity:64, speed:2133, price:0 },
+        { id:"ddr4-64-2400", type:"DDR4", capacity:64, speed:2400, price:0 },
+        { id:"ddr4-64-2666", type:"DDR4", capacity:64, speed:2666, price:0 },
+        { id:"ddr4-64-3000", type:"DDR4", capacity:64, speed:3000, price:0 },
+        { id:"ddr4-64-3200", type:"DDR4", capacity:64, speed:3200, price:0 },
+        { id:"ddr4-64-3600", type:"DDR4", capacity:64, speed:3600, price:0 },
+        { id:"ddr4-64-4000", type:"DDR4", capacity:64, speed:4000, price:0 },
+        { id:"ddr5-8-4800", type:"DDR5", capacity:8, speed:4800, price:0 },
+        { id:"ddr5-8-5200", type:"DDR5", capacity:8, speed:5200, price:0 },
+        { id:"ddr5-8-5600", type:"DDR5", capacity:8, speed:5600, price:0 },
+        { id:"ddr5-8-6000", type:"DDR5", capacity:8, speed:6000, price:0 },
+        { id:"ddr5-8-6400", type:"DDR5", capacity:8, speed:6400, price:0 },
+        { id:"ddr5-8-6800", type:"DDR5", capacity:8, speed:6800, price:0 },
+        { id:"ddr5-8-7200", type:"DDR5", capacity:8, speed:7200, price:0 },
+        { id:"ddr5-8-7600", type:"DDR5", capacity:8, speed:7600, price:0 },
+        { id:"ddr5-8-8000", type:"DDR5", capacity:8, speed:8000, price:0 },
+        { id:"ddr5-16-4800", type:"DDR5", capacity:16, speed:4800, price:0 },
+        { id:"ddr5-16-5200", type:"DDR5", capacity:16, speed:5200, price:0 },
+        { id:"ddr5-16-5600", type:"DDR5", capacity:16, speed:5600, price:0 },
+        { id:"ddr5-16-6000", type:"DDR5", capacity:16, speed:6000, price:0 },
+        { id:"ddr5-16-6400", type:"DDR5", capacity:16, speed:6400, price:0 },
+        { id:"ddr5-16-6800", type:"DDR5", capacity:16, speed:6800, price:0 },
+        { id:"ddr5-16-7200", type:"DDR5", capacity:16, speed:7200, price:0 },
+        { id:"ddr5-16-7600", type:"DDR5", capacity:16, speed:7600, price:0 },
+        { id:"ddr5-16-8000", type:"DDR5", capacity:16, speed:8000, price:0 },
+        { id:"ddr5-32-4800", type:"DDR5", capacity:32, speed:4800, price:0 },
+        { id:"ddr5-32-5200", type:"DDR5", capacity:32, speed:5200, price:0 },
+        { id:"ddr5-32-5600", type:"DDR5", capacity:32, speed:5600, price:0 },
+        { id:"ddr5-32-6000", type:"DDR5", capacity:32, speed:6000, price:0 },
+        { id:"ddr5-32-6400", type:"DDR5", capacity:32, speed:6400, price:0 },
+        { id:"ddr5-32-6800", type:"DDR5", capacity:32, speed:6800, price:0 },
+        { id:"ddr5-32-7200", type:"DDR5", capacity:32, speed:7200, price:0 },
+        { id:"ddr5-32-7600", type:"DDR5", capacity:32, speed:7600, price:0 },
+        { id:"ddr5-32-8000", type:"DDR5", capacity:32, speed:8000, price:0 },
+        { id:"ddr5-64-4800", type:"DDR5", capacity:64, speed:4800, price:0 },
+        { id:"ddr5-64-5200", type:"DDR5", capacity:64, speed:5200, price:0 },
+        { id:"ddr5-64-5600", type:"DDR5", capacity:64, speed:5600, price:0 },
+        { id:"ddr5-64-6000", type:"DDR5", capacity:64, speed:6000, price:0 },
+        { id:"ddr5-64-6400", type:"DDR5", capacity:64, speed:6400, price:0 },
+        { id:"ddr5-64-6800", type:"DDR5", capacity:64, speed:6800, price:0 },
+        { id:"ddr5-64-7200", type:"DDR5", capacity:64, speed:7200, price:0 },
+        { id:"ddr5-64-7600", type:"DDR5", capacity:64, speed:7600, price:0 },
+        { id:"ddr5-64-8000", type:"DDR5", capacity:64, speed:8000, price:0 }
+    ];
+
+    // ---- Storage ----
+    const Storage = [
+        { id:"ssd-sata-120", type:"SSD", interface:"SATA III", capacity:"120GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-240", type:"SSD", interface:"SATA III", capacity:"240GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-250", type:"SSD", interface:"SATA III", capacity:"250GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-480", type:"SSD", interface:"SATA III", capacity:"480GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-500", type:"SSD", interface:"SATA III", capacity:"500GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-512", type:"SSD", interface:"SATA III", capacity:"512GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-960", type:"SSD", interface:"SATA III", capacity:"960GB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-1tb", type:"SSD", interface:"SATA III", capacity:"1TB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-2tb", type:"SSD", interface:"SATA III", capacity:"2TB", formFactor:"2.5\"", price:0 },
+        { id:"ssd-sata-4tb", type:"SSD", interface:"SATA III", capacity:"4TB", formFactor:"2.5\"", price:0 },
+        { id:"nvme3-128", type:"SSD", interface:"PCIe 3.0", capacity:"128GB", formFactor:"M.2", price:0 },
+        { id:"nvme3-256", type:"SSD", interface:"PCIe 3.0", capacity:"256GB", formFactor:"M.2", price:0 },
+        { id:"nvme3-512", type:"SSD", interface:"PCIe 3.0", capacity:"512GB", formFactor:"M.2", price:0 },
+        { id:"nvme3-1tb", type:"SSD", interface:"PCIe 3.0", capacity:"1TB", formFactor:"M.2", price:0 },
+        { id:"nvme3-2tb", type:"SSD", interface:"PCIe 3.0", capacity:"2TB", formFactor:"M.2", price:0 },
+        { id:"nvme4-250", type:"SSD", interface:"PCIe 4.0", capacity:"250GB", formFactor:"M.2", price:0 },
+        { id:"nvme4-500", type:"SSD", interface:"PCIe 4.0", capacity:"500GB", formFactor:"M.2", price:0 },
+        { id:"nvme4-1tb", type:"SSD", interface:"PCIe 4.0", capacity:"1TB", formFactor:"M.2", price:0 },
+        { id:"nvme4-2tb", type:"SSD", interface:"PCIe 4.0", capacity:"2TB", formFactor:"M.2", price:0 },
+        { id:"nvme4-4tb", type:"SSD", interface:"PCIe 4.0", capacity:"4TB", formFactor:"M.2", price:0 },
+        { id:"nvme5-500", type:"SSD", interface:"PCIe 5.0", capacity:"500GB", formFactor:"M.2", price:0 },
+        { id:"nvme5-1tb", type:"SSD", interface:"PCIe 5.0", capacity:"1TB", formFactor:"M.2", price:0 },
+        { id:"nvme5-2tb", type:"SSD", interface:"PCIe 5.0", capacity:"2TB", formFactor:"M.2", price:0 },
+        { id:"nvme5-4tb", type:"SSD", interface:"PCIe 5.0", capacity:"4TB", formFactor:"M.2", price:0 },
+        { id:"hdd7200-500", type:"HDD", capacity:"500GB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-1tb", type:"HDD", capacity:"1TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-2tb", type:"HDD", capacity:"2TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-3tb", type:"HDD", capacity:"3TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-4tb", type:"HDD", capacity:"4TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-6tb", type:"HDD", capacity:"6TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-8tb", type:"HDD", capacity:"8TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-10tb", type:"HDD", capacity:"10TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-12tb", type:"HDD", capacity:"12TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-14tb", type:"HDD", capacity:"14TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-16tb", type:"HDD", capacity:"16TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-18tb", type:"HDD", capacity:"18TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd7200-20tb", type:"HDD", capacity:"20TB", rpm:7200, formFactor:"3.5\"", price:0 },
+        { id:"hdd5400-1tb", type:"HDD", capacity:"1TB", rpm:5400, formFactor:"3.5\"", price:0 },
+        { id:"hdd5400-2tb", type:"HDD", capacity:"2TB", rpm:5400, formFactor:"3.5\"", price:0 },
+        { id:"hdd5400-4tb", type:"HDD", capacity:"4TB", rpm:5400, formFactor:"3.5\"", price:0 },
+        { id:"hdd5400-6tb", type:"HDD", capacity:"6TB", rpm:5400, formFactor:"3.5\"", price:0 },
+        { id:"hdd5400-8tb", type:"HDD", capacity:"8TB", rpm:5400, formFactor:"3.5\"", price:0 },
+        { id:"lap-500", type:"HDD", capacity:"500GB", rpm:5400, formFactor:"2.5\"", price:0 },
+        { id:"lap-1tb", type:"HDD", capacity:"1TB", rpm:5400, formFactor:"2.5\"", price:0 },
+        { id:"lap-2tb", type:"HDD", capacity:"2TB", rpm:5400, formFactor:"2.5\"", price:0 }
+    ];
+
+    // ---- PSUs ----
+    const PSUs = [
+        { id:"psu-400-white", wattage:400, rating:"80+ White", modular:"Non-Modular", price:0 },
+        { id:"psu-400-bronze", wattage:400, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-450-white", wattage:450, rating:"80+ White", modular:"Non-Modular", price:0 },
+        { id:"psu-450-bronze", wattage:450, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-500-white", wattage:500, rating:"80+ White", modular:"Non-Modular", price:0 },
+        { id:"psu-500-bronze", wattage:500, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-500-gold", wattage:500, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-550-bronze", wattage:550, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-550-gold", wattage:550, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-600-bronze", wattage:600, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-600-gold", wattage:600, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-650-bronze", wattage:650, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-650-gold", wattage:650, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-650-platinum", wattage:650, rating:"80+ Platinum", modular:"Fully Modular", price:0 },
+        { id:"psu-700-bronze", wattage:700, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-700-gold", wattage:700, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-750-bronze", wattage:750, rating:"80+ Bronze", modular:"Non-Modular", price:0 },
+        { id:"psu-750-gold", wattage:750, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-750-platinum", wattage:750, rating:"80+ Platinum", modular:"Fully Modular", price:0 },
+        { id:"psu-850-gold", wattage:850, rating:"80+ Gold", modular:"Semi-Modular", price:0 },
+        { id:"psu-850-platinum", wattage:850, rating:"80+ Platinum", modular:"Fully Modular", price:0 },
+        { id:"psu-1000-gold", wattage:1000, rating:"80+ Gold", modular:"Fully Modular", price:0 },
+        { id:"psu-1000-platinum", wattage:1000, rating:"80+ Platinum", modular:"Fully Modular", price:0 },
+        { id:"psu-1200-gold", wattage:1200, rating:"80+ Gold", modular:"Fully Modular", price:0 },
+        { id:"psu-1200-platinum", wattage:1200, rating:"80+ Platinum", modular:"Fully Modular", price:0 }
+    ];
+
+    // ---- Cases ----
+    const Cases = [
+        { id:"mini-black", size:"Mini Tower", colour:"Black", motherboardSupport:["Mini-ITX","Micro-ATX"], sidePanel:"Steel", rgb:false, price:0 },
+        { id:"mini-white", size:"Mini Tower", colour:"White", motherboardSupport:["Mini-ITX","Micro-ATX"], sidePanel:"Steel", rgb:false, price:0 },
+        { id:"mid-black", size:"Mid Tower", colour:"Black", motherboardSupport:["Mini-ITX","Micro-ATX","ATX"], sidePanel:"Tempered Glass", rgb:false, price:0 },
+        { id:"mid-black-rgb", size:"Mid Tower", colour:"Black", motherboardSupport:["Mini-ITX","Micro-ATX","ATX"], sidePanel:"Tempered Glass", rgb:true, price:0 },
+        { id:"mid-white", size:"Mid Tower", colour:"White", motherboardSupport:["Mini-ITX","Micro-ATX","ATX"], sidePanel:"Tempered Glass", rgb:false, price:0 },
+        { id:"mid-white-rgb", size:"Mid Tower", colour:"White", motherboardSupport:["Mini-ITX","Micro-ATX","ATX"], sidePanel:"Tempered Glass", rgb:true, price:0 },
+        { id:"full-black", size:"Full Tower", colour:"Black", motherboardSupport:["Mini-ITX","Micro-ATX","ATX","E-ATX"], sidePanel:"Tempered Glass", rgb:false, price:0 },
+        { id:"full-black-rgb", size:"Full Tower", colour:"Black", motherboardSupport:["Mini-ITX","Micro-ATX","ATX","E-ATX"], sidePanel:"Tempered Glass", rgb:true, price:0 },
+        { id:"full-white", size:"Full Tower", colour:"White", motherboardSupport:["Mini-ITX","Micro-ATX","ATX","E-ATX"], sidePanel:"Tempered Glass", rgb:false, price:0 },
+        { id:"full-white-rgb", size:"Full Tower", colour:"White", motherboardSupport:["Mini-ITX","Micro-ATX","ATX","E-ATX"], sidePanel:"Tempered Glass", rgb:true, price:0 }
+    ];
+
+    // ---- Extras (all) ----
+    const Extras = [
+        // Cooling (already handled in a separate dropdown, but we keep them here for completeness)
+        { id:"stock-cooler", category:"Cooling", name:"Stock CPU Cooler", price:0 },
+        { id:"tower-cooler", category:"Cooling", name:"Tower Air Cooler", price:0 },
+        { id:"aio-240", category:"Cooling", name:"240mm AIO Liquid Cooler", price:0 },
+        { id:"aio-360", category:"Cooling", name:"360mm AIO Liquid Cooler", price:0 },
+        // Networking
+        { id:"wifi-usb", category:"Networking", name:"USB Wi-Fi Adapter", price:0 },
+        { id:"wifi-pcie", category:"Networking", name:"PCIe Wi-Fi Card", price:0 },
+        { id:"wifi-bluetooth", category:"Networking", name:"PCIe Wi-Fi + Bluetooth", price:0 },
+        { id:"bluetooth-usb", category:"Networking", name:"USB Bluetooth Adapter", price:0 },
+        // Accessories
+        { id:"cmos-battery", category:"Accessories", name:"CMOS Battery", price:0 },
+        { id:"sata-cable", category:"Accessories", name:"SATA Data Cable", price:0 },
+        { id:"thermal-paste", category:"Accessories", name:"Thermal Paste", price:0 },
+        { id:"rgb-controller", category:"Accessories", name:"RGB Controller Hub", price:0 },
+        // Peripherals (adding monitors, keyboards, mice as extras)
+        { id:"monitor-24", category:"Peripherals", name:"24\" Monitor", price:0 },
+        { id:"monitor-27", category:"Peripherals", name:"27\" Monitor", price:0 },
+        { id:"monitor-32", category:"Peripherals", name:"32\" Monitor", price:0 },
+        { id:"keyboard-mech", category:"Peripherals", name:"Mechanical Keyboard", price:0 },
+        { id:"mouse-gaming", category:"Peripherals", name:"Gaming Mouse", price:0 },
+        { id:"headset", category:"Peripherals", name:"Gaming Headset", price:0 }
+    ];
+
+    // ---- Recommended Builds (optional) ----
+    const RecommendedBuilds = [
+        { id:"office-essential", name:"Office Essential", category:"Business", description:"Reliable everyday office computer...", cpu:{amd:"r5-5600g", intel:"i3-12100f"}, motherboard:{amd:"asus-prime-a520m-a-ii-csm", intel:"asus-tuf-b660m-plus-d4"}, ram:"16gb-ddr4", storage:["500gb-nvme"], gpu:"integrated", psu:"450w-bronze", case:"mini-black", cooling:"stock-cooler", estimatedPower:180, price:0, featured:true },
+        { id:"professional-workstation", name:"Professional Workstation", category:"Workstation", description:"Built for developers, engineers...", cpu:{amd:"r7-7700x", intel:"i7-13700k"}, motherboard:{amd:"gigabyte-b650-eagle-ax", intel:"asus-rog-maximus-z790-hero"}, ram:"32gb-ddr5", storage:["1tb-nvme","2tb-ssd"], gpu:"rtx4070", psu:"850w-gold", case:"mid-black", cooling:"aio-240", estimatedPower:550, price:0, featured:true },
+        { id:"ultimate-gaming", name:"Ultimate Gaming Rig", category:"Gaming", description:"High-end gaming PC...", cpu:{amd:"r7-7800x3d", intel:"i9-13900k"}, motherboard:{amd:"msi-mag-x870-tomahawk", intel:"msi-meg-z790-godlike"}, ram:"32gb-ddr5", storage:["2tb-nvme"], gpu:"rtx4080", psu:"1000w-gold", case:"full-black-rgb", cooling:"aio-360", estimatedPower:780, rgb:true, price:0, featured:true }
+    ];
+
+    // ==========================================================
+    // 2. BUILDER LOGIC (extended with quantities, extras, multiple builds)
+    // ==========================================================
+    const BUILD_FEE = 2200;
+    let currentPlatform = 'amd';
+    let savedBuilds = [];
+
+    // DOM refs
+    const platformBtns = document.querySelectorAll('#platformGrid button');
+    const cpuSelect = document.getElementById('cpuSelect');
+    const mbSelect = document.getElementById('motherboardSelect');
+    const gpuSelect = document.getElementById('gpuSelect');
+    const ramSelect = document.getElementById('ramSelect');
+    const ramQtyInput = document.getElementById('ramQty');
+    const storageSelect = document.getElementById('storageSelect');
+    const storageQtyInput = document.getElementById('storageQty');
+    const psuSelect = document.getElementById('psuSelect');
+    const caseSelect = document.getElementById('caseSelect');
+    const coolingSelect = document.getElementById('coolingSelect');
+    const extrasGrid = document.getElementById('extrasGrid');
+
+    const summaryEls = {
+        cpu: document.getElementById('summaryCpu'),
+        mb: document.getElementById('summaryMb'),
+        gpu: document.getElementById('summaryGpu'),
+        ram: document.getElementById('summaryRam'),
+        ramQty: document.getElementById('summaryRamQty'),
+        storage: document.getElementById('summaryStorage'),
+        storageQty: document.getElementById('summaryStorageQty'),
+        psu: document.getElementById('summaryPsu'),
+        case: document.getElementById('summaryCase'),
+        cooling: document.getElementById('summaryCooling'),
+        extras: document.getElementById('summaryExtras'),
+        fee: document.getElementById('summaryFee'),
+        total: document.getElementById('summaryTotal')
+    };
+    const explanations = {
+        cpu: document.getElementById('cpuExplanation'),
+        mb: document.getElementById('mbExplanation'),
+        gpu: document.getElementById('gpuExplanation'),
+        ram: document.getElementById('ramExplanation'),
+        storage: document.getElementById('storageExplanation'),
+        psu: document.getElementById('psuExplanation'),
+        case: document.getElementById('caseExplanation'),
+        cooling: document.getElementById('coolingExplanation')
+    };
+    const statusEls = {
+        cpu: document.getElementById('cpuStatus'),
+        mb: document.getElementById('mbStatus'),
+        gpu: document.getElementById('gpuStatus'),
+        ram: document.getElementById('ramStatus'),
+        storage: document.getElementById('storageStatus'),
+        psu: document.getElementById('psuStatus'),
+        case: document.getElementById('caseStatus'),
+        cooling: document.getElementById('coolingStatus'),
+        extras: document.getElementById('extrasStatus')
+    };
+
+    // Helpers
+    function getCPUs() { return currentPlatform === 'amd' ? AMDCPUs : IntelCPUs; }
+    function getMotherboards() { return currentPlatform === 'amd' ? AMDMotherboards : IntelMotherboards; }
+    function getCoolingOptions() { return Extras.filter(e => e.category === 'Cooling'); }
+    function formatPrice(p) { return 'R' + Number(p).toLocaleString(); }
+
+    function getItemLabel(item, type) {
+        if (!item) return '—';
+        if (type === 'cpu') return (item.brand || '') + ' ' + (item.family || '') + ' ' + (item.model || '');
+        if (type === 'mb') return (item.brand || '') + ' ' + (item.model || '');
+        if (type === 'gpu') return (item.brand || '') + ' ' + (item.series || '') + ' ' + (item.model || '');
+        if (type === 'ram') return (item.type || '') + ' ' + item.capacity + 'GB ' + (item.speed || '') + 'MHz';
+        if (type === 'storage') return (item.type || '') + ' ' + (item.interface || '') + ' ' + (item.capacity || '');
+        if (type === 'psu') return (item.wattage || '') + 'W ' + (item.rating || '');
+        if (type === 'case') return (item.size || '') + ' ' + (item.colour || '');
+        if (type === 'cooling') return item.name || '—';
+        return item.name || item.model || item.id || '—';
+    }
+
+    function getExplanation(item, type) {
+        if (!item) {
+            const defaults = {
+                cpu: 'The CPU is the brain. Select one to start your build.',
+                mb: 'The motherboard connects everything. Compatible options appear after you pick a CPU.',
+                gpu: 'The GPU renders everything you see. For gaming, this is your most important component.',
+                ram: 'RAM is short-term memory. 16GB is great for gaming, 32GB+ for creators.',
+                storage: 'Storage holds your files. NVMe is fastest, SATA is great value.',
+                psu: 'The PSU powers everything. Options are filtered based on your GPU\'s power draw.',
+                case: 'The case holds everything. Make sure it supports your motherboard size.',
+                cooling: 'Air cooling only. Stock is fine for basic use, tower coolers for better performance.'
+            };
+            return defaults[type] || 'Select a component to learn more.';
         }
-      });
+        const details = {
+            cpu: item.brand + ' ' + item.family + ' ' + item.model + ' — ' + item.cores + ' cores, ' + item.socket + ' socket.',
+            mb: item.brand + ' ' + item.model + ' — ' + item.ramType + ' memory, ' + item.formFactor + ' form factor.' + (item.wifi ? ' Wi-Fi included ✓' : ''),
+            gpu: item.brand + ' ' + item.series + ' ' + item.model + ' — ' + item.vram + ' VRAM, ' + item.powerDraw + 'W power draw.',
+            ram: item.type + ' ' + item.capacity + 'GB @ ' + item.speed + 'MHz.',
+            storage: (item.type || '') + ' ' + (item.interface || '') + ' ' + (item.capacity || '') + ' — ' + (item.formFactor || ''),
+            psu: item.wattage + 'W ' + (item.rating || '') + ' — ' + (item.modular || 'Non-Modular'),
+            case: item.size + ' — ' + item.colour + ', supports ' + (item.motherboardSupport ? item.motherboardSupport.join(', ') : 'various') + ' motherboards.',
+            cooling: item.name || '—'
+        };
+        return details[type] || 'Component selected.';
     }
-  })();
 
-  // Scroll reveal (fade-in)
-  (function() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  })();
+    function populateSelect(select, items, type, placeholder) {
+        var currentVal = select.value;
+        select.innerHTML = '<option value="">' + (placeholder || '— Select —') + '</option>';
+        items.forEach(function(item) {
+            var opt = document.createElement('option');
+            opt.value = item.id;
+            opt.textContent = getItemLabel(item, type);
+            select.appendChild(opt);
+        });
+        if (currentVal) {
+            var exists = false;
+            for (var i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === currentVal) { exists = true; break; }
+            }
+            if (exists) select.value = currentVal;
+        }
+        return select.value;
+    }
 
-  // Active nav link highlight
-  (function() {
-    const current = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === current) link.classList.add('active');
-      else link.classList.remove('active');
+    function findItem(select, items) {
+        var val = select.value;
+        if (!val) return null;
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].id === val) return items[i];
+        }
+        return null;
+    }
+
+    function updateMotherboards() {
+        var cpu = findItem(cpuSelect, getCPUs());
+        if (!cpu) {
+            mbSelect.innerHTML = '<option value="">— Select a CPU first —</option>';
+            statusEls.mb.innerHTML = '<span class="waiting">○</span> Waiting for CPU';
+            return;
+        }
+        var compatible = getMotherboards().filter(function(mb) { return mb.socket === cpu.socket; });
+        if (compatible.length === 0) {
+            mbSelect.innerHTML = '<option value="">— No compatible motherboards found —</option>';
+            statusEls.mb.innerHTML = '<span style="color:#ef4444;">✗</span> No boards for this socket';
+            return;
+        }
+        populateSelect(mbSelect, compatible, 'mb', '— Select a motherboard —');
+        statusEls.mb.innerHTML = '<span class="ready">●</span> ' + compatible.length + ' compatible boards';
+    }
+
+    function updatePSUs() {
+        var gpu = findItem(gpuSelect, GPUs);
+        if (!gpu) {
+            psuSelect.innerHTML = '<option value="">— Select a GPU first —</option>';
+            statusEls.psu.innerHTML = '<span class="waiting">○</span> Select a GPU first';
+            return;
+        }
+        var minWattage = gpu.powerDraw * 1.5;
+        var compatible = PSUs.filter(function(psu) { return psu.wattage >= minWattage; });
+        if (compatible.length === 0) {
+            psuSelect.innerHTML = '<option value="">— No PSUs found for this GPU —</option>';
+            statusEls.psu.innerHTML = '<span style="color:#ef4444;">✗</span> No PSUs available';
+            return;
+        }
+        populateSelect(psuSelect, compatible, 'psu', '— Select a PSU —');
+        statusEls.psu.innerHTML = '<span class="ready">●</span> ' + compatible.length + ' PSUs (min ' + Math.round(minWattage) + 'W recommended)';
+    }
+
+    // Populate extras grid
+    function populateExtras() {
+        // Exclude cooling because it has its own dropdown
+        const coolingIds = getCoolingOptions().map(c => c.id);
+        const extraItems = Extras.filter(e => !coolingIds.includes(e.id) && e.category !== 'Cooling');
+        extrasGrid.innerHTML = '';
+        extraItems.forEach(function(item) {
+            var label = document.createElement('label');
+            var cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = item.id;
+            cb.dataset.price = item.price || 0;
+            cb.dataset.name = item.name;
+            cb.addEventListener('change', updateSummary);
+            label.appendChild(cb);
+            label.appendChild(document.createTextNode(item.name));
+            var priceSpan = document.createElement('span');
+            priceSpan.className = 'price-tag';
+            priceSpan.textContent = item.price ? formatPrice(item.price) : 'Free';
+            label.appendChild(priceSpan);
+            extrasGrid.appendChild(label);
+        });
+        statusEls.extras.innerHTML = '<span class="waiting">○</span> Select extras (optional)';
+    }
+
+    // Main update summary
+    function updateSummary() {
+        var cpu = findItem(cpuSelect, getCPUs());
+        var mb = findItem(mbSelect, getMotherboards());
+        var gpu = findItem(gpuSelect, GPUs);
+        var ram = findItem(ramSelect, RAM);
+        var ramQty = parseInt(ramQtyInput.value) || 1;
+        var storage = findItem(storageSelect, Storage);
+        var storageQty = parseInt(storageQtyInput.value) || 1;
+        var psu = findItem(psuSelect, PSUs);
+        var caseItem = findItem(caseSelect, Cases);
+        var cooling = findItem(coolingSelect, getCoolingOptions());
+
+        // Extras
+        var extraCheckboxes = extrasGrid.querySelectorAll('input[type="checkbox"]:checked');
+        var extraTotal = 0;
+        var extraNames = [];
+        extraCheckboxes.forEach(function(cb) {
+            extraTotal += parseFloat(cb.dataset.price) || 0;
+            extraNames.push(cb.dataset.name);
+        });
+
+        // Build labels
+        var ramLabel = ram ? ram.type + ' ' + ram.capacity + 'GB ' + ram.speed + 'MHz' : '—';
+        var storageLabel = storage ? (storage.type || '') + ' ' + (storage.interface || '') + ' ' + (storage.capacity || '') : '—';
+
+        summaryEls.cpu.textContent = getItemLabel(cpu, 'cpu');
+        summaryEls.mb.textContent = getItemLabel(mb, 'mb');
+        summaryEls.gpu.textContent = getItemLabel(gpu, 'gpu');
+        summaryEls.ram.textContent = ramLabel;
+        summaryEls.ramQty.textContent = ramQty > 1 ? 'x' + ramQty : '';
+        summaryEls.storage.textContent = storageLabel;
+        summaryEls.storageQty.textContent = storageQty > 1 ? 'x' + storageQty : '';
+        summaryEls.psu.textContent = getItemLabel(psu, 'psu');
+        summaryEls.case.textContent = getItemLabel(caseItem, 'case');
+        summaryEls.cooling.textContent = getItemLabel(cooling, 'cooling');
+        summaryEls.extras.textContent = extraNames.length ? extraNames.join(', ') : 'None';
+
+        // Total components (excluding fee)
+        var componentTotal = 0;
+        if (cpu && cpu.price) componentTotal += cpu.price;
+        if (mb && mb.price) componentTotal += mb.price;
+        if (gpu && gpu.price) componentTotal += gpu.price;
+        if (ram && ram.price) componentTotal += ram.price * ramQty;
+        if (storage && storage.price) componentTotal += storage.price * storageQty;
+        if (psu && psu.price) componentTotal += psu.price;
+        if (caseItem && caseItem.price) componentTotal += caseItem.price;
+        if (cooling && cooling.price) componentTotal += cooling.price;
+        componentTotal += extraTotal;
+
+        var total = componentTotal + BUILD_FEE;
+        summaryEls.fee.textContent = formatPrice(BUILD_FEE);
+        summaryEls.total.textContent = formatPrice(total);
+
+        // Store current build data for saving
+        window._currentBuild = {
+            cpu: getItemLabel(cpu, 'cpu'),
+            mb: getItemLabel(mb, 'mb'),
+            gpu: getItemLabel(gpu, 'gpu'),
+            ram: ramLabel + (ramQty > 1 ? ' x' + ramQty : ''),
+            storage: storageLabel + (storageQty > 1 ? ' x' + storageQty : ''),
+            psu: getItemLabel(psu, 'psu'),
+            case: getItemLabel(caseItem, 'case'),
+            cooling: getItemLabel(cooling, 'cooling'),
+            extras: extraNames.length ? extraNames.join(', ') : 'None',
+            total: total
+        };
+
+        // Update statuses
+        if (cpu) { statusEls.cpu.innerHTML = '<span class="ready">●</span> ' + cpu.brand + ' ' + cpu.family + ' ' + cpu.model + ' (' + cpu.socket + ')'; }
+        else { statusEls.cpu.innerHTML = '<span class="waiting">○</span> Select a CPU first'; }
+        if (gpu) { statusEls.gpu.innerHTML = '<span class="ready">●</span> ' + gpu.brand + ' ' + gpu.model + ' — ' + gpu.powerDraw + 'W'; }
+        else { statusEls.gpu.innerHTML = '<span class="waiting">○</span> Select a GPU'; }
+        if (ram) { statusEls.ram.innerHTML = '<span class="ready">●</span> ' + ram.type + ' ' + ram.capacity + 'GB @ ' + ram.speed + 'MHz' + (ramQty > 1 ? ' x' + ramQty : ''); }
+        else { statusEls.ram.innerHTML = '<span class="waiting">○</span> Select RAM'; }
+        if (storage) { statusEls.storage.innerHTML = '<span class="ready">●</span> ' + storage.type + ' ' + storage.capacity + (storageQty > 1 ? ' x' + storageQty : ''); }
+        else { statusEls.storage.innerHTML = '<span class="waiting">○</span> Select storage'; }
+        if (psu) { statusEls.psu.innerHTML = '<span class="ready">●</span> ' + psu.wattage + 'W ' + psu.rating; }
+        else { statusEls.psu.innerHTML = '<span class="waiting">○</span> Select a PSU'; }
+        if (caseItem) { statusEls.case.innerHTML = '<span class="ready">●</span> ' + caseItem.size + ' — ' + caseItem.colour; }
+        else { statusEls.case.innerHTML = '<span class="waiting">○</span> Select a case'; }
+        if (cooling) { statusEls.cooling.innerHTML = '<span class="ready">●</span> ' + cooling.name; }
+        else { statusEls.cooling.innerHTML = '<span class="waiting">○</span> Select cooling'; }
+        if (extraNames.length) { statusEls.extras.innerHTML = '<span class="ready">●</span> ' + extraNames.join(', '); }
+        else { statusEls.extras.innerHTML = '<span class="waiting">○</span> Select extras (optional)'; }
+    }
+
+    // Save build
+    function saveBuild() {
+        if (!window._currentBuild) return;
+        if (!cpuSelect.value || !gpuSelect.value) {
+            alert('Please select at least a CPU and GPU before saving.');
+            return;
+        }
+        savedBuilds.push({ ...window._currentBuild });
+        renderSavedBuilds();
+    }
+
+    // Render saved builds
+    function renderSavedBuilds() {
+        if (savedBuilds.length === 0) {
+            document.getElementById('savedBuildsSection').style.display = 'none';
+            return;
+        }
+        document.getElementById('savedBuildsSection').style.display = 'block';
+        var tbody = document.getElementById('savedBuildsBody');
+        tbody.innerHTML = '';
+        var grandTotal = 0;
+        savedBuilds.forEach(function(build, index) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${build.cpu}</td>
+                <td>${build.mb}</td>
+                <td>${build.gpu}</td>
+                <td>${build.ram}</td>
+                <td>${build.storage}</td>
+                <td>${build.psu}</td>
+                <td>${build.case}</td>
+                <td>${build.cooling}</td>
+                <td>${build.extras}</td>
+                <td>${formatPrice(build.total)}</td>
+                <td><button class="remove-btn" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button></td>
+            `;
+            tbody.appendChild(tr);
+            grandTotal += build.total;
+        });
+        document.getElementById('grandTotal').textContent = formatPrice(grandTotal);
+        document.getElementById('savedCount').textContent = savedBuilds.length + ' builds';
+
+        // Remove buttons
+        tbody.querySelectorAll('.remove-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var idx = parseInt(this.dataset.index);
+                savedBuilds.splice(idx, 1);
+                renderSavedBuilds();
+            });
+        });
+    }
+
+    // Clear all
+    document.getElementById('clearAllBtn').addEventListener('click', function() {
+        if (savedBuilds.length === 0) return;
+        if (confirm('Are you sure you want to clear all saved builds?')) {
+            savedBuilds = [];
+            renderSavedBuilds();
+        }
     });
-  })();
-</script>
 
-    <script>
-        (function () {
-            const GEN_OPTIONS = {
-                gaming: {
-                    intel: ['14th Gen Intel Core', '13th Gen Intel Core', '12th Gen Intel Core', 'Intel Core Ultra (Series 2)'],
-                    amd: ['AMD Ryzen 9000', 'AMD Ryzen 7000', 'AMD Ryzen 5000']
-                },
-                latest: {
-                    intel: ['14th Gen Intel Core', '13th Gen Intel Core', 'Intel Core Ultra (Series 2)'],
-                    amd: ['AMD Ryzen 9000', 'AMD Ryzen 7000']
-                },
-                budget: {
-                    intel: ['12th Gen Intel Core', '11th Gen Intel Core', '10th Gen Intel Core'],
-                    amd: ['AMD Ryzen 5000', 'AMD Ryzen 3000']
-                }
-            };
+    // PDF generation (all builds)
+    document.getElementById('generatePdfBtn').addEventListener('click', function() {
+        if (savedBuilds.length === 0) {
+            alert('Please save at least one build first.');
+            return;
+        }
+        var printContent = '<html><head><title>Dynaframe Studios - PC Quote</title>';
+        printContent += '<style>body{font-family:Arial,sans-serif;padding:40px;color:#1a1a2e;max-width:1000px;margin:0 auto;}';
+        printContent += 'h1{color:#FF6B35;border-bottom:3px solid #FF6B35;padding-bottom:12px;}';
+        printContent += 'table{width:100%;border-collapse:collapse;margin:16px 0;}';
+        printContent += 'th,td{padding:8px 10px;border-bottom:1px solid #eee;text-align:left;font-size:13px;}';
+        printContent += 'th{background:#f5f3ff;}';
+        printContent += '.total-row{background:#f5f3ff;font-weight:bold;}';
+        printContent += '.fee-row{background:#fef3c7;}';
+        printContent += '.grand-total{font-size:20px;color:#FF6B35;font-weight:800;}';
+        printContent += '.footer{margin-top:30px;padding-top:20px;border-top:2px solid #eee;font-size:13px;color:#777;}';
+        printContent += '.build-header{margin-top:30px;font-weight:700;background:#f0f0f0;padding:6px 12px;}';
+        printContent += '.included{background:#f8fafc;padding:14px 20px;border-radius:8px;margin:16px 0;border-left:4px solid #FF6B35;}';
+        printContent += '@media print{body{padding:20px;}}</style></head><body>';
 
-            const TIER_SPECS = {
-                latest: [
-                    'Newest-generation Intel/AMD processors',
-                    'Fast NVMe SSD storage',
-                    '16GB+ RAM standard',
-                    'Future-proofed for years of use',
-                    'Ideal for multitasking & heavy software'
-                ],
-                budget: [
-                    'Cost-effective, reliable components',
-                    'Great for everyday office tasks',
-                    'Energy efficient operation',
-                    'Perfect for browsing, docs & email',
-                    'Lower upfront cost'
-                ]
-            };
+        printContent += '<h1>Dynaframe Studios</h1>';
+        printContent += '<h2 style="color:#333;">PC Build Quote</h2>';
+        printContent += '<p style="color:#666;">Date: ' + new Date().toLocaleDateString() + ' | Quote #: ' + new Date().getTime().toString().slice(-6) + '</p>';
+        printContent += '<hr style="margin:20px 0;">';
 
-            const PURPOSE_LABELS = { work: 'Work PC', intranet: 'Company Intranet', gaming: 'Custom Gaming Rig' };
-            const TIER_LABELS = { latest: 'Latest Tech', budget: 'Seamless Budget Build' };
+        savedBuilds.forEach(function(build, idx) {
+            printContent += '<div class="build-header">Build #' + (idx + 1) + '</div>';
+            printContent += '<table><tbody>';
+            printContent += '<tr><td><strong>CPU</strong></td><td>' + build.cpu + '</td></tr>';
+            printContent += '<tr><td><strong>Motherboard</strong></td><td>' + build.mb + '</td></tr>';
+            printContent += '<tr><td><strong>GPU</strong></td><td>' + build.gpu + '</td></tr>';
+            printContent += '<tr><td><strong>RAM</strong></td><td>' + build.ram + '</td></tr>';
+            printContent += '<tr><td><strong>Storage</strong></td><td>' + build.storage + '</td></tr>';
+            printContent += '<tr><td><strong>PSU</strong></td><td>' + build.psu + '</td></tr>';
+            printContent += '<tr><td><strong>Case</strong></td><td>' + build.case + '</td></tr>';
+            printContent += '<tr><td><strong>Cooling</strong></td><td>' + build.cooling + '</td></tr>';
+            printContent += '<tr><td><strong>Extras</strong></td><td>' + build.extras + '</td></tr>';
+            printContent += '<tr class="fee-row"><td><strong>Assembly & Testing</strong></td><td>' + formatPrice(BUILD_FEE) + '</td></tr>';
+            printContent += '<tr class="total-row"><td><strong>Total for this build</strong></td><td>' + formatPrice(build.total) + '</td></tr>';
+            printContent += '</tbody></table>';
+        });
 
-            const purposeSelector = document.getElementById('purposeSelector');
-            const tierStep = document.getElementById('tierStep');
-            const tierSelector = document.getElementById('tierSelector');
-            const tierSpecsEl = document.getElementById('tierSpecs');
-            const gamingSpecsEl = document.getElementById('gamingSpecs');
-            const cpuStep = document.getElementById('cpuStep');
-            const cpuSelector = document.getElementById('cpuSelector');
-            const cpuGenSelect = document.getElementById('cpuGen');
-            const contactStep = document.getElementById('contactStep');
-            const cpuStepNum = document.getElementById('cpuStepNum');
-            const contactStepNum = document.getElementById('contactStepNum');
+        var grandTotal = savedBuilds.reduce(function(sum, b) { return sum + b.total; }, 0);
+        printContent += '<div style="margin-top:20px;text-align:right;font-size:22px;font-weight:800;color:#FF6B35;">Grand Total: ' + formatPrice(grandTotal) + '</div>';
 
-            let purpose = null;
-            let tier = null;
-            let cpuBrand = 'intel';
+        printContent += '<div class="included"><strong>Included per build:</strong> Professional assembly, cable management, BIOS configuration, driver installation, stress testing, benchmark validation.</div>';
 
-            function resetAfterPurpose() {
-                tierStep.classList.add('hidden-step');
-                gamingSpecsEl.classList.add('hidden-step');
-                tierSpecsEl.classList.add('hidden-step');
-                cpuStep.classList.add('hidden-step');
-                contactStep.classList.add('hidden-step');
-                tierSelector.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-                tier = null;
-            }
+        printContent += '<div class="footer">';
+        printContent += '<p><strong>Dynaframe Studios</strong> — info@dynaframestudios.co.za</p>';
+        printContent += '<p style="color:#FF6B35;font-weight:600;">Built For Performance.</p>';
+        printContent += '<p style="font-size:11px;">* Prices are estimates. Final quote may vary.</p>';
+        printContent += '</div>';
 
-            function populateGenOptions() {
-                const key = purpose === 'gaming' ? 'gaming' : tier;
-                if (!key) return;
-                const list = GEN_OPTIONS[key][cpuBrand];
-                cpuGenSelect.innerHTML = list.map(g => `<option value="${g}">${g}</option>`).join('');
-            }
+        printContent += '</body></html>';
 
-            function showCpuStep() {
-                cpuStep.classList.remove('hidden-step');
-                cpuStepNum.textContent = purpose === 'gaming' ? '2' : '3';
-                populateGenOptions();
-                revealContact();
-            }
+        var win = window.open('', '_blank', 'width=800,height=600');
+        if (!win) { alert('Please allow popups for this site to generate the PDF.'); return; }
+        win.document.write(printContent);
+        win.document.close();
+        win.focus();
+        setTimeout(function() { win.print(); }, 500);
+    });
 
-            function revealContact() {
-                contactStep.classList.remove('hidden-step');
-                contactStepNum.textContent = purpose === 'gaming' ? '3' : '4';
-                updateContactLinks();
-            }
+    // Export All PDF button (same as above, but we'll bind it)
+    document.getElementById('exportAllBtn').addEventListener('click', function() {
+        document.getElementById('generatePdfBtn').click();
+    });
 
-            function updateContactLinks() {
-                const genLabel = cpuGenSelect.options[cpuGenSelect.selectedIndex]?.text || '';
-                const brandLabel = cpuBrand === 'intel' ? 'Intel' : 'AMD';
-                const purposeLabel = PURPOSE_LABELS[purpose] || '';
-                const tierLabel = tier ? TIER_LABELS[tier] : '';
+    // ---- Event listeners ----
+    platformBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            platformBtns.forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+            currentPlatform = this.dataset.platform;
+            populateAll();
+        });
+    });
 
-                let lines = [`Hi DynaFrame Studios, I'd like a consultation for a custom PC build.`, ``, `Purpose: ${purposeLabel}`];
-                if (tierLabel) lines.push(`Tier: ${tierLabel}`);
-                lines.push(`Processor brand: ${brandLabel}`, `Generation: ${genLabel}`);
-                const msg = lines.join('\n');
+    cpuSelect.addEventListener('change', function() { updateMotherboards(); updateSummary(); });
+    gpuSelect.addEventListener('change', function() { updatePSUs(); updateSummary(); });
+    ramQtyInput.addEventListener('change', updateSummary);
+    storageQtyInput.addEventListener('change', updateSummary);
 
-                document.getElementById('pcEmailBtn').href = `mailto:info.dynaframestudios@gmail.com?subject=${encodeURIComponent('PC Build Consultation - ' + purposeLabel)}&body=${encodeURIComponent(msg)}`;
-                document.getElementById('pcWhatsappBtn').href = `https://wa.me/27754024178?text=${encodeURIComponent(msg)}`;
-            }
+    [mbSelect, ramSelect, storageSelect, psuSelect, caseSelect, coolingSelect].forEach(function(sel) {
+        sel.addEventListener('change', updateSummary);
+    });
 
-            purposeSelector.querySelectorAll('.pill').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    purposeSelector.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    purpose = this.dataset.purpose;
-                    resetAfterPurpose();
+    document.getElementById('saveBuildBtn').addEventListener('click', saveBuild);
 
-                    if (purpose === 'gaming') {
-                        gamingSpecsEl.classList.remove('hidden-step');
-                        showCpuStep();
+    // ---- Populate all ----
+    function populateAll() {
+        populateSelect(cpuSelect, getCPUs(), 'cpu', '— Select a CPU —');
+        updateMotherboards();
+        populateSelect(gpuSelect, GPUs, 'gpu', '— Select a GPU —');
+        populateSelect(ramSelect, RAM, 'ram', '— Select RAM —');
+        populateSelect(storageSelect, Storage, 'storage', '— Select storage —');
+        updatePSUs();
+        populateSelect(caseSelect, Cases, 'case', '— Select a case —');
+        populateSelect(coolingSelect, getCoolingOptions(), 'cooling', '— Select cooling —');
+        populateExtras();
+        updateSummary();
+        renderSavedBuilds();
+    }
+
+    // ==========================================================
+    // 3. EASTER EGG: 7 TAPS ON LOGO
+    // ==========================================================
+    var logoEl = document.getElementById('dynaframeLogo');
+    var tapCount = 0, tapTimer = null;
+    if (logoEl) {
+        logoEl.addEventListener('click', function(e) {
+            e.preventDefault();
+            tapCount++;
+            clearTimeout(tapTimer);
+            tapTimer = setTimeout(function() { tapCount = 0; }, 2000);
+            if (tapCount >= 7) {
+                tapCount = 0;
+                var vault = document.getElementById('titan-vault');
+                if (vault) {
+                    if (vault.style.display === 'none' || vault.style.display === '') {
+                        runTitanBootSequence(function() {
+                            vault.style.display = 'block';
+                            vault.scrollIntoView({ behavior: 'instant' in window ? 'instant' : 'auto' });
+                        });
                     } else {
-                        tierStep.classList.remove('hidden-step');
+                        vault.style.display = 'none';
                     }
-                });
-            });
+                }
+            }
+        });
+    }
 
-            tierSelector.querySelectorAll('.pill').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    tierSelector.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    tier = this.dataset.tier;
+    function runTitanBootSequence(onComplete) {
+        var overlay = document.getElementById('titanBootOverlay');
+        var lineEl = document.getElementById('titanBootLine');
+        var barEl = document.getElementById('titanBootBar');
+        var pctEl = document.getElementById('titanBootPercent');
+        if (!overlay || !lineEl || !barEl || !pctEl) { if (onComplete) onComplete(); return; }
 
-                    tierSpecsEl.innerHTML = TIER_SPECS[tier].map(s => `<li>${s}</li>`).join('');
-                    tierSpecsEl.classList.remove('hidden-step');
+        var steps = [
+            'Initializing Titan Core...',
+            'Checking Processor...',
+            'Checking Graphics...',
+            'Checking Memory...',
+            'Checking Storage...',
+            'Checking Cooling...',
+            'Checking RGB... MAXIMUM PRIORITY',
+            'Searching for Engineer...',
+            'Engineer Detected.',
+            'Granting Access...',
+            'ACCESS LEVEL: ENGINEER'
+        ];
 
-                    showCpuStep();
-                });
-            });
+        document.body.style.overflow = 'hidden';
+        overlay.classList.add('active');
 
-            cpuSelector.querySelectorAll('.pill').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    cpuSelector.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    cpuBrand = this.dataset.cpu;
-                    populateGenOptions();
-                    updateContactLinks();
-                });
-            });
+        var stepIndex = 0;
+        var progress = 0;
+        lineEl.textContent = steps[0];
 
-            cpuGenSelect.addEventListener('change', updateContactLinks);
-        })();
-    </script>
-    
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/68ec91b77e32cc195255b3de/1j7e1idgv';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
+        var interval = setInterval(function() {
+            progress += 100 / steps.length;
+            var clamped = Math.min(progress, 100);
+            barEl.style.width = clamped + '%';
+            pctEl.textContent = Math.round(clamped) + '%';
+
+            stepIndex++;
+            if (stepIndex < steps.length) {
+                lineEl.textContent = steps[stepIndex];
+            }
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(function() {
+                    overlay.classList.add('fading');
+                    setTimeout(function() {
+                        overlay.classList.remove('active', 'fading');
+                        barEl.style.width = '0%';
+                        pctEl.textContent = '0%';
+                        document.body.style.overflow = '';
+                        if (onComplete) onComplete();
+                    }, 500);
+                }, 400);
+            }
+        }, 220);
+    }
+
+    // ==========================================================
+    // 4. DARK MODE TOGGLE
+    // ==========================================================
+    var themeToggle = document.getElementById('themeToggleTop');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            var icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fa-solid fa-sun';
+                this.innerHTML = '<i class="fa-solid fa-sun"></i> Light';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+                this.innerHTML = '<i class="fa-solid fa-moon"></i> Dark';
+            }
+        });
+    }
+
+    // ==========================================================
+    // 5. MOBILE MENU TOGGLE
+    // ==========================================================
+    var mobileToggle = document.getElementById('mobileToggle');
+    var navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // ==========================================================
+    // 6. VAULT COMMAND LINE
+    // ==========================================================
+    var cmdInput = document.getElementById('vaultCommandInput');
+    var cmdOutput = document.getElementById('vaultCommandOutput');
+    if (cmdInput && cmdOutput) {
+        cmdInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                var cmd = this.value.trim().toLowerCase();
+                var response = '';
+                switch(cmd) {
+                    case 'help': response = 'Available: help, version, roadmap, credits, clear, exit'; break;
+                    case 'version': response = 'Titan Vault v1.0.0'; break;
+                    case 'roadmap': response = 'Project Horizon: Active → Software → Mobile → Interactive → Cloud → Data → AI → Holdings'; break;
+                    case 'credits': response = 'Designed & engineered by Dynaframe Studios.'; break;
+                    case 'clear': cmdOutput.innerHTML = ''; this.value = ''; return;
+                    case 'exit': response = 'Goodbye, Engineer.'; break;
+                    default: response = 'Unknown command. Type "help" for available commands.';
+                }
+                cmdOutput.innerHTML = '> ' + response;
+                this.value = '';
+            }
+        });
+    }
+
+    // ==========================================================
+    // 7. INIT
+    // ==========================================================
+    populateAll();
+    console.log('✅ Titan Builder with multiple PCs, quantities, and extras initialized.');
+    console.log('🔧 Build fee: ' + formatPrice(BUILD_FEE));
+    console.log('🥚 Tap the logo 7 times to unlock the Vault!');
+</script>
 </body>
 </html>

@@ -49,6 +49,13 @@ body {
 body.dark-mode {
     background: var(--dm-bg);
     color: var(--dm-text);
+    --white: var(--dm-surface);
+    --off-white: var(--dm-surface);
+    --card-bg: var(--dm-card);
+    --section-bg: var(--dm-bg);
+    --border: var(--dm-border);
+    --text-primary: var(--dm-text);
+    --text-secondary: var(--dm-text-secondary);
 }
 
 /* ===== SCROLLBAR ===== */
@@ -1022,10 +1029,7 @@ body {
   transition: background 0.35s ease, color 0.35s ease;
   overflow-x: hidden;
 }
-body.dark-mode {
-  background: var(--dm-bg);
-  color: var(--dm-text);
-}
+/* duplicate body.dark-mode root block removed — consolidated at top of file */
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 .container { max-width:1200px; margin:0 auto; padding:0 20px; }

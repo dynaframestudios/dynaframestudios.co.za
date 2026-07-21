@@ -1,0 +1,56 @@
+pc-builder/
+
+│
+├── constants/
+│   ├── builder-config.js
+│   ├── builder-steps.js
+│   ├── compatibility-rules.js
+│   ├── service-fees.js
+│   └── ui-config.js
+│
+
+│
+├── engine/
+│   ├── builder-engine.js
+│   ├── compatibility-engine.js
+│   ├── filtering-engine.js
+│   ├── recommendation-engine.js
+│   ├── pricing-engine.js
+│   ├── validation-engine.js
+│   ├── power-engine.js
+│   ├── storage-engine.js
+│   ├── quote-engine.js
+│   └── summary-engine.js
+│
+├── ui/
+│   ├── builder-ui.js
+│   ├── cards.js
+│   ├── selectors.js
+│   ├── stepper.js
+│   ├── recommendations.js
+│   ├── summary.js
+│   ├── modal.js
+│   ├── notifications.js
+│   ├── loading.js
+│   └── animations.js
+│
+├── utils/
+│   ├── dom.js
+│   ├── formatter.js
+│   ├── helpers.js
+│   ├── local-storage.js
+│   ├── pdf.js
+│   ├── whatsapp.js
+│   ├── email.js
+│   └── logger.js
+│
+├── styles/
+│   ├── pc-builder.css (needs updating)
+│   ├── cards.css
+│   ├── forms.css
+│   ├── modal.css
+│   ├── summary.css
+│   ├── animations.css
+│   └── responsive.css
+│
+└── builder.js*

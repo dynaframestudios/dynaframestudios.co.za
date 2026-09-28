@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Design Upsell | DynaFrame Studios</title>
+    <title>Website Design Packages & Pricing in South Africa | DynaFrame Studios</title>
+    <meta name="description" content="Build your website from R2,000. Transparent, itemised pricing for e-commerce, admin panels, extra pages and monthly payment plans. Get an instant quote." />
+    <link rel="canonical" href="https://dynaframestudios.co.za/web-design.html" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Website Design Packages & Pricing in South Africa | DynaFrame Studios" />
+    <meta property="og:description" content="Build your website from R2,000. Transparent, itemised pricing for e-commerce, admin panels, extra pages and monthly payment plans. Get an instant quote." />
+    <meta property="og:url" content="https://dynaframestudios.co.za/web-design.html" />
+    <meta property="og:image" content="https://dynaframestudios.co.za/images/logo.jpeg" />
+    <meta property="og:locale" content="en_ZA" />
+    <meta property="og:site_name" content="DynaFrame Studios" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Website Design Packages & Pricing in South Africa | DynaFrame Studios" />
+    <meta name="twitter:description" content="Build your website from R2,000. Transparent, itemised pricing for e-commerce, admin panels, extra pages and monthly payment plans. Get an instant quote." />
+    <meta name="twitter:image" content="https://dynaframestudios.co.za/images/logo.jpeg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="images/logo.jpeg" type="image/png" />
@@ -11,7 +25,7 @@
         /* ===== INVOICE GENERATOR STYLES ===== */
         .invoice-section {
             margin-top: 40px;
-            border-top: 2px solid var(--orange);
+            border-top: 2px solid var(--purple);
             padding-top: 30px;
         }
         .invoice-section h3 {
@@ -22,7 +36,7 @@
             gap: 10px;
         }
         .invoice-section h3 i {
-            color: var(--orange);
+            color: var(--purple);
         }
 
         .company-details-grid {
@@ -73,8 +87,8 @@
         }
         .company-details-grid input:focus,
         .company-details-grid textarea:focus {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.12);
         }
         .company-details-grid .full-width {
             grid-column: 1 / -1;
@@ -125,14 +139,14 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            border-bottom: 3px solid #FF6B35;
+            border-bottom: 3px solid #7B2CBF;
             padding-bottom: 20px;
             margin-bottom: 24px;
         }
         .invoice-header .brand h1 {
             font-size: 28px;
             font-weight: 800;
-            color: #FF6B35;
+            color: #7B2CBF;
             margin: 0;
         }
         .invoice-header .brand p {
@@ -241,13 +255,13 @@
         .invoice-totals .grand-total {
             font-size: 22px;
             font-weight: 800;
-            color: #FF6B35;
+            color: #7B2CBF;
             padding-top: 8px;
-            border-top: 2px solid #FF6B35;
+            border-top: 2px solid #7B2CBF;
             margin-top: 4px;
         }
         .invoice-totals .grand-total .value {
-            color: #FF6B35;
+            color: #7B2CBF;
             font-size: 24px;
         }
 
@@ -315,7 +329,7 @@
         .vat-toggle input[type="checkbox"] {
             width: 18px;
             height: 18px;
-            accent-color: var(--orange);
+            accent-color: var(--purple);
             cursor: pointer;
         }
         .vat-toggle label {
@@ -326,6 +340,99 @@
         body.dark-mode .vat-toggle label {
             color: var(--dm-text-secondary);
         }
+
+        /* ===== PROCESS ROADMAP ===== */
+        .process-section { padding: 60px 0; background: var(--section-bg); }
+        .process-track {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .process-track::before {
+            content: '';
+            position: absolute;
+            top: 34px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--purple), #9D4EDD);
+            z-index: 0;
+        }
+        @media (max-width: 768px) { .process-track::before { display: none; } }
+        .process-step {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 200px;
+            text-align: center;
+            min-width: 180px;
+        }
+        .process-step .step-num {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), #9D4EDD);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
+            box-shadow: var(--shadow-purple);
+        }
+        .process-step h4 { font-family: var(--font-display); margin-bottom: 8px; }
+        .process-step p { font-size: 0.9rem; color: var(--text-secondary); }
+        body.dark-mode .process-step p { color: var(--dm-text-secondary); }
+
+        /* ===== PAYMENT TIERS ===== */
+        .payment-tiers-section { padding: 60px 0; }
+        .payment-tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+        .payment-tier-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        body.dark-mode .payment-tier-card { background: var(--dm-card); border-color: var(--dm-border); }
+        .payment-tier-card:hover { transform: translateY(-4px); border-color: var(--purple); }
+        .payment-tier-card.featured { border-color: var(--purple); box-shadow: var(--shadow-purple); }
+        .payment-tier-card .tier-badge {
+            display: inline-block;
+            background: rgba(123, 44, 191, 0.12);
+            color: var(--purple);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        .payment-tier-card h4 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 6px; }
+        .payment-tier-card .tier-desc { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px; }
+        body.dark-mode .payment-tier-card .tier-desc { color: var(--dm-text-secondary); }
+        .payment-tier-card select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1.5px solid var(--border);
+            background: var(--off-white);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+        }
+        body.dark-mode .payment-tier-card select { background: var(--dm-surface); border-color: var(--dm-border); color: var(--dm-text); }
     </style>
 </head>
 <body>
@@ -363,6 +470,7 @@
                 <li><a href="web-design.html" class="nav-link active">Web Design</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
@@ -378,6 +486,77 @@
         <div class="container">
             <h1>Build Your Website</h1>
             <p>Start with a 1‑page site and add exactly what you need.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    HOW IT WORKS — PROCESS ROADMAP
+    ========================================================== -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-tag">Our Process</div>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">From first sketch to a live website — here's exactly what happens.</p>
+            <div class="process-track">
+                <div class="process-step">
+                    <div class="step-num"><i class="fas fa-pencil-ruler"></i></div>
+                    <h4>1. Design</h4>
+                    <p>We scope your requirements and plan the layout, structure and features for your site.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num"><i class="fas fa-laptop-code"></i></div>
+                    <h4>2. Demo</h4>
+                    <p>You review a free working preview and request changes before anything goes live.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num"><i class="fas fa-server"></i></div>
+                    <h4>3. Hosting</h4>
+                    <p>We set up your domain, hosting, and any admin panel or e‑commerce backend you need.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num"><i class="fas fa-rocket"></i></div>
+                    <h4>4. Final Product</h4>
+                    <p>Your finished, fully‑tested website is handed over and goes live.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    MONTH-TO-MONTH PAYMENT TIERS
+    ========================================================== -->
+    <section class="payment-tiers-section">
+        <div class="container">
+            <div class="section-tag">Flexible Payment</div>
+            <h2 class="section-title">Spread the Cost</h2>
+            <p class="section-subtitle">Pay upfront, or spread your setup cost month-to-month. Choose your plan below — it'll be reflected on your invoice.</p>
+            <div class="payment-tiers-grid">
+                <div class="payment-tier-card">
+                    <div class="tier-badge">Standard</div>
+                    <h4>50/50 Deposit</h4>
+                    <p class="tier-desc">50% deposit to start, balance due on completion. No interest, no fees.</p>
+                </div>
+                <div class="payment-tier-card">
+                    <div class="tier-badge">3-Month Plan</div>
+                    <h4>Pay Over 3 Months</h4>
+                    <p class="tier-desc">Split your setup cost into 3 equal monthly instalments, interest‑free.</p>
+                </div>
+                <div class="payment-tier-card">
+                    <div class="tier-badge">6-Month Plan</div>
+                    <h4>Pay Over 6 Months</h4>
+                    <p class="tier-desc">Split your setup cost into 6 equal monthly instalments, interest‑free.</p>
+                </div>
+            </div>
+            <div style="max-width:420px;margin:30px auto 0;text-align:center;">
+                <label for="paymentPlanSelect" style="display:block;font-weight:600;margin-bottom:8px;">Choose your payment plan</label>
+                <select id="paymentPlanSelect" style="width:100%;padding:12px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--off-white);color:var(--text-primary);font-family:var(--font-body);font-size:0.95rem;">
+                    <option value="full">Pay in full</option>
+                    <option value="deposit">50% deposit / 50% on completion</option>
+                    <option value="3month">3-month payment plan</option>
+                    <option value="6month">6-month payment plan</option>
+                </select>
+                <p id="paymentPlanBreakdown" style="margin-top:14px;font-size:0.9rem;color:var(--text-secondary);"></p>
+            </div>
         </div>
     </section>
 
@@ -564,6 +743,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms &amp; Conditions</a></li>
@@ -800,13 +980,60 @@
                 }
                 if (schedulerCheck.checked) details.push('Booking/scheduler tool');
                 if (expediteCheck.checked) details.push('Rush turnaround requested');
-                packageDetails.value = 'Base 1-page + ' + (details.length ? details.join(', ') : 'No extras') + ' | Total: ' + moneyFmt(total) + (monthly > 0 ? ' + ' + moneyFmt(monthly) + '/mo' : '');
+                const planInfo = window.getPaymentPlanInfo ? window.getPaymentPlanInfo() : null;
+                packageDetails.value = 'Base 1-page + ' + (details.length ? details.join(', ') : 'No extras') + ' | Total: ' + moneyFmt(total) + (monthly > 0 ? ' + ' + moneyFmt(monthly) + '/mo' : '') + (planInfo ? ' | Payment plan: ' + planInfo.label : '');
             }
 
             [extraPagesInput, productCountInput].forEach(el => el && el.addEventListener('input', updateTotal));
             [logoCheck, imagesCheck, adminCheck, ecommerceCheck, schedulerCheck, expediteCheck].forEach(cb => cb && cb.addEventListener('change', updateTotal));
 
             updateTotal();
+        })();
+
+        // ==========================================================
+        // MONTH-TO-MONTH PAYMENT PLAN BREAKDOWN
+        // ==========================================================
+        (function() {
+            const planSelect = document.getElementById('paymentPlanSelect');
+            const breakdown = document.getElementById('paymentPlanBreakdown');
+            if (!planSelect || !breakdown) return;
+
+            function moneyFmt(n) { return 'R' + Math.round(n).toLocaleString(); }
+
+            window.getPaymentPlanInfo = function() {
+                const totals = window.getUpsellTotals ? window.getUpsellTotals() : { total: 0, monthly: 0 };
+                const plan = planSelect.value;
+                let label = '', detail = '';
+                if (plan === 'full') {
+                    label = 'Pay in full';
+                    detail = moneyFmt(totals.total) + ' due upfront before work begins.';
+                } else if (plan === 'deposit') {
+                    label = '50% Deposit';
+                    detail = moneyFmt(totals.total / 2) + ' deposit to start, ' + moneyFmt(totals.total / 2) + ' balance on completion.';
+                } else if (plan === '3month') {
+                    label = '3-Month Plan';
+                    detail = '3 monthly instalments of ' + moneyFmt(totals.total / 3) + ' (interest-free)';
+                } else if (plan === '6month') {
+                    label = '6-Month Plan';
+                    detail = '6 monthly instalments of ' + moneyFmt(totals.total / 6) + ' (interest-free)';
+                }
+                if (totals.monthly > 0) {
+                    detail += ' + ' + moneyFmt(totals.monthly) + '/mo hosting once live.';
+                }
+                return { plan, label, detail };
+            };
+
+            function refresh() {
+                const info = window.getPaymentPlanInfo();
+                breakdown.textContent = info.detail;
+            }
+
+            planSelect.addEventListener('change', refresh);
+            document.querySelectorAll('.upsell-check, #extraPages, #productCount').forEach(el => {
+                el.addEventListener('change', refresh);
+                el.addEventListener('input', refresh);
+            });
+            refresh();
         })();
 
         // ==========================================================
@@ -935,10 +1162,14 @@
                             <span class="value">${moneyFmt(grandTotal)}</span>
                         </div>
                     </div>
+                `;
 
+                const planInfo = window.getPaymentPlanInfo ? window.getPaymentPlanInfo() : null;
+
+                html += `
                     <div class="invoice-footer">
                         <div class="terms">
-                            <strong>Payment Terms:</strong> 50% deposit required to start. Balance due upon completion before final delivery.
+                            <strong>Payment Terms:</strong> ${planInfo ? planInfo.label + ' — ' + planInfo.detail : '50% deposit required to start. Balance due upon completion before final delivery.'}
                             <br><br>
                             <strong>Included:</strong> Free consultations, free ongoing maintenance, free Google Business setup.
                             <br><br>

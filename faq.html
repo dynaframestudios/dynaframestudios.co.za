@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ – Web Design, Pricing & Process Questions | DynaFrame Studios</title>
+    <meta name="description" content="Answers to common questions about DynaFrame Studios' web design pricing, build process, hosting, timelines and month-to-month payment plans." />
+    <link rel="canonical" href="https://dynaframestudios.co.za/faq.html" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FAQ – Web Design, Pricing & Process Questions | DynaFrame Studios" />
+    <meta property="og:description" content="Answers to common questions about DynaFrame Studios' web design pricing, build process, hosting, timelines and month-to-month payment plans." />
+    <meta property="og:url" content="https://dynaframestudios.co.za/faq.html" />
+    <meta property="og:image" content="https://dynaframestudios.co.za/images/logo.jpeg" />
+    <meta property="og:locale" content="en_ZA" />
+    <meta property="og:site_name" content="DynaFrame Studios" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FAQ – Web Design, Pricing & Process Questions | DynaFrame Studios" />
+    <meta name="twitter:description" content="Answers to common questions about DynaFrame Studios' web design pricing, build process, hosting, timelines and month-to-month payment plans." />
+    <meta name="twitter:image" content="https://dynaframestudios.co.za/images/logo.jpeg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
+    <style>
+        .faq-list { max-width: 860px; margin: 0 auto; }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        body.dark-mode .faq-item { background: var(--dm-card); border-color: var(--dm-border); }
+        .faq-item.active { border-color: var(--purple); }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+        }
+        .faq-question i { color: var(--purple); transition: transform 0.25s; flex-shrink: 0; }
+        .faq-item.active .faq-question i { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-secondary);
+        }
+        body.dark-mode .faq-answer { color: var(--dm-text-secondary); }
+        .faq-item.active .faq-answer { max-height: 500px; padding: 0 24px 22px; }
+        .faq-category-tag {
+            text-align: center;
+            color: var(--purple);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 46px 0 18px;
+        }
+        .faq-category-tag:first-of-type { margin-top: 0; }
+        .faq-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--section-bg);
+            border-radius: var(--radius-lg);
+        }
+        .faq-cta h3 { font-family: var(--font-display); margin-bottom: 10px; }
+        .faq-cta p { color: var(--text-secondary); margin-bottom: 20px; }
+        body.dark-mode .faq-cta p { color: var(--dm-text-secondary); }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope"></i> info.dynaframestudios@gmail.com</a>
+                <a href="tel:+27754024178"><i class="fas fa-phone"></i> +27 75 402 4178</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/27754024178" target="_blank" class="social-icon-top" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/dynaframestudios" target="_blank" class="social-icon-top" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@dynaframestudios" target="_blank" class="social-icon-top" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <button class="theme-toggle-top" id="themeToggleTop"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="DynaFrame Studios" class="nav-logo" />
+                <span class="logo-text">Dynaframe<span>Studios</span></span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Design</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="pc-builds.html" class="nav-link">PC Builds</a></li>
+                <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Everything you need to know about pricing, process, hosting and payment plans.</p>
+        </div>
+    </section>
+
+    <!-- ===== FAQ CONTENT ===== -->
+    <section style="padding:60px 0;background:var(--section-bg);">
+        <div class="container">
+            <div class="faq-list">
+
+                <div class="faq-category-tag">Pricing & Packages</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How much does a website cost? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Every project starts from a base 1‑page website at R2,000. From there you add exactly what you need — extra pages, logo design, custom images, a booking tool, an admin panel, or full e‑commerce. Use the instant quote calculator on our <a href="web-design.html">Web Design page</a> to see live pricing as you build your package.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Are there any hidden fees? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>No. Every line item is shown upfront in the quote calculator and on your invoice before you pay anything. The only ongoing cost is hosting/maintenance for sites with an admin panel or e‑commerce (R300/month), which is disclosed clearly whenever it applies.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer payment plans? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Yes. Alongside the standard 50% deposit / 50% on completion option, we offer month‑to‑month payment tiers so you can spread the setup cost over <strong>3 months</strong> or <strong>6 months</strong> interest‑free, in addition to any ongoing hosting fee. Select your preferred plan in the quote calculator on the <a href="web-design.html">Web Design page</a> and it will be reflected on your invoice.</p></div>
+                </div>
+
+                <div class="faq-category-tag">Our Process</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What does the build process actually look like? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Every project follows the same four stages: <strong>Design</strong> (we scope your requirements and plan the layout), <strong>Demo</strong> (you review a working preview and request changes, free of charge), <strong>Hosting</strong> (we set up your domain, hosting and any admin/e‑commerce backend), and <strong>Final Product</strong> (your finished, live website is handed over). See the visual breakdown on our <a href="web-design.html">Web Design page</a>.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How long does a project take? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>A basic site typically takes 2–3 days depending on the number of pages. Sites with an admin panel take 6–8 days, and full e‑commerce builds take 10–13 days depending on how many products you're listing. Need it faster? Ask about our 36‑hour rush turnaround for basic sites.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I get to review the site before it goes live? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Yes — every project includes a free demo/consultation stage. You'll see a working preview and can request adjustments before we move to hosting and final delivery.</p></div>
+                </div>
+
+                <div class="faq-category-tag">Hosting & Ownership</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Who owns the website once it's finished? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Once your invoice is paid in full, the finished website and its design become your property. We only retain the right to showcase completed work in our portfolio. Full details are in our <a href="terms.html">Terms &amp; Conditions</a>.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you handle hosting and maintenance? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Yes. Basic informational sites include free ongoing maintenance. Sites with an admin panel or e‑commerce functionality include server hosting and maintenance for R300/month, billed alongside your chosen payment plan.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Will my site show up on Google? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Every website we build includes free Google Business Profile setup, optimised meta tags and descriptions, mobile‑responsive design and a submitted sitemap — the core fundamentals of local SEO — at no extra charge.</p></div>
+                </div>
+
+                <div class="faq-category-tag">PC Builds & Repairs</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I get a custom gaming PC built too? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Yes — visit our <a href="pc-builds.html">PC Builds page</a> to configure a custom Intel or AMD gaming, workstation or budget rig with transparent, component‑by‑component pricing.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you repair phones and computers too? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer"><p>Yes — we offer phone repairs in Midrand and computer repairs in Braamfontein. <a href="contact.html">Contact us</a> with your device issue for a quick assessment.</p></div>
+                </div>
+
+            </div>
+
+            <div class="faq-cta">
+                <h3>Still have questions?</h3>
+                <p>We're happy to walk you through pricing, timelines or your project scope directly.</p>
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.jpeg" alt="DynaFrame Studios" class="footer-logo" />
+                        <span class="logo-text">DynaFrame<span>Studios</span></span>
+                    </a>
+                    <p>Your trusted tech partner in South Africa. Web design, PC builds, and device repairs with a focus on quality and affordability.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/dynaframestudios" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/27754024178" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dynaframestudios" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dynaframestudios" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="web-design.html">Web Design</a></li>
+                        <li><a href="pc-builds.html">PC Builds</a></li>
+                        <li><a href="contact.html">Tech Repairs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info.dynaframestudios@gmail.com"><i class="fas fa-envelope" style="width:18px;"></i> Email Us</a></li>
+                        <li><a href="tel:+27754024178"><i class="fas fa-phone" style="width:18px;"></i> +27 75 402 4178</a></li>
+                        <li><span><i class="fas fa-map-marker-alt" style="width:18px;"></i> Midrand &amp; Braamfontein</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 DynaFrame Studios. Build Something Worth Remembering.</span>
+                <span>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FAQPage SCHEMA ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            { "@type": "Question", "name": "How much does a website cost?", "acceptedAnswer": { "@type": "Answer", "text": "Every project starts from a base 1-page website at R2,000. From there you add exactly what you need using our instant quote calculator on the Web Design page." } },
+            { "@type": "Question", "name": "Are there any hidden fees?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every line item is shown upfront in the quote calculator and on your invoice before you pay anything." } },
+            { "@type": "Question", "name": "Do you offer payment plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, alongside our standard deposit option we offer month-to-month payment tiers to spread the setup cost over 3 or 6 months interest-free." } },
+            { "@type": "Question", "name": "What does the build process actually look like?", "acceptedAnswer": { "@type": "Answer", "text": "Every project follows four stages: Design, Demo, Hosting, and Final Product delivery." } },
+            { "@type": "Question", "name": "How long does a project take?", "acceptedAnswer": { "@type": "Answer", "text": "A basic site takes 2-3 days, sites with an admin panel take 6-8 days, and full e-commerce builds take 10-13 days depending on product count." } },
+            { "@type": "Question", "name": "Who owns the website once it's finished?", "acceptedAnswer": { "@type": "Answer", "text": "Once your invoice is paid in full, the finished website and its design become your property." } },
+            { "@type": "Question", "name": "Do you handle hosting and maintenance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, basic sites include free maintenance, while sites with an admin panel or e-commerce include hosting and maintenance for R300 per month." } }
+        ]
+    }
+    </script>
+
+    <script>
+        (function() {
+            const toggleBtn = document.getElementById('themeToggleTop');
+            const body = document.body;
+            const saved = localStorage.getItem('df-theme');
+            if (saved === 'dark') {
+                body.classList.add('dark-mode');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+            } else {
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
+            }
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function() {
+                    body.classList.toggle('dark-mode');
+                    const isDark = body.classList.contains('dark-mode');
+                    localStorage.setItem('df-theme', isDark ? 'dark' : 'light');
+                    toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i> Light' : '<i class="fas fa-moon"></i> Dark';
+                });
+            }
+        })();
+        (function() {
+            const toggle = document.getElementById('mobileToggle');
+            const menu = document.getElementById('navMenu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', function() { menu.classList.toggle('active'); });
+                menu.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => menu.classList.remove('active'));
+                });
+                document.addEventListener('click', function(e) {
+                    if (!menu.contains(e.target) && !toggle.contains(e.target)) menu.classList.remove('active');
+                });
+            }
+        })();
+        (function() {
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.addEventListener('click', () => {
+                    q.parentElement.classList.toggle('active');
+                });
+            });
+        })();
+    </script>
+
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68ec91b77e32cc195255b3de/1j7e1idgv';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+</body>
+</html>

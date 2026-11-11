@@ -133,6 +133,8 @@
             #invoicePreview { position: fixed; top: 0; left: 0; width: 100%; padding: 40px; border-radius: 0; box-shadow: none; background: white !important; color: #1a1a2e !important; }
             .no-print { display: none !important; }
             #invoicePreview .invoice-print-hide { display: none !important; }
+            .invoice-header, .invoice-client, .invoice-footer, .invoice-totals, .invoice-table tr { break-inside: avoid; page-break-inside: avoid; }
+            #invoicePreview { max-width: none; }
         }
 
         .invoice-header {
@@ -143,6 +145,9 @@
             padding-bottom: 20px;
             margin-bottom: 24px;
         }
+        .invoice-brand-top { display: flex; align-items: center; gap: 14px; }
+        .invoice-brand-logo { width: 72px; height: 72px; object-fit: contain; border-radius: 10px; flex-shrink: 0; }
+        .invoice-brand-slogan { font-size: 12px !important; font-weight: 700; color: #7B2CBF !important; letter-spacing: .25px; margin-top: 5px !important; }
         .invoice-header .brand h1 {
             font-size: 28px;
             font-weight: 800;
@@ -674,7 +679,10 @@
                         <button id="generateInvoiceBtn" class="btn btn-primary">
                             <i class="fas fa-file-invoice"></i> Generate Invoice
                         </button>
-                        <button id="printInvoiceBtn" class="btn btn-secondary" style="display:none;">
+                        <button id="downloadInvoiceBtn" class="btn btn-primary" type="button" style="display:none;">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </button>
+                        <button id="printInvoiceBtn" class="btn btn-secondary" type="button" style="display:none;">
                             <i class="fas fa-print"></i> Print / PDF
                         </button>
                     </div>
@@ -771,6 +779,8 @@
     <!-- ==========================================================
     SCRIPTS
     ========================================================== -->
+    <!-- PDF library for direct browser downloads; Print / PDF works even if this CDN is unavailable. -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         // ==========================================================
         // DARK MODE + MOBILE MENU + NAV ACTIVE (unchanged)
@@ -1042,6 +1052,7 @@
         (function() {
             const generateBtn = document.getElementById('generateInvoiceBtn');
             const printBtn = document.getElementById('printInvoiceBtn');
+            const downloadBtn = document.getElementById('downloadInvoiceBtn');
             const preview = document.getElementById('invoicePreview');
             const companyName = document.getElementById('companyName');
             const companyVAT = document.getElementById('companyVAT');
@@ -1051,7 +1062,11 @@
             const vatToggle = document.getElementById('vatToggle');
             const vatRate = 0.15;
 
-            function moneyFmt(n) { return 'R' + n.toLocaleString(); }
+            function moneyFmt(n) { return 'R' + n.toLocaleString('en-ZA', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+            function escapeHTML(value) {
+                return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+            }
+            let currentInvoiceNumber = '';
 
             function generateInvoice() {
                 // Validate company name
@@ -1074,14 +1089,22 @@
                 const vatAmount = applyVAT ? Math.round(subtotal * vatRate) : 0;
                 const grandTotal = subtotal + vatAmount;
 
-                const invoiceNumber = 'DF-INV-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+                const invoiceNumber = currentInvoiceNumber || ('DF-INV-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 10000)).padStart(4, '0'));
+                currentInvoiceNumber = invoiceNumber;
                 const today = new Date().toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' });
 
                 // Build invoice HTML
                 let html = `
                     <div class="invoice-header">
                         <div class="brand">
-                            <h1>Lusani Madanda (trading as DynaFrame Studios)</h1>
+                            <div class="invoice-brand-top">
+                                <img src="images/logo.jpeg" alt="DynaFrame Studios logo" class="invoice-brand-logo" crossorigin="anonymous" />
+                                <div>
+                                    <h1>DynaFrame Studios</h1>
+                                    <p class="invoice-brand-slogan">Build Something Worth Remembering</p>
+                                    <p style="font-size:12px;color:#777;">Lusani Madanda (trading as DynaFrame Studios)</p>
+                                </div>
+                            </div>
                             <p>Web Design • PC Builds • Tech Solutions</p>
                             <p style="font-size:12px;color:#777;margin-top:2px;">Midrand &amp; Braamfontein, South Africa</p>
                             <p style="font-size:12px;color:#777;">info.dynaframestudios@gmail.com • +27 75 402 4178</p>
@@ -1094,12 +1117,12 @@
 
                     <div class="invoice-client">
                         <strong>Bill To:</strong>
-                        <div class="client-name">${name}</div>
+                        <div class="client-name">${escapeHTML(name)}</div>
                         <div class="client-details">
-                            ${companyVAT.value.trim() ? 'VAT: ' + companyVAT.value.trim() + '<br>' : ''}
-                            ${companyAddress.value.trim() || ''}
-                            ${companyPhone.value.trim() ? '<br>Phone: ' + companyPhone.value.trim() : ''}
-                            ${companyEmail.value.trim() ? '<br>Email: ' + companyEmail.value.trim() : ''}
+                            ${companyVAT.value.trim() ? 'VAT: ' + escapeHTML(companyVAT.value.trim()) + '<br>' : ''}
+                            ${escapeHTML(companyAddress.value.trim())}
+                            ${companyPhone.value.trim() ? '<br>Phone: ' + escapeHTML(companyPhone.value.trim()) : ''}
+                            ${companyEmail.value.trim() ? '<br>Email: ' + escapeHTML(companyEmail.value.trim()) : ''}
                         </div>
                     </div>
 
@@ -1119,7 +1142,7 @@
                     const itemTotal = item.qty * item.price;
                     html += `
                         <tr>
-                            <td class="item-desc">${item.desc}</td>
+                            <td class="item-desc">${escapeHTML(item.desc)}</td>
                             <td class="item-qty">${item.qty}</td>
                             <td class="item-price">${moneyFmt(item.price)}</td>
                             <td class="item-total">${moneyFmt(itemTotal)}</td>
@@ -1169,7 +1192,7 @@
                 html += `
                     <div class="invoice-footer">
                         <div class="terms">
-                            <strong>Payment Terms:</strong> ${planInfo ? planInfo.label + ' — ' + planInfo.detail : '50% deposit required to start. Balance due upon completion before final delivery.'}
+                            <strong>Payment Terms:</strong> ${planInfo ? escapeHTML(planInfo.label) + ' — ' + escapeHTML(planInfo.detail) : '50% deposit required to start. Balance due upon completion before final delivery.'}
                             <br><br>
                             <strong>Included:</strong> Free consultations, free ongoing maintenance, free Google Business setup.
                             <br><br>
@@ -1195,10 +1218,46 @@
                 preview.innerHTML = html;
                 preview.classList.add('visible');
                 printBtn.style.display = 'inline-flex';
+                downloadBtn.style.display = 'inline-flex';
                 preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
             generateBtn.addEventListener('click', generateInvoice);
+
+            downloadBtn.addEventListener('click', async function() {
+                if (!preview.classList.contains('visible')) return;
+                if (typeof window.html2pdf !== 'function') {
+                    alert('The PDF download library could not load. Use Print / PDF and select Save as PDF, or check your internet connection.');
+                    return;
+                }
+                const originalLabel = downloadBtn.innerHTML;
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing PDF…';
+                try {
+                    // Wait for the logo before rasterising the invoice.
+                    await Promise.all(Array.from(preview.querySelectorAll('img')).map(img => {
+                        if (img.complete) return Promise.resolve();
+                        return new Promise(resolve => {
+                            img.addEventListener('load', resolve, { once: true });
+                            img.addEventListener('error', resolve, { once: true });
+                        });
+                    }));
+                    await window.html2pdf().set({
+                        margin: [9, 9, 9, 9],
+                        filename: (currentInvoiceNumber || 'DynaFrame-Invoice') + '.pdf',
+                        image: {type: 'jpeg', quality: 0.98},
+                        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', scrollY: 0 },
+                        jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'},
+                        pagebreak: {mode: ['css', 'legacy']}
+                    }).from(preview).save();
+                } catch (error) {
+                    console.error('Invoice PDF download failed:', error);
+                    alert('Could not download the PDF. Use Print / PDF and choose Save as PDF instead.');
+                } finally {
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = originalLabel;
+                }
+            });
 
             printBtn.addEventListener('click', function() {
                 window.print();

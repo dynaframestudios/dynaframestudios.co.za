@@ -911,6 +911,7 @@ exit
 <!-- ==========================================================
 JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
 =========================================================== -->
+<script src="assets/js/titan-prices.js"></script>
 <script>
     // ==========================================================
     // 1. FULL COMPONENT DATA (all from your original files)
@@ -1231,6 +1232,16 @@ JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
         { id:"ultimate-gaming", name:"Ultimate Gaming Rig", category:"Gaming", description:"High-end gaming PC...", cpu:{amd:"r7-7800x3d", intel:"i9-13900k"}, motherboard:{amd:"msi-mag-x870-tomahawk", intel:"msi-meg-z790-godlike"}, ram:"32gb-ddr5", storage:["2tb-nvme"], gpu:"rtx4080", psu:"1000w-gold", case:"full-black-rgb", cooling:"aio-360", estimatedPower:780, rgb:true, price:0, featured:true }
     ];
 
+    // Customer-facing prices only. Internal supplier costs are never loaded on this page.
+    const titanPublicPrices = window.TITAN_PUBLIC_PRICES || {};
+    [AMDCPUs, IntelCPUs, AMDMotherboards, IntelMotherboards, GPUs, RAM,
+     Storage, PSUs, Cases, Extras].forEach(function(group) {
+        group.forEach(function(item) {
+            const listed = titanPublicPrices[item.id];
+            item.price = Number.isFinite(listed) && listed > 0 ? listed : 0;
+        });
+    });
+
     // ==========================================================
     // 2. BUILDER LOGIC (extended with quantities, extras, multiple builds)
     // ==========================================================
@@ -1416,7 +1427,7 @@ JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
             label.appendChild(document.createTextNode(item.name));
             var priceSpan = document.createElement('span');
             priceSpan.className = 'price-tag';
-            priceSpan.textContent = item.price ? formatPrice(item.price) : 'Free';
+            priceSpan.textContent = item.price ? formatPrice(item.price) : 'Price on request';
             label.appendChild(priceSpan);
             extrasGrid.appendChild(label);
         });
@@ -1473,9 +1484,16 @@ JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
         if (cooling && cooling.price) componentTotal += cooling.price;
         componentTotal += extraTotal;
 
+        // Unpriced parts must never be represented as free or used for a binding quote.
+        var selectedParts = [cpu, mb, gpu, ram, storage, psu, caseItem, cooling];
+        var unpricedParts = selectedParts.filter(function(part) { return part && !(part.price > 0); });
+        extraCheckboxes.forEach(function(cb) {
+            if (!(Number(cb.dataset.price) > 0)) unpricedParts.push({id:cb.value});
+        });
+        var quoteReady = unpricedParts.length === 0;
         var total = componentTotal + BUILD_FEE;
         summaryEls.fee.textContent = formatPrice(BUILD_FEE);
-        summaryEls.total.textContent = formatPrice(total);
+        summaryEls.total.textContent = quoteReady ? formatPrice(total) : 'Quote required (' + unpricedParts.length + ' unpriced)';
 
         // Store current build data for saving
         window._currentBuild = {
@@ -1488,7 +1506,8 @@ JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
             case: getItemLabel(caseItem, 'case'),
             cooling: getItemLabel(cooling, 'cooling'),
             extras: extraNames.length ? extraNames.join(', ') : 'None',
-            total: total
+            total: quoteReady ? total : null,
+            quoteReady: quoteReady
         };
 
         // Update statuses
@@ -1513,6 +1532,10 @@ JAVASCRIPT - FULL DATA + BUILDER + QUANTITIES + EXTRAS + MULTIPLE BUILDS
     // Save build
     function saveBuild() {
         if (!window._currentBuild) return;
+        if (!window._currentBuild.quoteReady) {
+            alert('Some selected components have no verified selling price. Set their prices in the Titan Pricing Manager before saving a quote.');
+            return;
+        }
         if (!cpuSelect.value || !gpuSelect.value) {
             alert('Please select at least a CPU and GPU before saving.');
             return;

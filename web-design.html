@@ -676,7 +676,7 @@
                     </div>
 
                     <div class="invoice-actions">
-                        <button id="generateInvoiceBtn" class="btn btn-primary">
+                        <button id="generateInvoiceBtn" class="btn btn-primary" type="button">
                             <i class="fas fa-file-invoice"></i> Generate Invoice
                         </button>
                         <button id="downloadInvoiceBtn" class="btn btn-primary" type="button" style="display:none;">
@@ -1095,7 +1095,7 @@
                     return;
                 }
 
-                const applyVAT = vatToggle.checked;
+                const applyVAT = Boolean(vatToggle?.checked);
                 const subtotal = totals.total;
                 const vatAmount = applyVAT ? Math.round(subtotal * vatRate) : 0;
                 const grandTotal = subtotal + vatAmount;
@@ -1252,7 +1252,7 @@
                 currentInvoiceNumber = number;
                 const date = new Date().toLocaleDateString('en-ZA', {year:'numeric',month:'long',day:'numeric'});
                 const subtotal = totals.total;
-                const tax = vatToggle.checked ? Math.round(subtotal * vatRate) : 0;
+                const tax = vatToggle?.checked ? Math.round(subtotal * vatRate) : 0;
                 const plan = window.getPaymentPlanInfo?.();
                 const pageW=595.28, pageH=841.89, left=43, right=pageW-43;
                 const strings=[];
@@ -1328,7 +1328,7 @@
                 }
                 y+=12;need(105);
                 alignRight('Subtotal    '+fmt(subtotal),right-8,y,10);y+=22;
-                if(vatToggle.checked){alignRight('VAT (15%)    '+fmt(tax),right-8,y,10);y+=22;}
+                if(vatToggle?.checked){alignRight('VAT (15%)    '+fmt(tax),right-8,y,10);y+=22;}
                 rect(left,y-14,right-left,35,.93,.90,.97);
                 text('GRAND TOTAL',left+12,y+7,12,true,.24,.15,.37);
                 alignRight(fmt(subtotal+tax),right-12,y+7,13,true);y+=58;
@@ -1410,7 +1410,7 @@
 
             // Auto-generate invoice if all fields are filled and button is clicked
             // Also re-generate when VAT toggle changes
-            vatToggle.addEventListener('change', function() {
+            vatToggle?.addEventListener('change', function() {
                 if (preview.classList.contains('visible')) {
                     generateInvoice();
                 }
